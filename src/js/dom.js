@@ -1,4 +1,4 @@
-import { getTierIcon, getWeaponSkins } from "./api";
+import { getTierIcon, getWeaponSkins } from "./api.js";
 
 export function renderNavigationButtons(weaponsData) {
     const navElement = document.querySelector("nav");
