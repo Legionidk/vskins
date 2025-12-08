@@ -32,7 +32,6 @@ export function renderNavigationButtons(weaponsData) {
     return firstWeaponUuid;
 }
 
-// TODO create placeholder for broken skins imgs
 export function renderSkins(skinsArray) {
     for (const skin of skinsArray) {
         if (
@@ -56,7 +55,9 @@ export function renderSkins(skinsArray) {
 
         const skinImg = document.createElement("img");
         skinImg.classList.add("skin-img");
-        skinImg.src = skin.displayIcon;
+        skinImg.src = skin.displayIcon
+            ? skin.displayIcon
+            : "src/skin-image-placeholder.png";
         skinImg.alt = skin.displayName;
 
         const skinTierImg = document.createElement("img");
