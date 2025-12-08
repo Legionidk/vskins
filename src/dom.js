@@ -14,6 +14,7 @@ export function renderNavigationButtons(weaponsData) {
         imgElement.alt = weapon.name;
 
         buttonElement.addEventListener("click", (event) => {
+            document.querySelector(".loader").hidden = false;
             document.querySelector(".card-wrapper").innerHTML = "";
 
             const weaponUuid = event.target.className.includes("filter-button")
@@ -75,6 +76,8 @@ export function renderSkins(skinsArray) {
         skinImgWrapper.append(skinImg);
         skinInfoDiv.append(skinNameSpan);
         card.append(skinImgWrapper, skinInfoDiv);
+
+        document.querySelector(".loader").hidden = true;
         cardWrapper.append(card);
     }
 }

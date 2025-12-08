@@ -6,7 +6,6 @@ body {
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 header {
@@ -31,7 +30,7 @@ nav {
 }
 
 main {
-    margin-top: 10px;
+    margin: 10px 0px;
     display: flex;
     justify-content: center;
 }
@@ -42,7 +41,7 @@ footer {
     text-align: center;
 
     padding: 10px;
-    margin-top: 10px;
+    margin-top: auto;
 
     font-family: "Oswald";
     font-weight: lighter;
@@ -122,4 +121,26 @@ button:hover {
 
 .skin-tier-icon {
     height: 25px;
+}
+
+.loader {
+    margin: 50px 0px;
+
+    width: 50px;
+    height: 50px;
+
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #ff4566;
+    border-radius: 50%;
+
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
