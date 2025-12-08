@@ -3,10 +3,7 @@ import { renderNavigationButtons, renderSkins } from "./dom.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     getWeaponsData().then((data) => {
-        renderNavigationButtons(data);
-
-        const firstWeaponUuid =
-            document.querySelector(".filter-button").classList[1];
+        const firstWeaponUuid = renderNavigationButtons(data);
 
         getWeaponSkins(firstWeaponUuid).then((skins) => {
             renderSkins(skins);

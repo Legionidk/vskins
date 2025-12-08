@@ -1,6 +1,7 @@
 import { getTierIcon, getWeaponSkins } from "./api.js";
 
 export function renderNavigationButtons(weaponsData) {
+    const firstWeaponUuid = Object.keys(weaponsData)[0];
     const navElement = document.querySelector("nav");
 
     Object.values(weaponsData).forEach((weapon) => {
@@ -8,10 +9,9 @@ export function renderNavigationButtons(weaponsData) {
         buttonElement.classList.add("filter-button", weapon.uuid);
 
         const imgElement = document.createElement("img");
-        imgElement.classList.add(`${weapon.name}-icon`);
+        imgElement.classList.add("weapon-icon");
         imgElement.src = weapon.icon;
         imgElement.alt = weapon.name;
-        imgElement.height = 25;
 
         buttonElement.addEventListener("click", (event) => {
             document.querySelector(".card-wrapper").innerHTML = "";
@@ -28,15 +28,17 @@ export function renderNavigationButtons(weaponsData) {
         buttonElement.append(imgElement);
         navElement.append(buttonElement);
     });
+
+    return firstWeaponUuid;
 }
 
 // TODO create placeholder for broken skins imgs
 export function renderSkins(skinsArray) {
     for (const skin of skinsArray) {
         if (
-            skin.displayName.includes("Standard") ||
-            skin.displayName.includes("Random") ||
-            skin.displayName.includes("Melee")
+            ["Standard", "Random", "Melee"].some((el) =>
+                skin.displayName.includes(el)
+            )
         ) {
             continue;
         }
@@ -46,8 +48,8 @@ export function renderSkins(skinsArray) {
         const card = document.createElement("div");
         card.classList.add("skin-card");
 
-        const skinImgWrapper = document.createElement("div")
-        skinImgWrapper.classList.add("skin-img-wrapper")
+        const skinImgWrapper = document.createElement("div");
+        skinImgWrapper.classList.add("skin-img-wrapper");
 
         const skinInfoDiv = document.createElement("div");
         skinInfoDiv.classList.add("skin-info");
@@ -58,8 +60,7 @@ export function renderSkins(skinsArray) {
         skinImg.alt = skin.displayName;
 
         const skinTierImg = document.createElement("img");
-        skinTierImg.classList.add("skin-tier", skin.contentTierUuid);
-        skinTierImg.height = 25;
+        skinTierImg.classList.add("skin-tier-icon", skin.contentTierUuid);
 
         getTierIcon(skin.contentTierUuid).then((tierIcon) => {
             skinTierImg.src = tierIcon;
@@ -70,7 +71,7 @@ export function renderSkins(skinsArray) {
         skinNameSpan.append(skinTierImg);
         skinNameSpan.append(skin.displayName);
 
-        skinImgWrapper.append(skinImg)
+        skinImgWrapper.append(skinImg);
         skinInfoDiv.append(skinNameSpan);
         card.append(skinImgWrapper, skinInfoDiv);
         cardWrapper.append(card);
