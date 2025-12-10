@@ -4,7 +4,7 @@
   "description": "![](src/logo.svg)\r ---\r Fun-made **VALORANT skins viewer** builded on [valorant-api.com](https://valorant-api.com/).",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client": "vite"
   },
   "repository": {
     "type": "git",
