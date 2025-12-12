@@ -1,83 +1,36 @@
-import { getTierIcon, getWeaponSkins } from "./api.js";
+export function renderWeaponFilters(weaponsData) {
+    weaponsData.forEach((weapon) => {
+        const filterBlock = document.querySelector(
+            "div.filter-block.weapon div.filter-buttons-wrapper"
+        );
 
-export function renderNavigationButtons(weaponsData) {
-    const firstWeaponUuid = Object.keys(weaponsData)[0];
-    const navElement = document.querySelector("nav");
+        const filterButton = document.createElement("div");
+        filterButton.classList.add("filter-button", weapon.uuid);
 
-    Object.values(weaponsData).forEach((weapon) => {
-        const buttonElement = document.createElement("button");
-        buttonElement.classList.add("filter-button", weapon.uuid);
+        const buttonIcon = document.createElement("img");
+        buttonIcon.src = weapon.killStreamIcon;
 
-        const imgElement = document.createElement("img");
-        imgElement.classList.add("weapon-icon");
-        imgElement.src = weapon.icon;
-        imgElement.alt = weapon.name;
-
-        buttonElement.addEventListener("click", (event) => {
-            document.querySelector(".loader").hidden = false;
-            document.querySelector(".card-wrapper").innerHTML = "";
-
-            const weaponUuid = event.target.className.includes("filter-button")
-                ? event.target.classList[1]
-                : event.target.parentNode.classList[1];
-
-            getWeaponSkins(weaponUuid).then((skins) => {
-                renderSkins(skins);
-            });
-        });
-
-        buttonElement.append(imgElement);
-        navElement.append(buttonElement);
+        filterButton.append(buttonIcon);
+        filterBlock.append(filterButton);
     });
-
-    return firstWeaponUuid;
 }
 
-export function renderSkins(skinsArray) {
-    for (const skin of skinsArray) {
-        if (
-            ["Standard", "Random", "Melee"].some((el) =>
-                skin.displayName.includes(el)
-            )
-        ) {
-            continue;
-        }
+export function renderTierFilters(tiersData) {
+    tiersData.forEach((tier) => {
+        const filterBlock = document.querySelector(
+            "div.filter-block.tier div.filter-buttons-wrapper"
+        );
 
-        const cardWrapper = document.querySelector(".card-wrapper");
+        const filterButton = document.createElement("div");
+        filterButton.classList.add("filter-button", tier.uuid);
 
-        const card = document.createElement("div");
-        card.classList.add("skin-card");
+        const buttonSpan = document.createElement("span");
+        buttonSpan.textContent = tier.displayName;
 
-        const skinImgWrapper = document.createElement("div");
-        skinImgWrapper.classList.add("skin-img-wrapper");
+        const buttonIcon = document.createElement("img");
+        buttonIcon.src = tier.displayIcon;
 
-        const skinInfoDiv = document.createElement("div");
-        skinInfoDiv.classList.add("skin-info");
-
-        const skinImg = document.createElement("img");
-        skinImg.classList.add("skin-img");
-        skinImg.src = skin.displayIcon
-            ? skin.displayIcon
-            : "src/skin-image-placeholder.png";
-        skinImg.alt = skin.displayName;
-
-        const skinTierImg = document.createElement("img");
-        skinTierImg.classList.add("skin-tier-icon", skin.contentTierUuid);
-
-        getTierIcon(skin.contentTierUuid).then((tierIcon) => {
-            skinTierImg.src = tierIcon;
-        });
-
-        const skinNameSpan = document.createElement("span");
-        skinNameSpan.classList.add("skin-name");
-        skinNameSpan.append(skinTierImg);
-        skinNameSpan.append(skin.displayName);
-
-        skinImgWrapper.append(skinImg);
-        skinInfoDiv.append(skinNameSpan);
-        card.append(skinImgWrapper, skinInfoDiv);
-
-        document.querySelector(".loader").hidden = true;
-        cardWrapper.append(card);
-    }
+        filterButton.append(buttonIcon, buttonSpan);
+        filterBlock.append(filterButton);
+    });
 }

@@ -1,12 +1,12 @@
-import { getWeaponsData, getWeaponSkins } from "./api.js";
-import { renderNavigationButtons, renderSkins } from "./dom.js";
+import { renderWeaponFilters, renderTierFilters } from "./dom.js";
+import { getWeapons, getTiers } from "./api.js";
 
-// document.addEventListener("DOMContentLoaded", () => {
-//     getWeaponsData().then((data) => {
-//         const firstWeaponUuid = renderNavigationButtons(data);
+document.addEventListener("DOMContentLoaded", () => {
+    getWeapons().then((data) => {
+        renderWeaponFilters(data);
+    });
 
-//         getWeaponSkins(firstWeaponUuid).then((skins) => {
-//             renderSkins(skins);
-//         });
-//     });
-// });
+    getTiers().then((data) => {
+        renderTierFilters(data);
+    });
+});
