@@ -1,24 +1,31 @@
-function getWeaponTiers() {
-    const weaponTiersApiUrl = "https://valorant-api.com/v1/contenttiers";
+export function getTiers() {
+    const tiersApi = "https://valorant-api.com/v1/contenttiers";
 
-    return fetch(weaponTiersApiUrl)
+    return fetch(tiersApi)
         .then((response) => {
             if (!response.ok) {
-                throw new Error("Failed to fetch tiers data");
+                throw new Error("Error on tiers fetching");
             }
 
             return response.json();
         })
         .then((data) => {
-            const tiersData = {};
+            return data.data;
+        });
+}
 
-            data.data.forEach((tier) => {
-                tiersData[tier.uuid] = {
-                    name: tier.displayName,
-                    icon: tier.displayIcon,
-                };
-            });
+export function getWeapons() {
+    const weaponApi = "https://valorant-api.com/v1/weapons";
 
-            return tiersData;
+    return fetch(weaponApi)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Error on tiers fetching");
+            }
+
+            return response.json();
+        })
+        .then((data) => {
+            return data.data;
         });
 }
