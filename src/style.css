@@ -126,11 +126,12 @@ input {
 
     img {
         height: 100%;
+        /* filter: brightness(0) saturate(100%) invert(97%) sepia(3%) saturate(847%) hue-rotate(327deg) brightness(102%) contrast(85%); */
     }
-}
 
-.filter-button:hover {
-    background-color: #ff4566;
+    .filter-button:hover {
+        background-color: #ff4566;
+    }
 }
 
 .card-wrapper {

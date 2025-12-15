@@ -1,83 +1,22 @@
-import { getTierIcon, getWeaponSkins } from "./api.js";
+import { getWeapons } from "./api";
 
-export function renderNavigationButtons(weaponsData) {
-    const firstWeaponUuid = Object.keys(weaponsData)[0];
-    const navElement = document.querySelector("nav");
+export function renderWeaponFilterButtons() {
+    getWeapons().then((data) => {
+        const filterButtonWrapper = document.querySelector(
+            "div.filter-block.weapon div.filter-button-wrapper"
+        );
 
-    Object.values(weaponsData).forEach((weapon) => {
-        const buttonElement = document.createElement("button");
-        buttonElement.classList.add("filter-button", weapon.uuid);
+        data.forEach((weapon) => {
+            const filterButton = document.createElement("div");
+            filterButton.classList.add("filter-button", "weapon", weapon.uuid);
 
-        const imgElement = document.createElement("img");
-        imgElement.classList.add("weapon-icon");
-        imgElement.src = weapon.icon;
-        imgElement.alt = weapon.name;
+            const skinImgWrapper = document.createElement("img");
+            skinImgWrapper.classList.add("filter-button-icon", weapon.uuid);
+            skinImgWrapper.src = weapon.killStreamIcon;
+            skinImgWrapper.alt = `Filter to ${weapon.displayName}`;
 
-        buttonElement.addEventListener("click", (event) => {
-            document.querySelector(".loader").hidden = false;
-            document.querySelector(".card-wrapper").innerHTML = "";
-
-            const weaponUuid = event.target.className.includes("filter-button")
-                ? event.target.classList[1]
-                : event.target.parentNode.classList[1];
-
-            getWeaponSkins(weaponUuid).then((skins) => {
-                renderSkins(skins);
-            });
+            filterButton.appendChild(skinImgWrapper);
+            filterButtonWrapper.appendChild(filterButton);
         });
-
-        buttonElement.append(imgElement);
-        navElement.append(buttonElement);
     });
-
-    return firstWeaponUuid;
-}
-
-export function renderSkins(skinsArray) {
-    for (const skin of skinsArray) {
-        if (
-            ["Standard", "Random", "Melee"].some((el) =>
-                skin.displayName.includes(el)
-            )
-        ) {
-            continue;
-        }
-
-        const cardWrapper = document.querySelector(".card-wrapper");
-
-        const card = document.createElement("div");
-        card.classList.add("skin-card");
-
-        const skinImgWrapper = document.createElement("div");
-        skinImgWrapper.classList.add("skin-img-wrapper");
-
-        const skinInfoDiv = document.createElement("div");
-        skinInfoDiv.classList.add("skin-info");
-
-        const skinImg = document.createElement("img");
-        skinImg.classList.add("skin-img");
-        skinImg.src = skin.displayIcon
-            ? skin.displayIcon
-            : "src/skin-image-placeholder.png";
-        skinImg.alt = skin.displayName;
-
-        const skinTierImg = document.createElement("img");
-        skinTierImg.classList.add("skin-tier-icon", skin.contentTierUuid);
-
-        getTierIcon(skin.contentTierUuid).then((tierIcon) => {
-            skinTierImg.src = tierIcon;
-        });
-
-        const skinNameSpan = document.createElement("span");
-        skinNameSpan.classList.add("skin-name");
-        skinNameSpan.append(skinTierImg);
-        skinNameSpan.append(skin.displayName);
-
-        skinImgWrapper.append(skinImg);
-        skinInfoDiv.append(skinNameSpan);
-        card.append(skinImgWrapper, skinInfoDiv);
-
-        document.querySelector(".loader").hidden = true;
-        cardWrapper.append(card);
-    }
 }
