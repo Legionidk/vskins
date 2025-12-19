@@ -47,34 +47,49 @@ export function getButtonIcons() {
     });
 }
 
-export function getWeapons(weaponUuid = []) {
-    const apiUrl = `https://valorant-api.com/v1/weapons/${weaponUuid}`;
+export function getSkins(filters = []) {
+    const skinsData = [];
 
-    return fetch(apiUrl)
+    if (filters.length) {
+        return Promise.all(
+            filters.map((uuid) =>
+                fetch(`https://valorant-api.com/v1/weapons/${uuid}`)
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error(
+                                `Failed to fetch skins for ${uuid}`
+                            );
+                        }
+
+                        return response.json();
+                    })
+                    .then((data) => {
+                        skinsData.push(...data.data.skins);
+                    })
+            )
+        ).then(() => {
+            return skinsData;
+        });
+    }
+
+    return fetch("https://valorant-api.com/v1/weapons")
         .then((response) => {
             if (!response.ok) {
-                throw new Error("Failed to fetch weapon data");
+                throw new Error(`Failed to fetch skins for weapons`);
             }
 
             return response.json();
         })
         .then((data) => {
-            return data.data;
-        });
-}
-
-export function getTiers(tierUuid = "") {
-    const apiUrl = `https://valorant-api.com/v1/contenttiers/${tierUuid}`;
-
-    return fetch(apiUrl)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error("Failed to fetch tier data");
-            }
-
-            return response.json();
+            data.data.forEach((weapon) => {
+                skinsData.push(...weapon.skins);
+            });
         })
-        .then((data) => {
-            return data.data;
+        .then(() => {
+            return skinsData;
         });
 }
+
+getSkins().then((data) => {
+    console.log(data);
+});
