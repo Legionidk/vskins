@@ -6,6 +6,26 @@ export function renderWeaponFilterButtons(weaponsData, filtersHandler) {
     weaponsData.forEach((weapon) => {
         const filterButton = document.createElement("div");
         filterButton.classList.add("filter-button", "weapon", weapon.uuid);
+        filterButton.addEventListener("click", (event) => {
+            const buttonElement = event.target.classList.value
+                .split(" ")
+                .includes("filter-button")
+                ? event.target
+                : event.target.parentNode;
+            const classList = buttonElement.classList.value.split(" ");
+
+            if (!classList.includes("pressed")) {
+                buttonElement.classList.add("pressed");
+                filtersHandler.push(classList[2]);
+            } else {
+                const indexToRemove = filtersHandler.indexOf(classList[2]);
+
+                buttonElement.classList.remove("pressed");
+                filtersHandler.splice(indexToRemove, 1);
+            }
+
+            console.log(filtersHandler);
+        });
 
         const skinImgWrapper = document.createElement("img");
         skinImgWrapper.classList.add(
@@ -30,9 +50,24 @@ export function renderTierFilterButtons(tiersData, filtersHandler) {
         const filterButton = document.createElement("div");
         filterButton.classList.add("filter-button", "tier", tier.uuid);
         filterButton.addEventListener("click", (event) => {
-            if (event.target.classList.includes("pressed")) {
-                
+            const buttonElement = event.target.classList.value
+                .split(" ")
+                .includes("filter-button")
+                ? event.target
+                : event.target.parentNode;
+            const classList = buttonElement.classList.value.split(" ");
+
+            if (!classList.includes("pressed")) {
+                buttonElement.classList.add("pressed");
+                filtersHandler.push(classList[2]);
+            } else {
+                const indexToRemove = filtersHandler.indexOf(classList[2]);
+
+                buttonElement.classList.remove("pressed");
+                filtersHandler.splice(indexToRemove, 1);
             }
+
+            console.log(filtersHandler);
         });
 
         const tierImgWrapper = document.createElement("img");
