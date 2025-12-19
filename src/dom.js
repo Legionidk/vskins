@@ -83,3 +83,67 @@ export function renderTierFilterButtons(tiersData, filtersHandler) {
         filterButtonWrapper.appendChild(filterButton);
     });
 }
+
+export function renderSkinCards(skinsData) {
+    const cardWrapper = document.querySelector(".card-wrapper");
+
+    skinsData.then((data) => {
+        data.forEach((skin) => {
+            // TODO: Skip random favorite skins
+            // if (skin.contentTierUuid === null) {
+            //     return;
+            // }
+
+            const card = document.createElement("div");
+            card.classList.add("card");
+
+            const skinImgWrapper = document.createElement("div");
+            skinImgWrapper.classList.add("skin-img-wrapper");
+
+            const skinImg = document.createElement("img");
+            skinImg.src = skin.displayIcon;
+            skinImg.alt = skin.displayName;
+
+            const skinInfo = document.createElement("div");
+            skinInfo.classList.add("skin-info");
+
+            const skinTierInfo = document.createElement("div");
+            skinTierInfo.classList.add("skin-tier-info");
+
+            // TODO: Chromium cant handle many requests in a short time
+            fetch(
+                `https://valorant-api.com/v1/contenttiers/${skin.contentTierUuid}`
+            )
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(
+                            `Failed to fetch tier icon for ${skin.displayName} (tier uuid: ${skin.contentTierUuid})`
+                        );
+                    }
+
+                    return response.json();
+                })
+                .then((data) => {
+                    const tierImg = document.createElement("img");
+                    tierImg.classList.add("skin-tier-icon");
+                    tierImg.src = data.data.displayIcon;
+                    tierImg.alt = data.data.displayName;
+
+                    const tierSpan = document.createElement("span");
+                    tierSpan.classList.add("skin-tier-name");
+                    tierSpan.textContent = data.data.displayName;
+
+                    skinTierInfo.appendChild(tierImg);
+                });
+
+            const skinNameSpan = document.createElement("span");
+            skinNameSpan.classList.add("skin-name");
+            skinNameSpan.textContent = skin.displayName;
+
+            skinImgWrapper.appendChild(skinImg);
+            skinInfo.append(skinTierInfo, skinNameSpan);
+            card.append(skinImgWrapper, skinInfo);
+            cardWrapper.appendChild(card);
+        });
+    });
+}
