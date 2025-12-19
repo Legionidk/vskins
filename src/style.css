@@ -89,6 +89,7 @@ input {
     height: 100%;
     min-width: 200px;
     padding-left: 20px;
+    border-radius: 5px 0px 0px 5px;
 
     display: flex;
     align-items: center;
@@ -115,23 +116,33 @@ input {
     padding: 10px 20px;
     border-radius: 10px;
 
-    font-size: 20px;
-    font-weight: 300;
-
     display: flex;
     gap: 10px;
     align-items: center;
 
+    cursor: pointer;
     transition: transform 0.1s ease-in-out, background-color 0.1s ease-in-out;
 
     img {
         height: 100%;
-        /* filter: brightness(0) saturate(100%) invert(97%) sepia(3%) saturate(847%) hue-rotate(327deg) brightness(102%) contrast(85%); */
     }
 
-    .filter-button:hover {
-        background-color: #ff4566;
+    span {
+        font-size: 20px;
+        font-weight: 300;
     }
+}
+
+.filter-button:hover {
+    background-color: #ff4566;
+}
+
+.pressed {
+    background-color: #ff4566;
+}
+
+.override-color {
+    filter: brightness(0) saturate(100%) invert(97%) sepia(3%) saturate(847%) hue-rotate(327deg) brightness(102%) contrast(85%);
 }
 
 .card-wrapper {
@@ -188,3 +199,4 @@ input {
         }
     }
 }
+

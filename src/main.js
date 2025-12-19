@@ -1,5 +1,14 @@
-import { renderWeaponFilterButtons } from "./dom";
+import { getButtonIcons } from "./api";
+import { renderTierFilterButtons, renderWeaponFilterButtons } from "./dom";
+
+const filters = {
+    weapons: [],
+    tiers: [],
+};
 
 document.addEventListener("DOMContentLoaded", () => {
-    renderWeaponFilterButtons();
+    getButtonIcons().then((data) => {
+        renderWeaponFilterButtons(data.weapons);
+        renderTierFilterButtons(data.tiers);
+    });
 });
