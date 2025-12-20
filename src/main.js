@@ -1,22 +1,24 @@
-import { getButtonIcons, getSkins } from "./api.js";
-import {
-    renderTierFilterButtons,
-    renderWeaponFilterButtons,
-    renderSkinCards,
-} from "./dom.js";
+import { getWeaponsData, getTiersData } from "./api.js";
+import { renderTierFilterButtons, renderWeaponFilterButtons } from "./dom.js";
 
+const weapons = {};
+const tiers = {};
 const filters = {
     weapons: [],
     tiers: [],
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-    getButtonIcons()
-        .then((data) => {
-            renderWeaponFilterButtons(data.weapons, filters.weapons);
-            renderTierFilterButtons(data.tiers, filters.tiers);
+    Promise.all([getWeaponsData(weapons), getTiersData(tiers)])
+        .then(() => {
+            renderWeaponFilterButtons(weapons, filters);
+            renderTierFilterButtons(tiers, filters);
         })
         .then(() => {
-            renderSkinCards(getSkins());
+            document.querySelector(".loader").classList.add("hidden");
+            document
+                .querySelector(".filter-block-wrapper")
+                .classList.remove("hidden");
+            document.querySelector(".card-wrapper").classList.remove("hidden");
         });
 });

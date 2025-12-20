@@ -12,9 +12,13 @@
         </header>
 
         <main>
-            <input type="text" placeholder="Type skin name here..." />
+            <input
+                type="text"
+                placeholder="Type skin name here..."
+                class="hidden"
+            />
 
-            <div class="filter-block-wrapper">
+            <div class="filter-block-wrapper hidden">
                 <div class="filter-block weapon">
                     <div class="filter-title">Weapon filters</div>
                     <div class="filter-button-wrapper"></div>
@@ -26,7 +30,9 @@
                 </div>
             </div>
 
-            <div class="card-wrapper"></div>
+            <div class="card-wrapper hidden"></div>
+
+            <span class="loader"></span>
         </main>
 
         <footer>
