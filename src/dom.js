@@ -23,8 +23,6 @@ export function renderWeaponFilterButtons(weaponsData, filtersHandler) {
                 buttonElement.classList.remove("pressed");
                 filtersHandler.splice(indexToRemove, 1);
             }
-
-            console.log(filtersHandler);
         });
 
         const skinImgWrapper = document.createElement("img");
@@ -66,8 +64,6 @@ export function renderTierFilterButtons(tiersData, filtersHandler) {
                 buttonElement.classList.remove("pressed");
                 filtersHandler.splice(indexToRemove, 1);
             }
-
-            console.log(filtersHandler);
         });
 
         const tierImgWrapper = document.createElement("img");
@@ -90,9 +86,9 @@ export function renderSkinCards(skinsData) {
     skinsData.then((data) => {
         data.forEach((skin) => {
             // TODO: Skip random favorite skins
-            // if (skin.contentTierUuid === null) {
-            //     return;
-            // }
+            if (skin.contentTierUuid === null) {
+                return;
+            }
 
             const card = document.createElement("div");
             card.classList.add("card");
