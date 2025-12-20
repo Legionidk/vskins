@@ -51,6 +51,7 @@ export function getTiersData(tiersDataHandler) {
                 tiersDataHandler[tier.uuid] = {
                     displayName: tier.displayName,
                     displayIcon: tier.displayIcon,
+                    uuid: tier.uuid,
                 };
             });
         });

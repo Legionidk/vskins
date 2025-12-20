@@ -156,7 +156,6 @@ input {
     align-items: center;
 
     cursor: pointer;
-    transition: transform 0.1s ease-in-out, background-color 0.1s ease-in-out;
 
     img {
         height: 100%;
@@ -190,10 +189,23 @@ input {
 }
 
 .card {
+    cursor: pointer;
     width: 100%;
     height: fit-content;
     border: 2px solid #0f1923;
     border-radius: 10px;
+}
+
+.card:hover {
+    border-color: #ff4566;
+
+    .skin-info {
+        background-color: #ff4566;
+        
+        .skin-tier-info {
+            color: #ece8e0;
+        }
+    }
 }
 
 .skin-img-wrapper {

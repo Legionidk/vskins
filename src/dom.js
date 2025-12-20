@@ -21,6 +21,45 @@ function createClickEvent(buttonElement, filtersHandler) {
     });
 }
 
+function createSkinCard(skinData, tierData) {
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    const skinImgWrapper = document.createElement("div");
+    skinImgWrapper.classList.add("skin-img-wrapper");
+
+    const skinImg = document.createElement("img");
+    skinImg.classList.add("skin-img");
+    skinImg.src = skinData.icon;
+    skinImg.alt = skinData.displayName;
+
+    const skinNameSpan = document.createElement("span");
+    skinNameSpan.classList.add("skin-name");
+    skinNameSpan.textContent = skinData.displayName;
+
+    const skinInfo = document.createElement("div");
+    skinInfo.classList.add("skin-info");
+
+    const skinTierInfo = document.createElement("div");
+    skinTierInfo.classList.add("skin-tier-info");
+
+    const tierImg = document.createElement("img");
+    tierImg.classList.add("skin-tier-icon");
+    tierImg.src = tierData.displayIcon;
+    tierImg.alt = tierData.displayName;
+
+    const tierNameSpan = document.createElement("span");
+    tierNameSpan.classList.add("tier-name");
+    tierNameSpan.textContent = tierData.displayName;
+
+    skinImgWrapper.appendChild(skinImg);
+    skinTierInfo.append(tierImg, tierNameSpan);
+    skinInfo.append(skinTierInfo, skinNameSpan);
+    card.append(skinImgWrapper, skinInfo);
+
+    return card;
+}
+
 export function renderWeaponFilterButtons(weaponsData, filtersHandler) {
     const filterButtonWrapper = document.querySelector(
         "div.filter-block.weapon div.filter-button-wrapper"
@@ -67,4 +106,43 @@ export function renderTierFilterButtons(tiersData, filtersHandler) {
         filterButton.append(tierImgWrapper, tierNameSpan);
         filterButtonWrapper.appendChild(filterButton);
     }
+}
+
+export function renderSkinCards(weaponsData, tiersData, filters) {
+    const cardWrapper = document.querySelector(".card-wrapper");
+    const weaponFilters = filters.weapons;
+    const tierFilters = filters.tiers;
+    const tmpWeapons = {};
+
+    if (weaponFilters.length) {
+        weaponFilters.forEach((weaponUuid) => {
+            tmpWeapons[weaponUuid] = weaponsData[weaponUuid];
+        });
+
+        weaponsData = tmpWeapons;
+    }
+
+    if (tierFilters.length) {
+        tierFilters.forEach((tierUuid) => {
+            Object.keys(weaponsData).forEach((weaponUuid) => {
+                const tmpSkins = [];
+
+                weaponsData[weaponUuid].skins.forEach((skin) => {
+                    if (skin.contentTierUuid === tierUuid) {
+                        tmpSkins.push(skin);
+                    }
+                });
+
+                weaponsData[weaponUuid].skins = tmpSkins;
+            });
+        });
+    }
+
+    Object.values(weaponsData).forEach((weapon) => {
+        weapon.skins.forEach((skin) => {
+            cardWrapper.appendChild(
+                createSkinCard(skin, tiersData[skin.contentTierUuid])
+            );
+        });
+    });
 }

@@ -1,5 +1,9 @@
 import { getWeaponsData, getTiersData } from "./api.js";
-import { renderTierFilterButtons, renderWeaponFilterButtons } from "./dom.js";
+import {
+    renderSkinCards,
+    renderTierFilterButtons,
+    renderWeaponFilterButtons,
+} from "./dom.js";
 
 const weapons = {};
 const tiers = {};
@@ -15,7 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
             renderTierFilterButtons(tiers, filters);
         })
         .then(() => {
+            renderSkinCards(weapons, tiers, filters);
             document.querySelector(".loader").classList.add("hidden");
+            document.querySelector("input").classList.remove("hidden");
             document
                 .querySelector(".filter-block-wrapper")
                 .classList.remove("hidden");
