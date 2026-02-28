@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="/src/style.css" rel="stylesheet" />
+    </head>
+    <body
+        class="flex flex-col min-h-screen bg-[url(/src/img/background.png)] bg-no-repeat bg-cover font-[Oswald]"
+    >
+        <header
+            class="flex items-center gap-[25px] bg-[#111111] px-[200px] py-[10px] border-b-[2px] border-[#333333] text-[#FDFDFD] text-xl font-normal"
+        >
+            <img src="src/img/asgard.svg" alt="Asgard logo" class="h-[20px]" id="logo" />
+            <div class="flex gap-[8px]border-b-[2px]" id="buttons-wrapper">
+                <a
+                    href="#"
+                    class="px-[16px] py-[8px] text-[#FF4248] pointer-events-none"
+                    id="weapons-button"
+                    >Weapons</a
+                >
+                <a
+                    href="#"
+                    class="px-[16px] py-[8px] rounded-md hover:bg-[#292727]"
+                    id="skins-button"
+                    >Skins</a
+                ><a
+                    href="#"
+                    class="px-[16px] py-[8px] rounded-md hover:bg-[#292727]"
+                    id="agents-button"
+                    >Agents</a
+                >
+            </div>
+        </header>
+
+        <footer
+            class="flex items-center place-content-between bg-[#111111] border-[#333333] px-[200px] py-[10px] mt-auto border-t-[2px] border-[#333333] text-[#FDFDFD] text-xl font-light"
+        >
+            <p id="footer-info">
+                Data provided by
+                <a
+                    href="https://valorant-api.com/"
+                    class="text-[#FF4248] hover:underline"
+                    >valorant-api.com</a
+                >
+            </p>
+
+            <div class="flex gap-[10px]" id="footer-buttons">
+                <button class="px-[8px] py-[8px] hover:bg-[#292727] rounded-md" id="github-button">
+                    <img src="src/img/github.svg" alt="GitHub logo" />
+                </button>
+                
+                <button class="px-[8px] py-[8px] hover:bg-[#292727] rounded-md" id="github-button">
+                    <img src="src/img/yo.png" alt="Yo" />
+                </button>
+            </div>
+        </footer>
+    </body>
+</html>
