@@ -6,353 +6,91 @@
         <link href="/src/style.css" rel="stylesheet" />
     </head>
     <body
-        class="flex flex-col gap-[25px] min-h-screen bg-[url(/src/img/background.png)] bg-no-repeat bg-cover font-[Oswald] text-[#FDFDFD]"
+        class="flex flex-col items-center gap-[20px] min-h-screen bg-[url(img/background.png)] bg-cover bg-no-repeat font-[Oswald] text-[#FDFDFD]"
     >
         <header
-            class="flex items-center gap-[25px] bg-[#111111] px-[200px] py-[10px] border-b-[2px] border-[#333333] text-xl font-normal"
+            class="flex items-center justify-center gap-[25px] w-full px-[100px] py-[10px] bg-[#111111] border-b-[2px] border-[#333333]"
         >
             <img
-                src="src/img/asgard.svg"
+                src="/src/img/asgard.svg"
                 alt="Asgard logo"
                 class="h-[20px]"
-                id="logo"
+                id="asgard-logo"
             />
-            <div class="flex gap-[8px]" id="buttons-wrapper">
+            <div class="flex text-lg gap-[10px]" id="nav-buttons">
                 <a
                     href="#"
-                    class="px-[16px] py-[8px] text-[#FF4248] pointer-events-none"
+                    class="rounded-md px-[16px] py-[8px] pointer-events-none text-[#FF4248]"
                     id="weapons-button"
                     >Weapons</a
                 >
                 <a
                     href="#"
-                    class="px-[16px] py-[8px] rounded-md hover:bg-[#292727]"
+                    class="rounded-md px-[16px] py-[8px] hover:bg-[#292727]"
                     id="skins-button"
                     >Skins</a
-                ><a
+                >
+                <a
                     href="#"
-                    class="px-[16px] py-[8px] rounded-md hover:bg-[#292727]"
+                    class="rounded-md px-[16px] py-[8px] hover:bg-[#292727]"
                     id="agents-button"
                     >Agents</a
                 >
             </div>
         </header>
 
-        <main class="flex flex-col gap-[20px] px-[200px]">
+        <main
+            class="flex flex-col items-center justify-center gap-[20px] px-[100px] w-full"
+        >
             <input
                 type="text"
+                class="rounded-md px-[18px] py-[6px] w-full bg-[#292727] font-light focus:bg-[#211E1F] focus:outline-[2px] focus:outline-[#292727]"
+                id="weapon-search-box"
                 placeholder="Type weapon name here..."
-                class="bg-[#292727] rounded-md px-[16px] py-[8px] text-xl font-light focus:bg-[#211E1F] focus:bg-[#211E1F] focus:outline-none border-[2px] border-[#292727]"
             />
-
-            <div
-                class="flex flex-col gap-[5px] text-lg font-light"
-                id="sidearms-wrapper"
-            >
-                Sidearms
-                <div class="grid grid-cols-4 gap-4" id="cards-wrapper">
-                    <div
-                        class="flex flex-col w-full h-fit rounded-md overflow-hidden hover:outline-[2px] hover:outline-[#FF4248]"
-                        id="card"
-                    >
+            <div class="flex flex-col gap-[5px] w-full" id="sidearms-block">
+                <p class="font-light" id="title">Sidearms</p>
+                <div class="grid grid-cols-2 gap-[10px]" id="cards-wrapper">
+                    <div class="rounded-md overflow-hidden" id="classic-card">
                         <div
-                            class="h-[150px] w-full p-[25px] bg-[#211E1F] flex justify-center"
+                            class="flex flex-col h-[150px] justify-center items-center px-[25px] py-[25px] bg-[#211E1F]"
                             id="img-wrapper"
                         >
                             <img
                                 src="https://media.valorant-api.com/weapons/29a0cfab-485b-f5d5-779a-b59f85e204a8/displayicon.png"
                                 alt="Classic image"
-                                class="max-w-full max-h-full"
-                                id="weapon-image"
+                                class="max-h-full max-w-full"
+                                id="weapon-img"
                             />
                         </div>
-                        <div
-                            class="px-[16px] py-[8px] bg-[#292727] w-full text-xl font-normal"
+                        <p
+                            class="bg-[#292727] px-[16px] py-[8px] text-lg"
                             id="title"
                         >
                             Classic
-                        </div>
+                        </p>
                     </div>
-                    <div
-                        class="flex flex-col w-full h-fit rounded-md overflow-hidden hover:outline-[2px] hover:outline-[#FF4248]"
-                        id="card"
-                    >
+                    <div class="rounded-md overflow-hidden" id="shorty-card">
                         <div
-                            class="h-[150px] w-full p-[25px] bg-[#211E1F] flex justify-center"
+                            class="flex flex-col h-[150px] justify-center items-center px-[25px] py-[25px] bg-[#211E1F]"
                             id="img-wrapper"
                         >
                             <img
-                                src="https://media.valorant-api.com/weapons/29a0cfab-485b-f5d5-779a-b59f85e204a8/displayicon.png"
-                                alt="Classic image"
-                                class="max-w-full max-h-full"
-                                id="weapon-image"
+                                src="https://media.valorant-api.com/weapons/42da8ccc-40d5-affc-beec-15aa47b42eda/displayicon.png"
+                                alt="Shorty image"
+                                class="max-h-full max-w-full"
+                                id="weapon-img"
                             />
                         </div>
-                        <div
-                            class="px-[16px] py-[8px] bg-[#292727] w-full text-xl font-normal"
+                        <p
+                            class="bg-[#292727] px-[16px] py-[8px] text-lg"
                             id="title"
                         >
-                            Classic
-                        </div>
-                    </div>
-                    <div
-                        class="flex flex-col w-full h-fit rounded-md overflow-hidden hover:outline-[2px] hover:outline-[#FF4248]"
-                        id="card"
-                    >
-                        <div
-                            class="h-[150px] w-full p-[25px] bg-[#211E1F] flex justify-center"
-                            id="img-wrapper"
-                        >
-                            <img
-                                src="https://media.valorant-api.com/weapons/29a0cfab-485b-f5d5-779a-b59f85e204a8/displayicon.png"
-                                alt="Classic image"
-                                class="max-w-full max-h-full"
-                                id="weapon-image"
-                            />
-                        </div>
-                        <div
-                            class="px-[16px] py-[8px] bg-[#292727] w-full text-xl font-normal"
-                            id="title"
-                        >
-                            Classic
-                        </div>
-                    </div>
-                    <div
-                        class="flex flex-col w-full h-fit rounded-md overflow-hidden hover:outline-[2px] hover:outline-[#FF4248]"
-                        id="card"
-                    >
-                        <div
-                            class="h-[150px] w-full p-[25px] bg-[#211E1F] flex justify-center"
-                            id="img-wrapper"
-                        >
-                            <img
-                                src="https://media.valorant-api.com/weapons/29a0cfab-485b-f5d5-779a-b59f85e204a8/displayicon.png"
-                                alt="Classic image"
-                                class="max-w-full max-h-full"
-                                id="weapon-image"
-                            />
-                        </div>
-                        <div
-                            class="px-[16px] py-[8px] bg-[#292727] w-full text-xl font-normal"
-                            id="title"
-                        >
-                            Classic
-                        </div>
-                    </div>
-                    <div
-                        class="flex flex-col w-full h-fit rounded-md overflow-hidden hover:outline-[2px] hover:outline-[#FF4248]"
-                        id="card"
-                    >
-                        <div
-                            class="h-[150px] w-full p-[25px] bg-[#211E1F] flex justify-center"
-                            id="img-wrapper"
-                        >
-                            <img
-                                src="https://media.valorant-api.com/weapons/29a0cfab-485b-f5d5-779a-b59f85e204a8/displayicon.png"
-                                alt="Classic image"
-                                class="max-w-full max-h-full"
-                                id="weapon-image"
-                            />
-                        </div>
-                        <div
-                            class="px-[16px] py-[8px] bg-[#292727] w-full text-xl font-normal"
-                            id="title"
-                        >
-                            Classic
-                        </div>
-                    </div>
-                    <div
-                        class="flex flex-col w-full h-fit rounded-md overflow-hidden hover:outline-[2px] hover:outline-[#FF4248]"
-                        id="card"
-                    >
-                        <div
-                            class="h-[150px] w-full p-[25px] bg-[#211E1F] flex justify-center"
-                            id="img-wrapper"
-                        >
-                            <img
-                                src="https://media.valorant-api.com/weapons/29a0cfab-485b-f5d5-779a-b59f85e204a8/displayicon.png"
-                                alt="Classic image"
-                                class="max-w-full max-h-full"
-                                id="weapon-image"
-                            />
-                        </div>
-                        <div
-                            class="px-[16px] py-[8px] bg-[#292727] w-full text-xl font-normal"
-                            id="title"
-                        >
-                            Classic
-                        </div>
+                            Shorty
+                        </p>
                     </div>
                 </div>
             </div>
-            <div
-                class="flex flex-col gap-[5px] text-lg font-light"
-                id="sidearms-wrapper"
-            >
-                Sidearms
-                <div class="grid grid-cols-4 gap-4" id="cards-wrapper">
-                    <div
-                        class="flex flex-col w-full h-fit rounded-md overflow-hidden hover:outline-[2px] hover:outline-[#FF4248]"
-                        id="card"
-                    >
-                        <div
-                            class="h-[150px] w-full p-[25px] bg-[#211E1F] flex justify-center"
-                            id="img-wrapper"
-                        >
-                            <img
-                                src="https://media.valorant-api.com/weapons/29a0cfab-485b-f5d5-779a-b59f85e204a8/displayicon.png"
-                                alt="Classic image"
-                                class="max-w-full max-h-full"
-                                id="weapon-image"
-                            />
-                        </div>
-                        <div
-                            class="px-[16px] py-[8px] bg-[#292727] w-full text-xl font-normal"
-                            id="title"
-                        >
-                            Classic
-                        </div>
-                    </div>
-                    <div
-                        class="flex flex-col w-full h-fit rounded-md overflow-hidden hover:outline-[2px] hover:outline-[#FF4248]"
-                        id="card"
-                    >
-                        <div
-                            class="h-[150px] w-full p-[25px] bg-[#211E1F] flex justify-center"
-                            id="img-wrapper"
-                        >
-                            <img
-                                src="https://media.valorant-api.com/weapons/29a0cfab-485b-f5d5-779a-b59f85e204a8/displayicon.png"
-                                alt="Classic image"
-                                class="max-w-full max-h-full"
-                                id="weapon-image"
-                            />
-                        </div>
-                        <div
-                            class="px-[16px] py-[8px] bg-[#292727] w-full text-xl font-normal"
-                            id="title"
-                        >
-                            Classic
-                        </div>
-                    </div>
-                    <div
-                        class="flex flex-col w-full h-fit rounded-md overflow-hidden hover:outline-[2px] hover:outline-[#FF4248]"
-                        id="card"
-                    >
-                        <div
-                            class="h-[150px] w-full p-[25px] bg-[#211E1F] flex justify-center"
-                            id="img-wrapper"
-                        >
-                            <img
-                                src="https://media.valorant-api.com/weapons/29a0cfab-485b-f5d5-779a-b59f85e204a8/displayicon.png"
-                                alt="Classic image"
-                                class="max-w-full max-h-full"
-                                id="weapon-image"
-                            />
-                        </div>
-                        <div
-                            class="px-[16px] py-[8px] bg-[#292727] w-full text-xl font-normal"
-                            id="title"
-                        >
-                            Classic
-                        </div>
-                    </div>
-                    <div
-                        class="flex flex-col w-full h-fit rounded-md overflow-hidden hover:outline-[2px] hover:outline-[#FF4248]"
-                        id="card"
-                    >
-                        <div
-                            class="h-[150px] w-full p-[25px] bg-[#211E1F] flex justify-center"
-                            id="img-wrapper"
-                        >
-                            <img
-                                src="https://media.valorant-api.com/weapons/29a0cfab-485b-f5d5-779a-b59f85e204a8/displayicon.png"
-                                alt="Classic image"
-                                class="max-w-full max-h-full"
-                                id="weapon-image"
-                            />
-                        </div>
-                        <div
-                            class="px-[16px] py-[8px] bg-[#292727] w-full text-xl font-normal"
-                            id="title"
-                        >
-                            Classic
-                        </div>
-                    </div>
-                    <div
-                        class="flex flex-col w-full h-fit rounded-md overflow-hidden hover:outline-[2px] hover:outline-[#FF4248]"
-                        id="card"
-                    >
-                        <div
-                            class="h-[150px] w-full p-[25px] bg-[#211E1F] flex justify-center"
-                            id="img-wrapper"
-                        >
-                            <img
-                                src="https://media.valorant-api.com/weapons/29a0cfab-485b-f5d5-779a-b59f85e204a8/displayicon.png"
-                                alt="Classic image"
-                                class="max-w-full max-h-full"
-                                id="weapon-image"
-                            />
-                        </div>
-                        <div
-                            class="px-[16px] py-[8px] bg-[#292727] w-full text-xl font-normal"
-                            id="title"
-                        >
-                            Classic
-                        </div>
-                    </div>
-                    <div
-                        class="flex flex-col w-full h-fit rounded-md overflow-hidden hover:outline-[2px] hover:outline-[#FF4248]"
-                        id="card"
-                    >
-                        <div
-                            class="h-[150px] w-full p-[25px] bg-[#211E1F] flex justify-center"
-                            id="img-wrapper"
-                        >
-                            <img
-                                src="https://media.valorant-api.com/weapons/29a0cfab-485b-f5d5-779a-b59f85e204a8/displayicon.png"
-                                alt="Classic image"
-                                class="max-w-full max-h-full"
-                                id="weapon-image"
-                            />
-                        </div>
-                        <div
-                            class="px-[16px] py-[8px] bg-[#292727] w-full text-xl font-normal"
-                            id="title"
-                        >
-                            Classic
-                        </div>
-                    </div>
-                </div>
         </main>
-
-        <footer
-            class="flex items-center place-content-between bg-[#111111] border-[#333333] px-[200px] py-[10px] mt-auto border-t-[2px] border-[#333333] text-xl font-light"
-        >
-            <p id="footer-info">
-                Data provided by
-                <a
-                    href="https://valorant-api.com/"
-                    class="text-[#FF4248] hover:underline"
-                    >valorant-api.com</a
-                >
-            </p>
-
-            <div class="flex gap-[10px]" id="footer-buttons">
-                <button
-                    class="px-[8px] py-[8px] hover:bg-[#292727] rounded-md"
-                    id="github-button"
-                >
-                    <img src="src/img/github.svg" alt="GitHub logo" />
-                </button>
-
-                <button
-                    class="px-[8px] py-[8px] hover:bg-[#292727] rounded-md"
-                    id="github-button"
-                >
-                    <img src="src/img/yo.png" alt="Yo" />
-                </button>
-            </div>
-        </footer>
     </body>
 </html>
