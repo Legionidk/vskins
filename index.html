@@ -6,33 +6,33 @@
         <link href="/src/style.css" rel="stylesheet" />
     </head>
     <body
-        class="flex flex-col items-center gap-[20px] min-h-screen bg-[url(img/background.png)] bg-cover bg-no-repeat font-[Oswald] text-[#FDFDFD]"
+        class="flex flex-col items-center gap-5 min-h-screen bg-[url(img/background.png)] bg-cover bg-no-repeat font-[Oswald] text-[#FDFDFD]"
     >
         <header
-            class="flex items-center justify-center gap-[25px] w-full px-[100px] py-[10px] bg-[#111111] border-b-[2px] border-[#333333]"
+            class="flex items-center justify-center gap-[25px] w-full px-[100px] py-[10px] bg-[#111111] border-b-2 border-[#333333]"
         >
             <img
                 src="/src/img/asgard.svg"
                 alt="Asgard logo"
-                class="h-[20px]"
+                class="h-5"
                 id="asgard-logo"
             />
             <div class="flex text-lg gap-[10px]" id="nav-buttons">
                 <a
                     href="#"
-                    class="rounded-md px-[16px] py-[8px] pointer-events-none text-[#FF4248]"
+                    class="rounded-md px-4 py-2 pointer-events-none text-[#FF4248]"
                     id="weapons-button"
                     >Weapons</a
                 >
                 <a
                     href="#"
-                    class="rounded-md px-[16px] py-[8px] hover:bg-[#292727]"
+                    class="rounded-md px-4 py-2 hover:bg-[#292727]"
                     id="skins-button"
                     >Skins</a
                 >
                 <a
                     href="#"
-                    class="rounded-md px-[16px] py-[8px] hover:bg-[#292727]"
+                    class="rounded-md px-4 py-2 hover:bg-[#292727]"
                     id="agents-button"
                     >Agents</a
                 >
@@ -40,20 +40,20 @@
         </header>
 
         <main
-            class="flex flex-col items-center justify-center gap-[20px] px-[100px] w-full"
+            class="flex flex-col items-center justify-center gap-5 px-[100px] w-full"
         >
             <input
                 type="text"
-                class="rounded-md px-[18px] py-[6px] w-full bg-[#292727] font-light focus:bg-[#211E1F] focus:outline-[2px] focus:outline-[#292727]"
+                class="rounded-md px-[18px] py-[6px] w-full bg-[#292727] font-light focus:bg-[#211E1F] focus:outline-none border-[2px] border-[#292727]"
                 id="weapon-search-box"
                 placeholder="Type weapon name here..."
             />
             <div class="flex flex-col gap-[5px] w-full" id="sidearms-block">
                 <p class="font-light" id="title">Sidearms</p>
                 <div class="grid grid-cols-2 gap-[10px]" id="cards-wrapper">
-                    <div class="rounded-md overflow-hidden" id="classic-card">
+                    <div class="rounded-md overflow-hidden hover:outline-[2px] hover:outline-[#FF4248]" id="card">
                         <div
-                            class="flex flex-col h-[150px] justify-center items-center px-[25px] py-[25px] bg-[#211E1F]"
+                            class="flex flex-col justify-center items-center h-[150px] p-[25px] bg-[#211E1F]"
                             id="img-wrapper"
                         >
                             <img
@@ -64,33 +64,44 @@
                             />
                         </div>
                         <p
-                            class="bg-[#292727] px-[16px] py-[8px] text-lg"
+                            class="bg-[#292727] px-4 py-2 text-lg"
                             id="title"
                         >
                             Classic
                         </p>
                     </div>
-                    <div class="rounded-md overflow-hidden" id="shorty-card">
-                        <div
-                            class="flex flex-col h-[150px] justify-center items-center px-[25px] py-[25px] bg-[#211E1F]"
-                            id="img-wrapper"
-                        >
-                            <img
-                                src="https://media.valorant-api.com/weapons/42da8ccc-40d5-affc-beec-15aa47b42eda/displayicon.png"
-                                alt="Shorty image"
-                                class="max-h-full max-w-full"
-                                id="weapon-img"
-                            />
-                        </div>
-                        <p
-                            class="bg-[#292727] px-[16px] py-[8px] text-lg"
-                            id="title"
-                        >
-                            Shorty
-                        </p>
-                    </div>
                 </div>
             </div>
         </main>
+
+        <footer
+            class="flex justify-between items-center bg-[#111111] border-t-[2px] border-[#333333] px-[100px] py-[10px] w-full mt-auto text-lg font-light"
+        >
+            <p class="" id="footer-text">
+                Data provided by
+                <a
+                    href="https://valorant-api.com"
+                    class="text-[#FF4248] hover:underline"
+                    >valorant-api.com</a
+                >
+            </p>
+
+            <div class="flex gap-[10px]" id="footer-buttons">
+                <a
+                    href="https://github.com/Legionidk/vskins"
+                    class=""
+                    id="github-button"
+                >
+                    <img src="/src/img/github.svg" alt="Github logo" class="rounded-md p-2 hover:bg-[#292727]" id="github-logo">
+                </a>
+                <a
+                    href="#"
+                    class=""
+                    id="yo-button"
+                >
+                    <img src="/src/img/yo.png" alt="yo image" class="rounded-md p-2 hover:bg-[#292727]" id="github-logo">
+                </a>
+            </div>
+        </footer>
     </body>
 </html>
