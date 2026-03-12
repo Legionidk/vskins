@@ -5,6 +5,7 @@
     --font-oswald: "Oswald", sans-serif;
 }
 
+/* TODO: move this block with animations to tailwind html */
 #img-wrapper {
     transition-timing-function: ease-out;
     transition-duration: 100ms;
