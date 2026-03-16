@@ -12,6 +12,24 @@
             class="hidden flex justify-center items-center fixed w-full min-h-screen top-0"
             id="popup-container"
         >
+            <div class="rounded-2xl bg-[#211E1F] z-1 w-80 p-2" id="popup">
+                <img
+                    src="src/img/rigby.jpg"
+                    alt="Ribgy image"
+                    class="rounded-lg"
+                    id="cat-img"
+                />
+            </div>
+            <div
+                class="bg-black/50 h-screen w-full fixed z-0"
+                id="background-popup"
+            ></div>
+        </div>
+
+        <div
+            class="hidden flex justify-center items-center fixed w-full min-h-screen top-0"
+            id="popup-container"
+        >
             <div
                 class="rounded-2xl bg-[#292727] w-101 md:w-126 lg:w-187 z-1 overflow-hidden"
                 id="popup"
@@ -548,8 +566,8 @@
             <div class="flex gap-2" id="footer-buttons">
                 <a
                     href="https://github.com/Legionidk/vskins"
-                    class=""
                     id="github-button"
+                    target="_blank"
                 >
                     <img
                         src="/src/img/github.svg"
@@ -558,7 +576,7 @@
                         id="github-logo"
                     />
                 </a>
-                <a href="#" class="" id="yo-button">
+                <a href="#" id="yo-button">
                     <img
                         src="/src/img/yo.png"
                         alt="yo image"
