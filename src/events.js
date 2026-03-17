@@ -15,6 +15,7 @@ document.body.addEventListener("click", (e) => {
 
     if (e.target.closest("#background-popup") !== null) {
         e.target.closest("#popup-container").classList.add("hidden");
+        document.body.querySelector("video").pause();
         return;
     }
 });

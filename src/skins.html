@@ -55,7 +55,10 @@
                     id="video-preview"
                 ></video>
 
-                <div class="flex flex-col items-center p-2 gap-2" id="skin-info-wrapper">
+                <div
+                    class="flex flex-col items-center p-2 gap-2"
+                    id="skin-info-wrapper"
+                >
                     <img
                         src="https://media.valorant-api.com/weaponskins/3a079e06-4b63-2293-fbd8-4fb896e8af3d/displayicon.png"
                         alt="Dolmir's Revenge Vandal"
@@ -63,7 +66,10 @@
                         id="image-preview"
                     />
 
-                    <div class="flex justify-between w-full" id="buttons-container">
+                    <div
+                        class="flex justify-between w-full"
+                        id="buttons-container"
+                    >
                         <div class="flex gap-2" id="chroma-buttons">
                             <button
                                 class="h-8 w-8 rounded-lg border-2 border-[#FF4248] hover:border-[#FF4248] overflow-hidden lg:h-10 lg:w-10"
@@ -177,12 +183,46 @@
         <main
             class="flex flex-col items-center justify-center gap-5 px-24 w-full lg:px-49"
         >
-            <input
-                type="text"
-                class="rounded-lg px-4 py-2 w-full bg-[#292727] font-light focus:bg-[#211E1F] focus:outline-none border-2 border-[#292727] text-lg lg:text-xl"
-                id="weapon-search-box"
-                placeholder="Type skin name here..."
-            />
+            <div
+                class="grid grid-cols-2 gap-2 w-full md:grid-cols-[auto_auto_auto]"
+                id="search-container"
+            >
+                <input
+                    type="text"
+                    class="rounded-lg px-4 py-2 w-full bg-[#292727] font-light focus:bg-[#211E1F] focus:outline-none border-2 border-[#292727] col-span-2 text-lg md:col-span-1 lg:text-xl"
+                    id="weapon-search-box"
+                    placeholder="Type skin name here..."
+                />
+                <select
+                    class="rounded-lg px-4 py-2 w-full bg-[#292727] border-2 border-[#292727] font-light text-lg md:w-full lg:text-xl"
+                    name="Editions sort"
+                    id="edition-select"
+                >
+                    <option value="value">All editions</option>
+                    <option value="value">
+                        <img
+                            src="https://media.valorant-api.com/contenttiers/e046854e-406c-37f4-6607-19a9ba8426fc/displayicon.png"
+                            alt=""
+                            class=""
+                            id="edition-icon"
+                        />
+                        <p>Exclusive edition</p>
+                    </option>
+                    <option value="value">Premium edition</option>
+                    <option value="value">Select edition</option>
+                    <option value="value">Ultra edition</option>
+                </select>
+                <select
+                    class="rounded-lg px-4 py-2 w-full bg-[#292727] border-2 border-[#292727] font-light text-lg md:w-full lg:text-xl"
+                    name="Weapons sort"
+                    id="weapon-select"
+                >
+                    <option value="value">Melee</option>
+                    <option value="value">Vandal</option>
+                    <option value="value">Operator</option>
+                    <option value="value">Phantom</option>
+                </select>
+            </div>
             <div class="flex flex-col gap-1 w-full" id="deluxe-block">
                 <div class="flex items-center gap-1" id="title">
                     <img
@@ -192,7 +232,7 @@
                         id="edition-image"
                     />
                     <p class="font-light lg:text-lg" id="edition-name">
-                        Deluxe edition
+                        Exclusive edition
                     </p>
                 </div>
                 <div
@@ -262,5 +302,8 @@
         </footer>
 
         <script type="module" src="events.js"></script>
+        <script>
+            document.body.querySelector("video").volume = 0.25;
+        </script>
     </body>
 </html>
