@@ -47,26 +47,92 @@
                     />
                 </div>
 
-                <div
+                <video
+                    src="https://valorant.dyn.riotcdn.net/x/videos/release-12.04/e1629d5a-4ebc-728b-3608-e6a5625b9841_default_universal.mp4"
+                    autoplay
+                    controls
                     class="w-full bg-[#211E1F] p-1 flex justify-center items-center"
-                    id="preview-wrapper"
-                >
-                    <video
-                        src="https://valorant.dyn.riotcdn.net/x/videos/release-12.04/e1629d5a-4ebc-728b-3608-e6a5625b9841_default_universal.mp4"
-                        autoplay
-                        controls
-                    ></video>
-                </div>
+                    id="video-preview"
+                ></video>
 
-                <div
-                    class="flex flex-col p-2 gap-2"
-                    id="skin-info-wrapper"
-                >
-                    <div class="flex justify-between" id="buttons-container">
+                <div class="flex flex-col items-center p-2 gap-2" id="skin-info-wrapper">
+                    <img
+                        src="https://media.valorant-api.com/weaponskins/3a079e06-4b63-2293-fbd8-4fb896e8af3d/displayicon.png"
+                        alt="Dolmir's Revenge Vandal"
+                        class="h-18 w-fit lg:h-26"
+                        id="image-preview"
+                    />
+
+                    <div class="flex justify-between w-full" id="buttons-container">
                         <div class="flex gap-2" id="chroma-buttons">
-                            <button class="" id="standart-chroma"></button>
+                            <button
+                                class="h-8 w-8 rounded-lg border-2 border-[#FF4248] hover:border-[#FF4248] overflow-hidden lg:h-10 lg:w-10"
+                                id="chroma-0-button"
+                            >
+                                <img
+                                    src="https://media.valorant-api.com/weaponskinchromas/f3a01eb6-405b-70de-4f5e-5eb2ced246a9/swatch.png"
+                                    class="w-full"
+                                    id="chroma-0-image"
+                                />
+                            </button>
+                            <button
+                                class="h-8 w-8 rounded-lg border-2 border-[#211E1F] hover:border-[#FF4248] overflow-hidden lg:h-10 lg:w-10"
+                                id="chroma-1-button"
+                            >
+                                <img
+                                    src="https://media.valorant-api.com/weaponskinchromas/860fb017-4024-03e5-b79b-5d82013377c3/swatch.png"
+                                    class="w-full"
+                                    id="chroma-1-image"
+                                />
+                            </button>
+                            <button
+                                class="h-8 w-8 rounded-lg border-2 border-[#211E1F] hover:border-[#FF4248] overflow-hidden lg:h-10 lg:w-10"
+                                id="chroma-2-button"
+                            >
+                                <img
+                                    src="https://media.valorant-api.com/weaponskinchromas/11363834-4349-d39a-ff2f-918f788e37bc/swatch.png"
+                                    class="w-full"
+                                    id="chroma-2-image"
+                                />
+                            </button>
+                            <button
+                                class="h-8 w-8 rounded-lg border-2 border-[#211E1F] hover:border-[#FF4248] overflow-hidden lg:h-10 lg:w-10"
+                                id="chroma-3-button"
+                            >
+                                <img
+                                    src="https://media.valorant-api.com/weaponskinchromas/9713703b-4b2e-e681-0894-7380ed3bdb7f/swatch.png"
+                                    class="w-full"
+                                    id="chroma-3-image"
+                                />
+                            </button>
                         </div>
-                        <div class="flex gap-2" id="level-buttons"></div>
+
+                        <div class="flex gap-2" id="level-buttons">
+                            <button
+                                class="text-xl font-light h-8 w-8 rounded-lg bg-[#211E1F] border-2 border-[#FF4248] hover:border-[#FF4248] lg:h-10 lg:w-10 lg:text-2xl"
+                                id="level-0-button"
+                            >
+                                I
+                            </button>
+                            <button
+                                class="text-xl font-light h-8 w-8 rounded-lg bg-[#211E1F] border-2 border-[#211E1F] hover:border-[#FF4248] lg:h-10 lg:w-10 lg:text-2xl"
+                                id="level-1-button"
+                            >
+                                II
+                            </button>
+                            <button
+                                class="text-xl font-light h-8 w-8 rounded-lg bg-[#211E1F] border-2 border-[#211E1F] hover:border-[#FF4248] lg:h-10 lg:w-10 lg:text-2xl"
+                                id="level-2-button"
+                            >
+                                III
+                            </button>
+                            <button
+                                class="text-xl font-light h-8 w-8 rounded-lg bg-[#211E1F] border-2 border-[#211E1F] hover:border-[#FF4248] lg:h-10 lg:w-10 lg:text-2xl"
+                                id="level-3-button"
+                            >
+                                IV
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -134,12 +200,12 @@
                     id="cards-wrapper"
                 >
                     <div
-                        class="rounded-lg overflow-hidden cursor-pointer hover:outline-[2px] hover:outline-[#FF4248]"
+                        class="rounded-lg overflow-hidden cursor-pointer hover:outline-2 hover:outline-[#FF4248]"
                         id="card"
                     >
                         <div
                             class="flex flex-col justify-center items-center h-37 p-8 bg-[#211E1F]"
-                            id="img-wrapper"
+                            id="preview-wrapper"
                         >
                             <img
                                 src="https://media.valorant-api.com/weaponskins/3a079e06-4b63-2293-fbd8-4fb896e8af3d/displayicon.png"
