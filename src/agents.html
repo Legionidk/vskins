@@ -1,0 +1,336 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="/src/style.css" rel="stylesheet" />
+    </head>
+    <body
+        class="flex flex-col items-center gap-5 min-h-screen bg-[url(img/background.png)] bg-cover bg-no-repeat font-[Oswald] text-[#FDFDFD]"
+    >
+        <div
+            class="hidden flex justify-center items-center fixed w-full min-h-screen top-0"
+            id="popup-container"
+        >
+            <div class="rounded-2xl bg-[#211E1F] z-1 w-80 p-2" id="popup">
+                <img
+                    src="img/rigby.jpg"
+                    alt="Rigby image"
+                    class="rounded-lg"
+                    id="cat-img"
+                />
+            </div>
+            <div
+                class="bg-black/50 h-screen w-full fixed z-0"
+                id="background-popup"
+            ></div>
+        </div>
+
+        <div
+            class="flex justify-center items-center fixed w-full min-h-screen top-0"
+            id="popup-container"
+        >
+            <div
+                class="rounded-2xl bg-[#292727] w-101 md:w-126 lg:w-187 z-1 overflow-hidden"
+                id="popup"
+            >
+                <div
+                    class="flex items-center justify-between w-full px-4 py-2 text-xl lg:text-2xl"
+                    id="title"
+                >
+                    <p id="skin-name">Gekko</p>
+                    <p class="text-[#FDFDFD]/75 font-light" id="weapon-type">
+                        Aggrobot
+                    </p>
+                </div>
+
+                <div
+                    class="bg-[#211E1F] bg-[url(https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/background.png)] bg-contain bg-no-repeat bg-center"
+                    id="agent-bust-wrapper"
+                >
+                    <img
+                        src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/fullportrait.png"
+                        alt="Gekko bust"
+                        class="h-full"
+                        id="agent-bust"
+                    />
+                </div>
+
+                <div class="flex flex-col p-2 gap-5" id="agent-info-wrapper">
+                    <div class="flex flex-col gap-1" id="agent-desc">
+                        <p class="text-xl">Description</p>
+                        <p
+                            class="p-2 text-lg rounded-lg w-full bg-[#211E1F] font-light"
+                        >
+                            Gekko the Angeleno leads a tight-knit crew of
+                            calamitous creatures. His buddies bound forward,
+                            scattering enemies out of the way, with Gekko
+                            chasing them down to regroup and go again.
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-1" id="role-desc">
+                        <p class="text-xl" id="title">Role</p>
+                        <div
+                            class="p-2 text-lg rounded-lg w-full bg-[#211E1F] gap-2"
+                            id="desc-block"
+                        >
+                            <div
+                                class="flex gap-1 items-center"
+                                id="block-title"
+                            >
+                                <img
+                                    src="https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png"
+                                    alt="Initiator image"
+                                    class="h-5"
+                                    id="title-image"
+                                />
+                                <p class="text-lg" id="title-text">Initiator</p>
+                            </div>
+                            <p class="font-light" id="desc-text">
+                                Initiators challenge angles by setting up their
+                                team to enter contested ground and push
+                                defenders away.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-1" id="abilities-desc">
+                        <p class="text-xl" id="title">Abilities</p>
+                        <div
+                            class="p-2 text-lg rounded-lg w-full bg-[#211E1F] gap-2"
+                            id="wingman-desc-block"
+                        >
+                            <div
+                                class="flex gap-1 items-center"
+                                id="block-title"
+                            >
+                                <img
+                                    src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ability1/displayicon.png"
+                                    alt="Wingman image"
+                                    class="h-5"
+                                    id="title-image"
+                                />
+                                <p class="text-lg" id="title-text">Wingman</p>
+                            </div>
+                            <p class="font-light" id="desc-text">
+                                EQUIP Wingman. FIRE to send Wingman forward
+                                seeking enemies. Wingman unleashes a concussive
+                                blast toward the first enemy he sees. ALT FIRE
+                                when targeting a Spike site or planted Spike to
+                                have Wingman defuse or plant the Spike. To
+                                plant, Gekko must have the Spike in his
+                                inventory. When Wingman expires he reverts into
+                                a dormant globule. INTERACT to reclaim the
+                                globule and gain another Wingman charge after a
+                                short cooldown.
+                            </p>
+                        </div>
+                        <div
+                            class="p-2 text-lg rounded-lg w-full bg-[#211E1F] gap-2"
+                            id="dizzy-desc-block"
+                        >
+                            <div
+                                class="flex gap-1 items-center"
+                                id="block-title"
+                            >
+                                <img
+                                    src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ability2/displayicon.png"
+                                    alt="Dizzy image"
+                                    class="h-5"
+                                    id="title-image"
+                                />
+                                <p class="text-lg" id="title-text">Dizzy</p>
+                            </div>
+                            <p class="font-light" id="desc-text">
+                                EQUIP Dizzy. FIRE to send Dizzy soaring forward
+                                through the air. Dizzy charges then unleashes
+                                plasma blasts at enemies in line of sight.
+                                Enemies hit by her plasma are Blinded. When
+                                Dizzy expires she reverts into a dormant
+                                globule. INTERACT to reclaim the globule and
+                                gain another Dizzy charge after a short
+                                cooldown.
+                            </p>
+                        </div>
+                        <div
+                            class="p-2 text-lg rounded-lg w-full bg-[#211E1F] gap-2"
+                            id="moshpit-desc-block"
+                        >
+                            <div
+                                class="flex gap-1 items-center"
+                                id="block-title"
+                            >
+                                <img
+                                    src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/grenade/displayicon.png"
+                                    alt="Mosh Pit image"
+                                    class="h-5"
+                                    id="title-image"
+                                />
+                                <p class="text-lg" id="title-text">Mosh Pit</p>
+                            </div>
+                            <p class="font-light" id="desc-text">
+                                EQUIP Mosh. FIRE to throw Mosh like a grenade.
+                                ALT FIRE to lob. Upon landing Mosh duplicates
+                                across a large area that deals a small amount of
+                                damage over time then after a short delay
+                                explodes. INTERACT to reclaim the globule and
+                                gain another Mosh charge after a short cooldown.
+                            </p>
+                        </div>
+                        <div
+                            class="p-2 text-lg rounded-lg w-full bg-[#211E1F] gap-2"
+                            id="thrash-desc-block"
+                        >
+                            <div
+                                class="flex gap-1 items-center"
+                                id="block-title"
+                            >
+                                <img
+                                    src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ultimate/displayicon.png"
+                                    alt="Thrash image"
+                                    class="h-5"
+                                    id="title-image"
+                                />
+                                <p class="text-lg" id="title-text">Thrash</p>
+                            </div>
+                            <p class="font-light" id="desc-text">
+                                EQUIP Thrash. FIRE to link with Thrash’s mind
+                                and steer her through enemy territory. ACTIVATE
+                                to lunge forward and explode, Detaining any
+                                players in a small radius. When Thrash expires
+                                she reverts into a dormant globule. INTERACT to
+                                reclaim the globule and gain another Thrash
+                                charge after a short cooldown. Thrash can be
+                                reclaimed once.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="bg-black/50 h-screen w-full fixed z-0"
+                id="background-popup"
+            ></div>
+        </div>
+
+        <header
+            class="flex items-center justify-center gap-6 w-full px-24 py-2 bg-[#111111] border-b-2 border-[#333333] text-lg md:justify-start lg:text-xl lg:px-49"
+        >
+            <img
+                src="/src/img/asgard.svg"
+                alt="Asgard logo"
+                class="h-5"
+                id="asgard-logo"
+            />
+            <div class="flex gap-2" id="nav-buttons">
+                <a
+                    href="../index.html"
+                    class="rounded-lg px-4 py-2 hover:bg-[#292727]"
+                    id="weapons-button"
+                    >Weapons</a
+                >
+                <a
+                    href="skins.html"
+                    class="rounded-lg px-4 py-2 hover:bg-[#292727]"
+                    id="skins-button"
+                    >Skins</a
+                >
+                <a
+                    href="#"
+                    class="rounded-lg px-4 py-2 pointer-events-none text-[#FF4248]"
+                    id="agents-button"
+                    >Agents</a
+                >
+            </div>
+        </header>
+
+        <main
+            class="flex flex-col items-center justify-center gap-5 px-24 w-full lg:px-49"
+        >
+            <input
+                type="text"
+                class="rounded-lg px-4 py-2 w-full bg-[#292727] font-light focus:bg-[#211E1F] focus:outline-none border-2 border-[#292727] text-lg lg:text-xl"
+                id="agent-search-box"
+                placeholder="Type agent name here..."
+            />
+            <div class="flex flex-col gap-1 w-full" id="initiator-block">
+                <div class="flex items-center gap-1" id="title">
+                    <img
+                        src="https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png"
+                        alt="Initiator image"
+                        class="h-4 lg:h-5"
+                        id="role-image"
+                    />
+                    <p class="font-light lg:text-lg" id="role-name">
+                        Initiator
+                    </p>
+                </div>
+                <div
+                    class="grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
+                    id="cards-wrapper"
+                >
+                    <div
+                        class="rounded-lg overflow-hidden cursor-pointer hover:outline-2 hover:outline-[#FF4248]"
+                        id="card"
+                    >
+                        <div
+                            class="flex flex-col justify-center items-center h-37 pt-8 bg-[#211E1F]"
+                            id="portrait-wrapper"
+                        >
+                            <img
+                                src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/displayicon.png"
+                                alt="Gekko portrait"
+                                class="max-h-full max-w-full"
+                                id="agent-portrait"
+                            />
+                        </div>
+                        <p
+                            class="bg-[#292727] px-4 py-2 text-lg lg:text-xl"
+                            id="title"
+                        >
+                            Gekko
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer
+            class="flex justify-between items-center bg-[#111111] border-t-2 border-[#333333] px-24 py-2 w-full mt-auto text-lg font-light lg:px-49"
+        >
+            <p class="" id="footer-text">
+                Data provided by
+                <a
+                    href="https://valorant-api.com"
+                    class="text-[#FF4248] hover:underline"
+                    >valorant-api.com</a
+                >
+            </p>
+
+            <div class="flex gap-2" id="footer-buttons">
+                <a
+                    href="https://github.com/Legionidk/vskins"
+                    id="github-button"
+                    target="_blank"
+                >
+                    <img
+                        src="/src/img/github.svg"
+                        alt="Github logo"
+                        class="rounded-lg p-2 hover:bg-[#292727]"
+                        id="github-logo"
+                    />
+                </a>
+                <a href="#" id="yo-button">
+                    <img
+                        src="/src/img/yo.png"
+                        alt="yo image"
+                        class="rounded-lg p-2 hover:bg-[#292727]"
+                        id="github-logo"
+                    />
+                </a>
+            </div>
+        </footer>
+
+        <script type="module" src="js/events.js"></script>
+    </body>
+</html>

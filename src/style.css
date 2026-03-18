@@ -11,8 +11,17 @@
     transition-duration: 100ms;
 }
 
+#portrait-wrapper {
+    transition-timing-function: ease-out;
+    transition-duration: 100ms;
+}
+
 #card:hover {
     #img-wrapper {
         padding: 24px;
+    }
+
+    #portrait-wrapper {
+        padding-top: 24px;
     }
 }
