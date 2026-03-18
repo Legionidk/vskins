@@ -35,7 +35,7 @@
                 id="popup"
             >
                 <div
-                    class="flex items-center justify-between w-full px-4 py-2 text-xl lg:text-2xl"
+                    class="flex items-center justify-between w-full px-4 py-2 border-b-2 border-[#211E1F] text-xl lg:text-2xl"
                     id="title"
                 >
                     <p id="skin-name">Gekko</p>
@@ -45,163 +45,180 @@
                 </div>
 
                 <div
-                    class="bg-[#211E1F] bg-[url(https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/background.png)] bg-contain bg-no-repeat bg-center"
-                    id="agent-bust-wrapper"
+                    class="flex flex-col h-fit lg:flex-row"
+                    id="content-wrapper"
                 >
-                    <img
-                        src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/fullportrait.png"
-                        alt="Gekko bust"
-                        class="h-full"
-                        id="agent-bust"
-                    />
-                </div>
+                    <div
+                        class="bg-[#211E1F] bg-[url(https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/background.png)] bg-contain bg-no-repeat bg-center lg:h-124"
+                        id="agent-bust-wrapper"
+                    >
+                        <img
+                            src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/fullportrait.png"
+                            alt="Gekko bust"
+                            class="h-full object-cover"
+                            id="agent-bust"
+                        />
+                    </div>
 
-                <div class="flex flex-col p-2 gap-5" id="agent-info-wrapper">
-                    <div class="flex flex-col gap-1" id="agent-desc">
-                        <p class="text-xl">Description</p>
-                        <p
-                            class="p-2 text-lg rounded-lg w-full bg-[#211E1F] font-light"
-                        >
-                            Gekko the Angeleno leads a tight-knit crew of
-                            calamitous creatures. His buddies bound forward,
-                            scattering enemies out of the way, with Gekko
-                            chasing them down to regroup and go again.
-                        </p>
-                    </div>
-                    <div class="flex flex-col gap-1" id="role-desc">
-                        <p class="text-xl" id="title">Role</p>
-                        <div
-                            class="p-2 text-lg rounded-lg w-full bg-[#211E1F] gap-2"
-                            id="desc-block"
-                        >
-                            <div
-                                class="flex gap-1 items-center"
-                                id="block-title"
+                    <div
+                        class="flex flex-col p-2 gap-5 h-62 overflow-y-scroll w-full lg:h-124"
+                        id="agent-info-wrapper"
+                    >
+                        <div class="flex flex-col gap-1" id="agent-desc">
+                            <p class="text-xl lg:text-2xl">Description</p>
+                            <p
+                                class="p-2 text-lg rounded-lg w-full bg-[#211E1F] font-light md:text-xl"
                             >
-                                <img
-                                    src="https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png"
-                                    alt="Initiator image"
-                                    class="h-5"
-                                    id="title-image"
-                                />
-                                <p class="text-lg" id="title-text">Initiator</p>
-                            </div>
-                            <p class="font-light" id="desc-text">
-                                Initiators challenge angles by setting up their
-                                team to enter contested ground and push
-                                defenders away.
+                                Gekko the Angeleno leads a tight-knit crew of
+                                calamitous creatures. His buddies bound forward,
+                                scattering enemies out of the way, with Gekko
+                                chasing them down to regroup and go again.
                             </p>
                         </div>
-                    </div>
-                    <div class="flex flex-col gap-1" id="abilities-desc">
-                        <p class="text-xl" id="title">Abilities</p>
-                        <div
-                            class="p-2 text-lg rounded-lg w-full bg-[#211E1F] gap-2"
-                            id="wingman-desc-block"
-                        >
+                        <div class="flex flex-col gap-1" id="role-desc">
+                            <p class="text-xl lg:text-2xl" id="title">Role</p>
                             <div
-                                class="flex gap-1 items-center"
-                                id="block-title"
+                                class="p-2 text-lg rounded-lg w-full bg-[#211E1F] gap-2 lg:text-xl"
+                                id="desc-block"
                             >
-                                <img
-                                    src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ability1/displayicon.png"
-                                    alt="Wingman image"
-                                    class="h-5"
-                                    id="title-image"
-                                />
-                                <p class="text-lg" id="title-text">Wingman</p>
+                                <div
+                                    class="flex gap-1 items-center"
+                                    id="block-title"
+                                >
+                                    <img
+                                        src="https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png"
+                                        alt="Initiator image"
+                                        class="h-5"
+                                        id="title-image"
+                                    />
+                                    <p id="title-text">Initiator</p>
+                                </div>
+                                <p class="font-light" id="desc-text">
+                                    Initiators challenge angles by setting up
+                                    their team to enter contested ground and
+                                    push defenders away.
+                                </p>
                             </div>
-                            <p class="font-light" id="desc-text">
-                                EQUIP Wingman. FIRE to send Wingman forward
-                                seeking enemies. Wingman unleashes a concussive
-                                blast toward the first enemy he sees. ALT FIRE
-                                when targeting a Spike site or planted Spike to
-                                have Wingman defuse or plant the Spike. To
-                                plant, Gekko must have the Spike in his
-                                inventory. When Wingman expires he reverts into
-                                a dormant globule. INTERACT to reclaim the
-                                globule and gain another Wingman charge after a
-                                short cooldown.
-                            </p>
                         </div>
+
                         <div
-                            class="p-2 text-lg rounded-lg w-full bg-[#211E1F] gap-2"
-                            id="dizzy-desc-block"
+                            class="flex flex-col gap-1 text-lg lg:text-xl"
+                            id="abilities-desc"
                         >
-                            <div
-                                class="flex gap-1 items-center"
-                                id="block-title"
-                            >
-                                <img
-                                    src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ability2/displayicon.png"
-                                    alt="Dizzy image"
-                                    class="h-5"
-                                    id="title-image"
-                                />
-                                <p class="text-lg" id="title-text">Dizzy</p>
-                            </div>
-                            <p class="font-light" id="desc-text">
-                                EQUIP Dizzy. FIRE to send Dizzy soaring forward
-                                through the air. Dizzy charges then unleashes
-                                plasma blasts at enemies in line of sight.
-                                Enemies hit by her plasma are Blinded. When
-                                Dizzy expires she reverts into a dormant
-                                globule. INTERACT to reclaim the globule and
-                                gain another Dizzy charge after a short
-                                cooldown.
+                            <p class="text-xl lg:text-2xl" id="title">
+                                Abilities
                             </p>
-                        </div>
-                        <div
-                            class="p-2 text-lg rounded-lg w-full bg-[#211E1F] gap-2"
-                            id="moshpit-desc-block"
-                        >
                             <div
-                                class="flex gap-1 items-center"
-                                id="block-title"
+                                class="p-2 rounded-lg w-full bg-[#211E1F] gap-2"
+                                id="wingman-desc-block"
                             >
-                                <img
-                                    src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/grenade/displayicon.png"
-                                    alt="Mosh Pit image"
-                                    class="h-5"
-                                    id="title-image"
-                                />
-                                <p class="text-lg" id="title-text">Mosh Pit</p>
+                                <div
+                                    class="flex gap-1 items-center"
+                                    id="block-title"
+                                >
+                                    <img
+                                        src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ability1/displayicon.png"
+                                        alt="Wingman image"
+                                        class="h-5"
+                                        id="title-image"
+                                    />
+                                    <p id="title-text">Wingman</p>
+                                </div>
+                                <p class="font-light" id="desc-text">
+                                    EQUIP Wingman. FIRE to send Wingman forward
+                                    seeking enemies. Wingman unleashes a
+                                    concussive blast toward the first enemy he
+                                    sees. ALT FIRE when targeting a Spike site
+                                    or planted Spike to have Wingman defuse or
+                                    plant the Spike. To plant, Gekko must have
+                                    the Spike in his inventory. When Wingman
+                                    expires he reverts into a dormant globule.
+                                    INTERACT to reclaim the globule and gain
+                                    another Wingman charge after a short
+                                    cooldown.
+                                </p>
                             </div>
-                            <p class="font-light" id="desc-text">
-                                EQUIP Mosh. FIRE to throw Mosh like a grenade.
-                                ALT FIRE to lob. Upon landing Mosh duplicates
-                                across a large area that deals a small amount of
-                                damage over time then after a short delay
-                                explodes. INTERACT to reclaim the globule and
-                                gain another Mosh charge after a short cooldown.
-                            </p>
-                        </div>
-                        <div
-                            class="p-2 text-lg rounded-lg w-full bg-[#211E1F] gap-2"
-                            id="thrash-desc-block"
-                        >
                             <div
-                                class="flex gap-1 items-center"
-                                id="block-title"
+                                class="p-2 text-lg rounded-lg w-full bg-[#211E1F]"
+                                id="dizzy-desc-block"
                             >
-                                <img
-                                    src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ultimate/displayicon.png"
-                                    alt="Thrash image"
-                                    class="h-5"
-                                    id="title-image"
-                                />
-                                <p class="text-lg" id="title-text">Thrash</p>
+                                <div
+                                    class="flex gap-1 items-center"
+                                    id="block-title"
+                                >
+                                    <img
+                                        src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ability2/displayicon.png"
+                                        alt="Dizzy image"
+                                        class="h-5"
+                                        id="title-image"
+                                    />
+                                    <p id="title-text">Dizzy</p>
+                                </div>
+                                <p class="font-light" id="desc-text">
+                                    EQUIP Dizzy. FIRE to send Dizzy soaring
+                                    forward through the air. Dizzy charges then
+                                    unleashes plasma blasts at enemies in line
+                                    of sight. Enemies hit by her plasma are
+                                    Blinded. When Dizzy expires she reverts into
+                                    a dormant globule. INTERACT to reclaim the
+                                    globule and gain another Dizzy charge after
+                                    a short cooldown.
+                                </p>
                             </div>
-                            <p class="font-light" id="desc-text">
-                                EQUIP Thrash. FIRE to link with Thrash’s mind
-                                and steer her through enemy territory. ACTIVATE
-                                to lunge forward and explode, Detaining any
-                                players in a small radius. When Thrash expires
-                                she reverts into a dormant globule. INTERACT to
-                                reclaim the globule and gain another Thrash
-                                charge after a short cooldown. Thrash can be
-                                reclaimed once.
-                            </p>
+                            <div
+                                class="p-2 text-lg rounded-lg w-full bg-[#211E1F] gap-2"
+                                id="moshpit-desc-block"
+                            >
+                                <div
+                                    class="flex gap-1 items-center"
+                                    id="block-title"
+                                >
+                                    <img
+                                        src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/grenade/displayicon.png"
+                                        alt="Mosh Pit image"
+                                        class="h-5"
+                                        id="title-image"
+                                    />
+                                    <p id="title-text">Mosh Pit</p>
+                                </div>
+                                <p class="font-light" id="desc-text">
+                                    EQUIP Mosh. FIRE to throw Mosh like a
+                                    grenade. ALT FIRE to lob. Upon landing Mosh
+                                    duplicates across a large area that deals a
+                                    small amount of damage over time then after
+                                    a short delay explodes. INTERACT to reclaim
+                                    the globule and gain another Mosh charge
+                                    after a short cooldown.
+                                </p>
+                            </div>
+                            <div
+                                class="p-2 text-lg rounded-lg w-full bg-[#211E1F] gap-2"
+                                id="thrash-desc-block"
+                            >
+                                <div
+                                    class="flex gap-1 items-center"
+                                    id="block-title"
+                                >
+                                    <img
+                                        src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ultimate/displayicon.png"
+                                        alt="Thrash image"
+                                        class="h-5"
+                                        id="title-image"
+                                    />
+                                    <p id="title-text">Thrash</p>
+                                </div>
+                                <p class="font-light" id="desc-text">
+                                    EQUIP Thrash. FIRE to link with Thrash’s
+                                    mind and steer her through enemy territory.
+                                    ACTIVATE to lunge forward and explode,
+                                    Detaining any players in a small radius.
+                                    When Thrash expires she reverts into a
+                                    dormant globule. INTERACT to reclaim the
+                                    globule and gain another Thrash charge after
+                                    a short cooldown. Thrash can be reclaimed
+                                    once.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
