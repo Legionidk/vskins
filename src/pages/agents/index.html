@@ -1,0 +1,353 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script type="module" crossorigin src="/assets/main-BFodCmkR.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/main-BAloI1ec.css">
+    </head>
+    <body
+        class="flex flex-col items-center gap-5 min-h-screen bg-[url(/src/assets/img/background.png)] bg-cover bg-no-repeat font-[Oswald] text-[#FDFDFD]"
+    >
+        <div
+            class="hidden flex justify-center items-center fixed w-full min-h-screen top-0"
+            id="popup-container"
+        >
+            <div class="rounded-2xl bg-[#211E1F] z-1 w-80 p-2" id="popup">
+                <img
+                    src="/assets/rigby-CLRj2kqn.jpg"
+                    alt="Rigby image"
+                    class="rounded-lg"
+                    id="cat-img"
+                />
+            </div>
+            <div
+                class="bg-black/50 h-screen w-full fixed z-0"
+                id="background-popup"
+            ></div>
+        </div>
+
+        <div
+            class="hidden flex justify-center items-center fixed w-full min-h-screen top-0"
+            id="popup-container"
+        >
+            <div
+                class="rounded-2xl bg-[#292727] w-101 md:w-126 lg:w-187 z-1 overflow-hidden"
+                id="popup"
+            >
+                <div
+                    class="flex items-center justify-between w-full px-4 py-2 border-b-2 border-[#211E1F] text-xl lg:text-2xl"
+                    id="title"
+                >
+                    <p id="skin-name">Gekko</p>
+                    <p class="text-[#FDFDFD]/75 font-light" id="weapon-type">
+                        Aggrobot
+                    </p>
+                </div>
+
+                <div
+                    class="flex flex-col h-fit lg:flex-row"
+                    id="content-wrapper"
+                >
+                    <div
+                        class="bg-[#211E1F] bg-[url(https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/background.png)] bg-contain bg-no-repeat bg-center lg:h-124"
+                        id="agent-bust-wrapper"
+                    >
+                        <img
+                            src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/fullportrait.png"
+                            alt="Gekko bust"
+                            class="h-full object-cover"
+                            id="agent-bust"
+                        />
+                    </div>
+
+                    <div
+                        class="flex flex-col p-2 gap-5 h-62 overflow-y-scroll w-full lg:h-124"
+                        id="agent-info-wrapper"
+                    >
+                        <div class="flex flex-col gap-1" id="agent-desc">
+                            <p class="text-xl lg:text-2xl">Description</p>
+                            <p
+                                class="p-2 text-lg rounded-lg w-full bg-[#211E1F] font-light md:text-xl"
+                            >
+                                Gekko the Angeleno leads a tight-knit crew of
+                                calamitous creatures. His buddies bound forward,
+                                scattering enemies out of the way, with Gekko
+                                chasing them down to regroup and go again.
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-1" id="role-desc">
+                            <p class="text-xl lg:text-2xl" id="title">Role</p>
+                            <div
+                                class="p-2 text-lg rounded-lg w-full bg-[#211E1F] gap-2 lg:text-xl"
+                                id="desc-block"
+                            >
+                                <div
+                                    class="flex gap-1 items-center"
+                                    id="block-title"
+                                >
+                                    <img
+                                        src="https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png"
+                                        alt="Initiator image"
+                                        class="h-5"
+                                        id="title-image"
+                                    />
+                                    <p id="title-text">Initiator</p>
+                                </div>
+                                <p class="font-light" id="desc-text">
+                                    Initiators challenge angles by setting up
+                                    their team to enter contested ground and
+                                    push defenders away.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex flex-col gap-1 text-lg lg:text-xl"
+                            id="abilities-desc"
+                        >
+                            <p class="text-xl lg:text-2xl" id="title">
+                                Abilities
+                            </p>
+                            <div
+                                class="p-2 rounded-lg w-full bg-[#211E1F] gap-2"
+                                id="wingman-desc-block"
+                            >
+                                <div
+                                    class="flex gap-1 items-center"
+                                    id="block-title"
+                                >
+                                    <img
+                                        src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ability1/displayicon.png"
+                                        alt="Wingman image"
+                                        class="h-5"
+                                        id="title-image"
+                                    />
+                                    <p id="title-text">Wingman</p>
+                                </div>
+                                <p class="font-light" id="desc-text">
+                                    EQUIP Wingman. FIRE to send Wingman forward
+                                    seeking enemies. Wingman unleashes a
+                                    concussive blast toward the first enemy he
+                                    sees. ALT FIRE when targeting a Spike site
+                                    or planted Spike to have Wingman defuse or
+                                    plant the Spike. To plant, Gekko must have
+                                    the Spike in his inventory. When Wingman
+                                    expires he reverts into a dormant globule.
+                                    INTERACT to reclaim the globule and gain
+                                    another Wingman charge after a short
+                                    cooldown.
+                                </p>
+                            </div>
+                            <div
+                                class="p-2 text-lg rounded-lg w-full bg-[#211E1F]"
+                                id="dizzy-desc-block"
+                            >
+                                <div
+                                    class="flex gap-1 items-center"
+                                    id="block-title"
+                                >
+                                    <img
+                                        src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ability2/displayicon.png"
+                                        alt="Dizzy image"
+                                        class="h-5"
+                                        id="title-image"
+                                    />
+                                    <p id="title-text">Dizzy</p>
+                                </div>
+                                <p class="font-light" id="desc-text">
+                                    EQUIP Dizzy. FIRE to send Dizzy soaring
+                                    forward through the air. Dizzy charges then
+                                    unleashes plasma blasts at enemies in line
+                                    of sight. Enemies hit by her plasma are
+                                    Blinded. When Dizzy expires she reverts into
+                                    a dormant globule. INTERACT to reclaim the
+                                    globule and gain another Dizzy charge after
+                                    a short cooldown.
+                                </p>
+                            </div>
+                            <div
+                                class="p-2 text-lg rounded-lg w-full bg-[#211E1F] gap-2"
+                                id="moshpit-desc-block"
+                            >
+                                <div
+                                    class="flex gap-1 items-center"
+                                    id="block-title"
+                                >
+                                    <img
+                                        src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/grenade/displayicon.png"
+                                        alt="Mosh Pit image"
+                                        class="h-5"
+                                        id="title-image"
+                                    />
+                                    <p id="title-text">Mosh Pit</p>
+                                </div>
+                                <p class="font-light" id="desc-text">
+                                    EQUIP Mosh. FIRE to throw Mosh like a
+                                    grenade. ALT FIRE to lob. Upon landing Mosh
+                                    duplicates across a large area that deals a
+                                    small amount of damage over time then after
+                                    a short delay explodes. INTERACT to reclaim
+                                    the globule and gain another Mosh charge
+                                    after a short cooldown.
+                                </p>
+                            </div>
+                            <div
+                                class="p-2 text-lg rounded-lg w-full bg-[#211E1F] gap-2"
+                                id="thrash-desc-block"
+                            >
+                                <div
+                                    class="flex gap-1 items-center"
+                                    id="block-title"
+                                >
+                                    <img
+                                        src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ultimate/displayicon.png"
+                                        alt="Thrash image"
+                                        class="h-5"
+                                        id="title-image"
+                                    />
+                                    <p id="title-text">Thrash</p>
+                                </div>
+                                <p class="font-light" id="desc-text">
+                                    EQUIP Thrash. FIRE to link with Thrash’s
+                                    mind and steer her through enemy territory.
+                                    ACTIVATE to lunge forward and explode,
+                                    Detaining any players in a small radius.
+                                    When Thrash expires she reverts into a
+                                    dormant globule. INTERACT to reclaim the
+                                    globule and gain another Thrash charge after
+                                    a short cooldown. Thrash can be reclaimed
+                                    once.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="bg-black/50 h-screen w-full fixed z-0"
+                id="background-popup"
+            ></div>
+        </div>
+
+        <header
+            class="flex items-center justify-center gap-6 w-full px-24 py-2 bg-[#111111] border-b-2 border-[#333333] text-lg md:justify-start lg:text-xl lg:px-49"
+        >
+            <img
+                src="/assets/asgard-CgqbrZxk.svg"
+                alt="Asgard logo"
+                class="h-5"
+                id="asgard-logo"
+            />
+            <div class="flex gap-2" id="nav-buttons">
+                <a
+                    href="/index.html"
+                    class="rounded-lg px-4 py-2 hover:bg-[#292727]"
+                    id="weapons-button"
+                    >Weapons</a
+                >
+                <a
+                    href="/src/pages/skins/index.html"
+                    class="rounded-lg px-4 py-2 hover:bg-[#292727]"
+                    id="skins-button"
+                    >Skins</a
+                >
+                <a
+                    href="#"
+                    class="rounded-lg px-4 py-2 pointer-events-none text-[#FF4248]"
+                    id="agents-button"
+                    >Agents</a
+                >
+            </div>
+        </header>
+
+        <main
+            class="flex flex-col items-center justify-center gap-5 px-24 w-full lg:px-49"
+        >
+            <input
+                type="text"
+                class="rounded-lg px-4 py-2 w-full bg-[#292727] font-light focus:bg-[#211E1F] focus:outline-none border-2 border-[#292727] text-lg lg:text-xl"
+                id="agent-search-box"
+                placeholder="Type agent name here..."
+            />
+            <div class="flex flex-col gap-1 w-full" id="initiator-block">
+                <div class="flex items-center gap-1" id="title">
+                    <img
+                        src="https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png"
+                        alt="Initiator image"
+                        class="h-4 lg:h-5"
+                        id="role-image"
+                    />
+                    <p class="font-light lg:text-lg" id="role-name">
+                        Initiator
+                    </p>
+                </div>
+                <div
+                    class="grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
+                    id="cards-wrapper"
+                >
+                    <div
+                        class="rounded-lg overflow-hidden cursor-pointer hover:outline-2 hover:outline-[#FF4248]"
+                        id="card"
+                    >
+                        <div
+                            class="flex flex-col justify-center items-center h-37 pt-8 bg-[#211E1F] ease-out duration-100"
+                            id="portrait-wrapper"
+                        >
+                            <img
+                                src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/displayicon.png"
+                                alt="Gekko portrait"
+                                class="max-h-full max-w-full"
+                                id="agent-portrait"
+                            />
+                        </div>
+                        <p
+                            class="bg-[#292727] px-4 py-2 text-lg lg:text-xl"
+                            id="title"
+                        >
+                            Gekko
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer
+            class="flex justify-between items-center bg-[#111111] border-t-2 border-[#333333] px-24 py-2 w-full mt-auto text-lg font-light lg:px-49"
+        >
+            <p class="" id="footer-text">
+                Data provided by
+                <a
+                    href="https://valorant-api.com"
+                    class="text-[#FF4248] hover:underline"
+                    >valorant-api.com</a
+                >
+            </p>
+
+            <div class="flex gap-2" id="footer-buttons">
+                <a
+                    href="https://github.com/Legionidk/vskins"
+                    id="github-button"
+                    target="_blank"
+                >
+                    <img
+                        src="data:image/svg+xml,%3csvg%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M12%200C10.4241%200%208.86371%200.310389%207.4078%200.913446C5.95189%201.5165%204.62902%202.40042%203.51472%203.51472C1.26428%205.76515%200%208.8174%200%2012C0%2017.304%203.444%2021.804%208.208%2023.4C8.808%2023.496%209%2023.124%209%2022.8V20.772C5.676%2021.492%204.968%2019.164%204.968%2019.164C4.416%2017.772%203.636%2017.4%203.636%2017.4C2.544%2016.656%203.72%2016.68%203.72%2016.68C4.92%2016.764%205.556%2017.916%205.556%2017.916C6.6%2019.74%208.364%2019.2%209.048%2018.912C9.156%2018.132%209.468%2017.604%209.804%2017.304C7.14%2017.004%204.344%2015.972%204.344%2011.4C4.344%2010.068%204.8%209%205.58%208.148C5.46%207.848%205.04%206.6%205.7%204.98C5.7%204.98%206.708%204.656%209%206.204C9.948%205.94%2010.98%205.808%2012%205.808C13.02%205.808%2014.052%205.94%2015%206.204C17.292%204.656%2018.3%204.98%2018.3%204.98C18.96%206.6%2018.54%207.848%2018.42%208.148C19.2%209%2019.656%2010.068%2019.656%2011.4C19.656%2015.984%2016.848%2016.992%2014.172%2017.292C14.604%2017.664%2015%2018.396%2015%2019.512V22.8C15%2023.124%2015.192%2023.508%2015.804%2023.4C20.568%2021.792%2024%2017.304%2024%2012C24%2010.4241%2023.6896%208.8637%2023.0866%207.4078C22.4835%205.95189%2021.5996%204.62902%2020.4853%203.51472C19.371%202.40042%2018.0481%201.5165%2016.5922%200.913446C15.1363%200.310389%2013.5759%200%2012%200Z'%20fill='%23FDFDFD'/%3e%3c/svg%3e"
+                        alt="Github logo"
+                        class="rounded-lg p-2 hover:bg-[#292727]"
+                        id="github-logo"
+                    />
+                </a>
+                <a href="#" id="yo-button">
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAABDZJREFUeAGtVV1oHFUUPvfe+Z/szubfJNo2TQ15lpYKplYQfBBEUCqICPqgKCLFnz74YnwUhb5oH7Tqi75WxJ8X0QcFgyIqQm39iTUxaZLdZDczs7szszNz7/XM7Oav1W6KPbDMmZlzz3fO9505S6CLSQnE/XTiUV1TnfKl+U/Gn47m4UbapTfMZ9Nvj0n5833S/+xQbe6Mfuh6ztNuAa0miaSQAMwEe2hfr6ZZ78F1WFcAUNlXadREhwDVbNBM9aicAQX2aF0BtEQp8zhCD7sABqquahcVfRz2aF0BEsKElKIDwFF0CcxG50YBKEa0X9H13JcihTROgkmvNQ97tK5cWn3aPapZzLJD0qxB6EXlylTpkY1z2hBIdouAFHjMZweV2jny0NWdkWslv/zWiGUPq784+249IJIYIrcCDIVmZgGoauSHeRJA7NWgFQRzPIleHzixcpaQnM/uACsf9L3Wv//gKbU4hJFIE54EkjXdOY8XwUMQUR0EvhetAMKN8p8BXz168wP1ahbynxosvdv7VOmmsVNqYRiHx8JIdXfyDkKWvFWvgUhx0qgChjMwofPiyc2IXIPG55MvRG7j5TROQ+Tzsmrq3BkbO6I5WXK906jcnRynKdMlDX1Y+XURJFmGYp8BmmVC0w0XtiiS3907KZXWRYSnOQUyK9TIqwFCdxa7Tars3AgBPET+Gx64aw1YW/DBd+N37nzVfWIb4PyDz2C2N+FfTXYSy6uf5wAxAvjAcZVIqSJNLUgaNa9WWTkw/rjrtjUgbKBd1s7fZvL2x4WZ0MerTNt+DiAyhYGjsN7SX0jVRh6jmD0OS+H4Dg3wkKRXVC13JBXbFWcUZnNB2NY7juO7/Hsdn9WhOGhhF3xd1ls/bAMkgZ9znWuIqwCrItl9pkGWhMed8WRtTSjbrgVjtEIvTE5b0Kyuw+IfvgDZevi2l8KlLYC06V2glOSJeRrn1TKmAdGMvBGCndAsKZEd0WXbR3ARByCSBBS7BAWzD6YGXNooLz4P4H2xBeCu1WZVEtQJpQUeJ9hiisXi1jRMLFAHRVVxH1noK216aJp3mAkaeVUoz62CZltgOjY2xyAOW5Wd45ArunjWmiGMviJSCXEkAeFAtxnONVJg6qCaBgIgkKbjqsAVgR1RpkC2ZUOvAZW/ffDKfkbnT77H7z9+OlzcBTB7GkzDL3yN3R6uVklQduX3mko+HOmHO4qOmDZsMmrZGagCdsnG7owcSDGwat3OO+Mcv2qOGvJ4TibRN8H6ytv9J5Znt3YR/kvR9y84d1UT8uNzH7VneNPOzwz2LK0mEzwVI6j1EcOWtw8O0ylnyDhYGu7BLttAVC/iR2oihahcWAV34beT11x23ezjxwpTQ6PybqeXTktCj2k6HevBdWGWSggiwa+UX/xfAFfal086E4wlk8jcYS5JMNrTPPMPLtPjRkQvoTMAAAAASUVORK5CYII="
+                        alt="yo image"
+                        class="rounded-lg p-2 hover:bg-[#292727]"
+                        id="github-logo"
+                    />
+                </a>
+            </div>
+        </footer>
+
+    </body>
+</html>
