@@ -1,0 +1,20 @@
+document.body.addEventListener("click", (e) => {
+    if (e.target.closest("#card") !== null) {
+        document.body
+            .querySelectorAll("#popup-container")[1]
+            .classList.remove("hidden");
+        return;
+    }
+
+    if (e.target.closest("#yo-button") !== null) {
+        document.body
+            .querySelectorAll("#popup-container")[0]
+            .classList.remove("hidden");
+        return;
+    }
+
+    if (e.target.closest("#background-popup") !== null) {
+        e.target.closest("#popup-container").classList.add("hidden");
+        return;
+    }
+});

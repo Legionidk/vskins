@@ -3,10 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="/src/style.css" rel="stylesheet" />
+        <link href="style.css" rel="stylesheet" />
     </head>
     <body
-        class="flex flex-col items-center gap-5 min-h-screen bg-[url(img/background.png)] bg-cover bg-no-repeat font-[Oswald] text-[#FDFDFD]"
+        class="flex flex-col items-center gap-5 min-h-screen bg-[url(/src/assets/img/background.png)] bg-cover bg-no-repeat font-[Oswald] text-[#FDFDFD]"
     >
         <div
             class="hidden flex justify-center items-center fixed w-full min-h-screen top-0"
@@ -14,7 +14,7 @@
         >
             <div class="rounded-2xl bg-[#211E1F] z-1 w-80 p-2" id="popup">
                 <img
-                    src="img/rigby.jpg"
+                    src="/src/assets/img/rigby.jpg"
                     alt="Rigby image"
                     class="rounded-lg"
                     id="cat-img"
@@ -234,20 +234,20 @@
             class="flex items-center justify-center gap-6 w-full px-24 py-2 bg-[#111111] border-b-2 border-[#333333] text-lg md:justify-start lg:text-xl lg:px-49"
         >
             <img
-                src="/src/img/asgard.svg"
+                src="/src/assets/img/asgard.svg"
                 alt="Asgard logo"
                 class="h-5"
                 id="asgard-logo"
             />
             <div class="flex gap-2" id="nav-buttons">
                 <a
-                    href="../index.html"
+                    href="../../../index.html"
                     class="rounded-lg px-4 py-2 hover:bg-[#292727]"
                     id="weapons-button"
                     >Weapons</a
                 >
                 <a
-                    href="skins.html"
+                    href="../skins/index.html"
                     class="rounded-lg px-4 py-2 hover:bg-[#292727]"
                     id="skins-button"
                     >Skins</a
@@ -331,7 +331,7 @@
                     target="_blank"
                 >
                     <img
-                        src="/src/img/github.svg"
+                        src="/src/assets/img/github.svg"
                         alt="Github logo"
                         class="rounded-lg p-2 hover:bg-[#292727]"
                         id="github-logo"
@@ -339,7 +339,7 @@
                 </a>
                 <a href="#" id="yo-button">
                     <img
-                        src="/src/img/yo.png"
+                        src="/src/assets/img/yo.png"
                         alt="yo image"
                         class="rounded-lg p-2 hover:bg-[#292727]"
                         id="github-logo"
@@ -348,6 +348,6 @@
             </div>
         </footer>
 
-        <script type="module" src="js/events.js"></script>
+        <script type="module" src="main.js"></script>
     </body>
 </html>
