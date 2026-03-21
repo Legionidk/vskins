@@ -7,7 +7,7 @@
         <link href="style.css" rel="stylesheet" />
     </head>
     <body
-        class="flex flex-col items-center gap-5 min-h-screen bg-[url(src/assets/img/background.png)] bg-cover bg-no-repeat font-[Oswald] text-[#FDFDFD]"
+        class="flex flex-col items-center gap-5 min-h-screen bg-[#111111] bg-[url(src/assets/img/background.png)] bg-cover bg-no-repeat font-[Oswald] text-[#FDFDFD]"
     >
         <div
             class="hidden flex justify-center items-center fixed w-full min-h-screen top-0"
@@ -39,21 +39,18 @@
                     class="flex items-center justify-between w-full px-4 py-2 text-xl lg:text-2xl"
                     id="title"
                 >
-                    <p id="weapon-name">Classic</p>
-                    <p class="text-[#FDFDFD]/75 font-light" id="weapon-type">
-                        Sidearm
-                    </p>
+                    <p id="weapon-name"></p>
+                    <p
+                        class="text-[#FDFDFD]/75 font-light"
+                        id="weapon-category"
+                    ></p>
                 </div>
 
                 <div
                     class="h-75 bg-[#211E1F] flex justify-center items-center"
                     id="img-wrapper"
                 >
-                    <img
-                        src="https://media.valorant-api.com/weapons/29a0cfab-485b-f5d5-779a-b59f85e204a8/displayicon.png"
-                        alt="Classic"
-                        id="weapon-image"
-                    />
+                    <img src="" alt="Weapon image" id="weapon-image" />
                 </div>
 
                 <div
@@ -62,26 +59,24 @@
                 >
                     <div
                         class="py-1 bg-[#211E1F] rounded-lg flex justify-center w-full col-span-3 font-light text-lg lg:text-xl"
-                        id="weapon-cost"
-                    >
-                        Cost: 0
-                    </div>
+                        id="weapon-cost-block"
+                    ></div>
 
                     <div
                         class="bg-[#211E1F] rounded-lg w-full border-2 border-[#211E1F] overflow-hidden"
                         id="fire-rate-block"
                     >
-                        <div
+                        <p
                             class="font-light text-lg flex justify-center py-1 lg:text-xl"
                             id="block-title"
                         >
                             Fire rate
-                        </div>
+                        </p>
                         <div
                             class="font-light text-lg flex flex-col justify-center items-center py-4 bg-[#292727] lg:text-xl lg:flex-row lg:gap-2"
                             id="block-info"
                         >
-                            <p class="text-xl lg:text-2xl">6.75</p>
+                            <p class="text-xl lg:text-2xl" id="value"></p>
                             <p
                                 class="text-lg lg:text:xl font-light text-[#FDFDFD]/75"
                             >
@@ -92,19 +87,19 @@
 
                     <div
                         class="bg-[#211E1F] rounded-lg w-full border-2 border-[#211E1F] overflow-hidden"
-                        id="1st-shot-block"
+                        id="first-shot-block"
                     >
-                        <div
+                        <p
                             class="font-light text-lg flex justify-center py-1 lg:text-xl"
                             id="block-title"
                         >
                             1st shot spread
-                        </div>
+                        </p>
                         <div
                             class="font-light text-lg flex flex-col items-center justify-center py-4 bg-[#292727] lg:flex-row lg:gap-2"
                             id="block-info"
                         >
-                            <p class="text-xl lg:text-2xl">0.4</p>
+                            <p class="text-xl lg:text-2xl" id="value"></p>
                             <p
                                 class="text-lg lg:text-xl font-light text-[#FDFDFD]/75"
                             >
@@ -117,17 +112,17 @@
                         class="bg-[#211E1F] rounded-lg w-full border-2 border-[#211E1F] overflow-hidden"
                         id="magazine-block"
                     >
-                        <div
+                        <p
                             class="font-light text-lg flex justify-center py-1 lg:text-xl"
                             id="block-title"
                         >
                             Magazine
-                        </div>
+                        </p>
                         <div
                             class="font-light text-lg flex flex-col items-center justify-center py-4 bg-[#292727] lg:flex-row lg:gap-2"
                             id="block-info"
                         >
-                            <p class="text-xl lg:text-2xl">12</p>
+                            <p class="text-xl lg:text-2xl" id="value"></p>
                             <p
                                 class="text-lg lg:text-xl font-light text-[#FDFDFD]/75"
                             >
@@ -138,19 +133,19 @@
 
                     <div
                         class="bg-[#211E1F] rounded-lg w-full border-2 border-[#211E1F] overflow-hidden"
-                        id="reload-block"
+                        id="reload-speed-block"
                     >
-                        <div
+                        <p
                             class="font-light text-lg flex justify-center py-1 lg:text-xl"
                             id="block-title"
                         >
                             Reload speed
-                        </div>
+                        </p>
                         <div
                             class="font-light text-lg flex flex-col items-center justify-center py-4 bg-[#292727] lg:flex-row lg:gap-2"
                             id="block-info"
                         >
-                            <p class="text-xl lg:text-2xl">1.75</p>
+                            <p class="text-xl lg:text-2xl" id="value"></p>
                             <p
                                 class="text-lg lg:text-xl font-light text-[#FDFDFD]/75"
                             >
@@ -161,19 +156,19 @@
 
                     <div
                         class="bg-[#211E1F] rounded-lg w-full border-2 border-[#211E1F] overflow-hidden"
-                        id="equip-block"
+                        id="equip-speed-block"
                     >
-                        <div
+                        <p
                             class="font-light text-lg flex justify-center py-1 lg:text-xl"
                             id="block-title"
                         >
                             Equip speed
-                        </div>
+                        </p>
                         <div
                             class="font-light text-lg flex flex-col items-center justify-center py-4 bg-[#292727] lg:flex-row lg:gap-2"
                             id="block-info"
                         >
-                            <p class="text-xl lg:text-2xl">0.75</p>
+                            <p class="text-xl lg:text-2xl" id="value"></p>
                             <p
                                 class="text-lg lg:text-xl font-light text-[#FDFDFD]/75"
                             >
@@ -186,17 +181,17 @@
                         class="bg-[#211E1F] rounded-lg w-full border-2 border-[#211E1F] overflow-hidden"
                         id="run-speed-block"
                     >
-                        <div
+                        <p
                             class="font-light text-lg flex justify-center py-1 lg:text-xl"
                             id="block-title"
                         >
                             Run speed mult
-                        </div>
+                        </p>
                         <div
                             class="font-light text-lg flex flex-col items-center justify-center py-4 bg-[#292727] lg:flex-row lg:gap-2"
                             id="block-info"
                         >
-                            <p class="text-xl lg:text-2xl">0.85</p>
+                            <p class="text-xl lg:text-2xl" id="value"></p>
                             <p
                                 class="text-lg lg:text-xl font-light text-[#FDFDFD]/75"
                             >
@@ -313,8 +308,13 @@
             </div>
         </header>
 
+        <div
+            class="rounded-[50%] border-4 border-[#292727] border-b-[#FF4248] animate-spin h-10 w-10"
+            id="load-spinner"
+        ></div>
+
         <main
-            class="flex flex-col items-center justify-center gap-5 px-24 w-full lg:px-49"
+            class="hidden flex flex-col items-center justify-center gap-5 px-24 w-full lg:px-49"
         >
             <input
                 type="text"

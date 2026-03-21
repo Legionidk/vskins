@@ -34,7 +34,7 @@ export function getWeapons() {
                                       weapon.weaponStats.reloadTimeSeconds,
                                   equipSpeed:
                                       weapon.weaponStats.equipTimeSeconds,
-                                  runSpeedMult:
+                                  runSpeedMultiplier:
                                       weapon.weaponStats.runSpeedMultiplier,
                                   damage: weapon.weaponStats.damageRanges,
                               },
