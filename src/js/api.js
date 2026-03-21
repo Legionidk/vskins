@@ -9,7 +9,7 @@ export function getWeapons() {
         })
         .then((data) => {
             const weaponsData = {};
-            data.data.forEach((weapon) => {
+            for (const weapon of data.data) {
                 weaponsData[weapon.uuid] = {
                     name: weapon.displayName,
                     image: weapon.displayIcon,
@@ -39,7 +39,7 @@ export function getWeapons() {
                                   damage: weapon.weaponStats.damageRanges,
                               },
                 };
-            });
+            }
 
             return weaponsData;
         });
