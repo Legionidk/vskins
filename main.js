@@ -22,6 +22,35 @@ weaponsData.then((data) => {
     }
 });
 
+document.body
+    .querySelector("#weapon-search-box")
+    .addEventListener("input", (e) => {
+        const cards = document.body.querySelectorAll("#card");
+        const searchString = e.target.value.toLowerCase();
+        const searchResults = [];
+
+        for (const card of cards) {
+            if (searchString === "") {
+                card.closest("#category").classList.remove("hidden");
+                card.classList.remove("hidden");
+                continue;
+            }
+
+            if (!card.getAttribute("data-weapon-name").includes(searchString)) {
+                card.closest("#category").classList.add("hidden");
+                card.classList.add("hidden");
+                continue;
+            }
+
+            searchResults.push(card);
+        }
+
+        for (card of searchResults) {
+            card.classList.remove("hidden");
+            card.closest("#category").classList.remove("hidden");
+        }
+    });
+
 document.body.addEventListener("click", (e) => {
     if (e.target.closest("#card") !== null) {
         document.body

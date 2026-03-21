@@ -33,6 +33,7 @@ export function createWeaponCard(weaponUuid, weaponData) {
 
     card.id = "card";
     card.dataset.weaponUuid = weaponUuid;
+    card.dataset.weaponName = weaponData.name.toLowerCase();
     imgWrapper.id = "img-wrapper";
     img.id = "weapon-img";
     title.id = "title";
