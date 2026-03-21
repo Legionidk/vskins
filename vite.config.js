@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-    base: "/vskins",
+    base: "/vskins/",
     plugins: [tailwindcss()],
     build: {
         rollupOptions: {
