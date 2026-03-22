@@ -108,6 +108,55 @@ document.body.addEventListener("click", (e) => {
                 runSpeedParagraph.textContent =
                     weaponData.stats.runSpeedMultiplier;
 
+                for (const damageInfo of weaponData.stats.damage) {
+                    const damageRangeTr =
+                        document.body.querySelector("#damage-range-tr");
+                    const damageHeadTr =
+                        document.body.querySelector("#damage-head-tr");
+                    const damageBodyTr =
+                        document.body.querySelector("#damage-body-tr");
+                    const damageLegsTr =
+                        document.body.querySelector("#damage-legs-tr");
+
+                    const rangeTd = document.createElement("td");
+                    const headTd = document.createElement("td");
+                    const bodyTd = document.createElement("td");
+                    const legsTd = document.createElement("td");
+
+                    rangeTd.classList.add(
+                        "border-b-2",
+                        "border-[#211E1F]",
+                        "py-1",
+                    );
+                    headTd.classList.add(
+                        "text-base",
+                        "lg:text-lg",
+                        "font-light",
+                        "border-b-2",
+                        "border-[#211E1F]",
+                        "py-1",
+                    );
+                    bodyTd.classList.add(
+                        "text-base",
+                        "lg:text-lg",
+                        "font-light",
+                        "border-b-2",
+                        "border-[#211E1F]",
+                        "py-1",
+                    );
+                    legsTd.classList.add("text-base", "font-light", "py-1");
+
+                    rangeTd.textContent = `${damageInfo.rangeStartMeters}-${damageInfo.rangeEndMeters}m`;
+                    headTd.textContent = damageInfo.headDamage;
+                    bodyTd.textContent = damageInfo.bodyDamage;
+                    legsTd.textContent = damageInfo.legDamage;
+
+                    damageRangeTr.append(rangeTd);
+                    damageHeadTr.append(headTd);
+                    damageBodyTr.append(bodyTd);
+                    damageLegsTr.append(legsTd);
+                }
+
                 return;
             }
 
@@ -134,6 +183,17 @@ document.body.addEventListener("click", (e) => {
         document.body
             .querySelector("#weapon-info-wrapper")
             .classList.remove("hidden");
+
+        const table = document.querySelector("table");
+        const rows = table.rows;
+
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
+            while (row.cells.length > 1) {
+                row.deleteCell(-1);
+            }
+        }
+
         return;
     }
 });
