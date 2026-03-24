@@ -1,11 +1,11 @@
-import { createCategory, createWeaponCard } from "./src/js/dom";
-import { getWeapons } from "./src/js/api";
+import { createCategory, createWeaponCard } from "./src/assets/js/dom";
+import { getWeapons } from "./src/assets/js/api";
 
 const weaponsData = getWeapons();
 
 weaponsData.then((data) => {
     for (const [uuid, weaponData] of Object.entries(data)) {
-        let category = document.body.querySelector(
+        let category = document.querySelector(
             `div[data-category-uuid="${weaponData.categoryId}"]`,
         );
         if (category === null) {
@@ -13,7 +13,7 @@ weaponsData.then((data) => {
                 weaponData.categoryText,
                 weaponData.categoryId,
             );
-            document.body.querySelector("main").append(category);
+            document.querySelector("main").append(category);
         }
 
         category
@@ -21,179 +21,85 @@ weaponsData.then((data) => {
             .append(createWeaponCard(uuid, weaponData));
     }
 
-    document.body.querySelector("#load-spinner").classList.add("hidden");
-    document.body.querySelector("main").classList.remove("hidden");
+    document.querySelector("#load-spinner").classList.add("hidden");
+    document.querySelector("main").classList.remove("hidden");
 });
 
-document.body
-    .querySelector("#weapon-search-box")
-    .addEventListener("input", (e) => {
-        const cards = document.body.querySelectorAll("#card");
-        const searchString = e.target.value.toLowerCase();
-        const searchResults = [];
-
-        for (const card of cards) {
-            if (searchString === "") {
-                card.closest("#category").classList.remove("hidden");
-                card.classList.remove("hidden");
-                continue;
-            }
-
-            if (!card.getAttribute("data-weapon-name").includes(searchString)) {
-                card.closest("#category").classList.add("hidden");
-                card.classList.add("hidden");
-                continue;
-            }
-
-            searchResults.push(card);
-        }
-
-        for (card of searchResults) {
-            card.classList.remove("hidden");
-            card.closest("#category").classList.remove("hidden");
-        }
-    });
-
-document.body.addEventListener("click", (e) => {
+document.querySelector("main").addEventListener("click", (e) => {
     if (e.target.closest("#card") !== null) {
+        const weaponUuid = e.target.closest("#card").dataset.weaponUuid;
+        const popup = document.querySelector(
+            "#popup-container[data-popup-type=weapon]",
+        );
+
         weaponsData.then((data) => {
-            const weaponUuid = e.target
-                .closest("#card")
-                .getAttribute("data-weapon-uuid");
             const weaponData = data[weaponUuid];
 
-            document.body.querySelector("#weapon-name").textContent =
-                weaponData.name;
-            document.body.querySelector("#weapon-category").textContent =
+            // title
+            popup.querySelector("#weapon-name").textContent = weaponData.name;
+            popup.querySelector("#weapon-category").textContent =
                 weaponData.categoryText;
-            document.body.querySelector("#weapon-cost-block").textContent =
-                `Cost: ${weaponData.cost}`;
-            document.body.querySelector("#weapon-image").src = weaponData.image;
-            document.body.querySelector("#weapon-image").alt =
+
+            // weapon image
+            popup.querySelector("#weapon-image").src = weaponData.image;
+            popup.querySelector("#weapon-image").alt =
                 `${weaponData.name} image`;
 
-            if (weaponData.name !== "Melee") {
-                const fireRateParagraph = document.body.querySelector(
-                    "#fire-rate-block #block-info #value",
-                );
-                const firstShotParagraph = document.body.querySelector(
-                    "#first-shot-block #block-info #value",
-                );
-                const magazineParagraph = document.body.querySelector(
-                    "#magazine-block #block-info #value",
-                );
-                const reloadSpeedParagraph = document.body.querySelector(
-                    "#reload-speed-block #block-info #value",
-                );
-                const equipSpeedParagraph = document.body.querySelector(
-                    "#equip-speed-block #block-info #value",
-                );
-                const runSpeedParagraph = document.body.querySelector(
-                    "#run-speed-block #block-info #value",
-                );
+            // weapon info
+            popup.querySelector("#weapon-info-wrapper").hidden =
+                weaponData.stats === null;
 
-                document.body.querySelector("#weapon-name").textContent =
-                    weaponData.name;
-                document.body.querySelector("#weapon-category").textContent =
-                    weaponData.categoryText;
-                document.body.querySelector("#weapon-cost-block").textContent =
-                    `Cost: ${weaponData.cost}`;
+            if (weaponData.name === "Melee") return;
 
-                fireRateParagraph.textContent = weaponData.stats.fireRate;
-                firstShotParagraph.textContent =
-                    weaponData.stats.firstShotSpread;
-                magazineParagraph.textContent = weaponData.stats.magazine;
-                reloadSpeedParagraph.textContent = weaponData.stats.reloadSpeed;
-                equipSpeedParagraph.textContent = weaponData.stats.equipSpeed;
-                runSpeedParagraph.textContent =
-                    weaponData.stats.runSpeedMultiplier;
+            popup.querySelector("#weapon-cost-block ").textContent =
+                `Cost: ${weaponData.cost}`;
+            popup.querySelector("#fire-rate-block #value").textContent =
+                weaponData.stats.fireRate;
+            popup.querySelector("#first-shot-block #value").textContent =
+                weaponData.stats.firstShotSpread;
+            popup.querySelector("#magazine-block #value").textContent =
+                weaponData.stats.magazine;
+            popup.querySelector("#reload-speed-block #value").textContent =
+                weaponData.stats.reloadSpeed;
+            popup.querySelector("#equip-speed-block #value").textContent =
+                weaponData.stats.equipSpeed;
+            popup.querySelector("#run-speed-block #value").textContent =
+                weaponData.stats.runSpeedMultiplier;
 
-                for (const damageInfo of weaponData.stats.damage) {
-                    const damageRangeTr =
-                        document.body.querySelector("#damage-range-tr");
-                    const damageHeadTr =
-                        document.body.querySelector("#damage-head-tr");
-                    const damageBodyTr =
-                        document.body.querySelector("#damage-body-tr");
-                    const damageLegsTr =
-                        document.body.querySelector("#damage-legs-tr");
-
-                    const rangeTd = document.createElement("td");
-                    const headTd = document.createElement("td");
-                    const bodyTd = document.createElement("td");
-                    const legsTd = document.createElement("td");
-
-                    rangeTd.classList.add(
-                        "border-b-2",
-                        "border-[#211E1F]",
-                        "py-1",
-                    );
-                    headTd.classList.add(
-                        "text-base",
-                        "lg:text-lg",
-                        "font-light",
-                        "border-b-2",
-                        "border-[#211E1F]",
-                        "py-1",
-                    );
-                    bodyTd.classList.add(
-                        "text-base",
-                        "lg:text-lg",
-                        "font-light",
-                        "border-b-2",
-                        "border-[#211E1F]",
-                        "py-1",
-                    );
-                    legsTd.classList.add("text-base", "font-light", "py-1");
-
-                    rangeTd.textContent = `${damageInfo.rangeStartMeters}-${damageInfo.rangeEndMeters}m`;
-                    headTd.textContent = damageInfo.headDamage;
-                    bodyTd.textContent = damageInfo.bodyDamage;
-                    legsTd.textContent = damageInfo.legDamage;
-
-                    damageRangeTr.append(rangeTd);
-                    damageHeadTr.append(headTd);
-                    damageBodyTr.append(bodyTd);
-                    damageLegsTr.append(legsTd);
+            // damage table
+            for (const row of document.querySelector("#damage-table").rows) {
+                while (row.cells.length !== 1) {
+                    row.deleteCell(-1);
                 }
-
-                return;
             }
 
-            document.body
-                .querySelector("#weapon-info-wrapper")
-                .classList.add("hidden");
+            for (const damageInfo of weaponData.stats.damage) {
+                const rangeTd = document.createElement("td");
+                rangeTd.classList.add(
+                    "border-b-2",
+                    "border-[#211E1F]",
+                    "py-[5px]",
+                );
+
+                const headTd = rangeTd.cloneNode();
+                headTd.classList.add("text-[#FDFDFD]/75", "font-light");
+
+                const bodyTd = headTd.cloneNode();
+                const legsTd = headTd.cloneNode();
+                legsTd.classList.remove("border-b-2", "border-[#211E1F]");
+
+                rangeTd.textContent = `${damageInfo.rangeStartMeters}-${damageInfo.rangeEndMeters}m`;
+                headTd.textContent = damageInfo.headDamage;
+                bodyTd.textContent = damageInfo.bodyDamage;
+                legsTd.textContent = damageInfo.legDamage;
+
+                document.querySelector("#damage-range-tr").append(rangeTd);
+                document.querySelector("#damage-head-tr").append(headTd);
+                document.querySelector("#damage-body-tr").append(bodyTd);
+                document.querySelector("#damage-legs-tr").append(legsTd);
+            }
         });
 
-        document.body
-            .querySelectorAll("#popup-container")[1]
-            .classList.remove("hidden");
-        return;
-    }
-
-    if (e.target.closest("#yo-button") !== null) {
-        document.body
-            .querySelectorAll("#popup-container")[0]
-            .classList.remove("hidden");
-        return;
-    }
-
-    if (e.target.closest("#background-popup") !== null) {
-        e.target.closest("#popup-container").classList.add("hidden");
-        document.body
-            .querySelector("#weapon-info-wrapper")
-            .classList.remove("hidden");
-
-        const table = document.querySelector("table");
-        const rows = table.rows;
-
-        for (let i = 1; i < rows.length; i++) {
-            const row = rows[i];
-            while (row.cells.length > 1) {
-                row.deleteCell(-1);
-            }
-        }
-
-        return;
+        popup.classList.remove("hidden");
     }
 });

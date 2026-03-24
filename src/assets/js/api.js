@@ -20,7 +20,7 @@ export function getWeapons() {
                             : weapon.shopData.categoryText,
                     cost:
                         weapon.displayName === "Melee"
-                            ? null
+                            ? 0
                             : weapon.shopData.cost,
                     stats:
                         weapon.displayName === "Melee"

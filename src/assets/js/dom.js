@@ -8,16 +8,9 @@ export function createCategory(name, id) {
     title.id = "title";
     cardsWrapper.id = "cards-wrapper";
 
-    category.classList.add("flex", "flex-col", "gap-1", "w-full");
-    title.classList.add("font-light", "lg:text-lg");
-    cardsWrapper.classList.add(
-        "grid",
-        "grid-cols-2",
-        "gap-2",
-        "md:grid-cols-3",
-        "xl:grid-cols-4",
-        "2xl:grid-cols-5",
-    );
+    category.classList.add("flex", "flex-col", "gap-[5px]", "w-full");
+    title.classList.add("font-light", "text-sm");
+    cardsWrapper.classList.add("grid", "grid-cols-1", "gap-[8px]");
 
     category.append(title, cardsWrapper);
     title.textContent = name;
@@ -39,7 +32,7 @@ export function createWeaponCard(weaponUuid, weaponData) {
     title.id = "title";
 
     card.classList.add(
-        "rounded-lg",
+        "rounded-[8px]",
         "overflow-hidden",
         "cursor-pointer",
         "hover:outline-2",
@@ -50,20 +43,14 @@ export function createWeaponCard(weaponUuid, weaponData) {
         "flex-col",
         "justify-center",
         "items-center",
-        "h-37",
-        "p-8",
+        "h-[150px]",
+        "p-[30px]",
         "bg-[#211E1F]",
         "ease-out",
         "duration-100",
     );
     img.classList.add("max-h-full", "max-w-full");
-    title.classList.add(
-        "bg-[#292727]",
-        "px-4",
-        "py-2",
-        "text-lg",
-        "lg:text-xl",
-    );
+    title.classList.add("bg-[#292727]", "px-[16px]", "py-[8px]");
 
     img.src = weaponData.image;
     img.alt = `${weaponData.name} image`;
@@ -73,4 +60,8 @@ export function createWeaponCard(weaponUuid, weaponData) {
     card.append(imgWrapper, title);
 
     return card;
+}
+
+export function updateWeaponPopup() {
+    return;
 }
