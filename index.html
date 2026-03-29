@@ -50,7 +50,7 @@
         </div>
 
         <div
-            class="hidden flex justify-center items-center fixed w-full min-h-screen top-0"
+            class="hidden flex justify-center items-center fixed w-full min-h-screen top-0 bg-black/50"
             id="popup-container"
             data-popup-type="rigby"
         >
@@ -62,24 +62,19 @@
                     id="cat-img"
                 />
             </div>
-
-            <div
-                class="bg-black/50 h-screen w-full fixed z-0"
-                id="popup-background"
-            ></div>
         </div>
 
         <div
-            class="hidden flex justify-center items-center fixed w-full min-h-screen"
+            class="hidden flex justify-center items fixed w-full min-h-screen max-h-screen bg-black/50 overflow-y-auto py-[75px]"
             id="popup-container"
             data-popup-type="weapon"
         >
             <div
-                class="rounded-[18px] bg-[#292727] w-[264px] z-1 overflow-hidden"
+                class="rounded-[18px] bg-[#292727] w-[260px] h-fit z-1 overflow-hidden m-auto sm:w-[540px] md:w-[668px] lg:w-[768px]"
                 id="popup"
             >
                 <div
-                    class="flex items-center justify-between w-full px-[16px] py-[8px] text-lg"
+                    class="flex items-center justify-between w-full px-[16px] py-[8px] text-lg xl:text-2xl"
                     id="title"
                 >
                     <p id="weapon-name"></p>
@@ -90,7 +85,7 @@
                 </div>
 
                 <div
-                    class="h-[150px] bg-[#211E1F] flex justify-center items-center px-[20px] py-[10px]"
+                    class="h-[150px] bg-[#211E1F] flex justify-center items-center px-[20px] py-[10px] xl:h-[300px] xl:px-[40px] xl:py-[20px]"
                     id="img-wrapper"
                 >
                     <img
@@ -102,11 +97,11 @@
                 </div>
 
                 <div
-                    class="grid grid-cols-2 p-[8px] gap-[8px]"
+                    class="grid grid-cols-2 p-[8px] gap-[8px] sm:grid-cols-3"
                     id="weapon-info-wrapper"
                 >
                     <div
-                        class="py-[5px] bg-[#211E1F] rounded-lg flex justify-center w-full col-span-2 font-light"
+                        class="py-[5px] bg-[#211E1F] rounded-[8px] flex justify-center w-full col-span-2 font-light sm:col-span-3 xl:text-xl"
                         id="weapon-cost-block"
                     ></div>
 
@@ -115,35 +110,35 @@
                         id="fire-rate-block"
                     >
                         <p
-                            class="font-light flex justify-center py-[5px]"
+                            class="font-light flex justify-center py-[5px] xl:text-xl"
                             id="block-title"
                         >
                             Fire rate
                         </p>
                         <div
-                            class="flex flex-col justify-center items-center py-4 bg-[#292727]"
+                            class="flex flex-col justify-center items-center py-4 bg-[#292727] sm:flex-row sm:gap-[8px]"
                             id="block-info"
                         >
-                            <p class="text-lg" id="value"></p>
+                            <p class="text-lg xl:text-2xl" id="value"></p>
                             <p class="font-light text-[#FDFDFD]/75">RDS/SEC</p>
                         </div>
                     </div>
 
                     <div
-                        class="bg-[#211E1F] rounded-lg w-full border-2 border-[#211E1F] overflow-hidden"
+                        class="bg-[#211E1F] rounded-[8px] w-full border-2 border-[#211E1F] overflow-hidden"
                         id="first-shot-block"
                     >
                         <p
-                            class="font-light flex justify-center py-[5px]"
+                            class="font-light flex justify-center py-[5px] xl:text-xl"
                             id="block-title"
                         >
                             1st shot spread
                         </p>
                         <div
-                            class="flex flex-col justify-center items-center py-4 bg-[#292727]"
+                            class="flex flex-col justify-center items-center py-4 bg-[#292727] sm:flex-row sm:gap-[8px]"
                             id="block-info"
                         >
-                            <p class="text-lg" id="value"></p>
+                            <p class="text-lg xl:text-2xl" id="value"></p>
                             <p class="font-light text-[#FDFDFD]/75">
                                 DEG (HIP/ADS)
                             </p>
@@ -151,89 +146,89 @@
                     </div>
 
                     <div
-                        class="bg-[#211E1F] rounded-lg w-full border-2 border-[#211E1F] overflow-hidden"
+                        class="bg-[#211E1F] rounded-[8px] w-full border-2 border-[#211E1F] overflow-hidden"
                         id="magazine-block"
                     >
                         <p
-                            class="font-light flex justify-center py-[5px]"
+                            class="font-light flex justify-center py-[5px] xl:text-xl"
                             id="block-title"
                         >
                             Magazine
                         </p>
                         <div
-                            class="flex flex-col justify-center items-center py-4 bg-[#292727]"
+                            class="flex flex-col justify-center items-center py-4 bg-[#292727] sm:flex-row sm:gap-[8px]"
                             id="block-info"
                         >
-                            <p class="text-lg" id="value"></p>
+                            <p class="text-lg xl:text-2xl" id="value"></p>
                             <p class="font-light text-[#FDFDFD]/75">RDS</p>
                         </div>
                     </div>
 
                     <div
-                        class="bg-[#211E1F] rounded-lg w-full border-2 border-[#211E1F] overflow-hidden"
+                        class="bg-[#211E1F] rounded-[8px] w-full border-2 border-[#211E1F] overflow-hidden"
                         id="reload-speed-block"
                     >
                         <p
-                            class="font-light flex justify-center py-[5px]"
+                            class="font-light flex justify-center py-[5px] xl:text-xl"
                             id="block-title"
                         >
                             Reload speed
                         </p>
                         <div
-                            class="flex flex-col justify-center items-center py-4 bg-[#292727]"
+                            class="flex flex-col justify-center items-center py-4 bg-[#292727] sm:flex-row sm:gap-[8px]"
                             id="block-info"
                         >
-                            <p class="text-lg" id="value"></p>
+                            <p class="text-lg xl:text-2xl" id="value"></p>
                             <p class="font-light text-[#FDFDFD]/75">SEC</p>
                         </div>
                     </div>
 
                     <div
-                        class="bg-[#211E1F] rounded-lg w-full border-2 border-[#211E1F] overflow-hidden"
+                        class="bg-[#211E1F] rounded-[8px] w-full border-2 border-[#211E1F] overflow-hidden"
                         id="equip-speed-block"
                     >
                         <p
-                            class="font-light flex justify-center py-[5px]"
+                            class="font-light flex justify-center py-[5px] xl:text-xl"
                             id="block-title"
                         >
                             Equip speed
                         </p>
                         <div
-                            class="flex flex-col justify-center items-center py-4 bg-[#292727]"
+                            class="flex flex-col justify-center items-center py-4 bg-[#292727] sm:flex-row sm:gap-[8px]"
                             id="block-info"
                         >
-                            <p class="text-lg" id="value"></p>
+                            <p class="text-lg xl:text-2xl" id="value"></p>
                             <p class="font-light text-[#FDFDFD]/75">SEC</p>
                         </div>
                     </div>
 
                     <div
-                        class="bg-[#211E1F] rounded-lg w-full border-2 border-[#211E1F] overflow-hidden"
+                        class="bg-[#211E1F] rounded-[8px] w-full border-2 border-[#211E1F] overflow-hidden"
                         id="run-speed-block"
                     >
                         <p
-                            class="font-light flex justify-center py-[5px]"
+                            class="font-light flex justify-center py-[5px] xl:text-xl"
                             id="block-title"
                         >
                             Run speed mult
                         </p>
                         <div
-                            class="flex flex-col justify-center items-center py-4 bg-[#292727]"
+                            class="flex flex-col justify-center items-center py-4 bg-[#292727] sm:flex-row sm:gap-[8px]"
                             id="block-info"
                         >
-                            <p class="text-lg" id="value"></p>
+                            <p class="text-lg xl:text-2xl" id="value"></p>
                             <p class="font-light text-[#FDFDFD]/75">M/SEC</p>
                         </div>
                     </div>
 
                     <!-- classes for this table is SHIT, need review -->
                     <table
-                        class="col-span-2 text-center border-2 border-[#211E1F] rounded-lg border-separate border-spacing-0"
+                        class="col-span-2 text-center border-2 border-[#211E1F] rounded-[8px] border-separate border-spacing-0 sm:col-span-3"
                         id="damage-table"
                     >
                         <thead class="bg-[#211E1F]">
                             <tr>
-                                <td class="font-light py-[5px]" colspan="9999">
+                                <td class="font-light py-[5px] xl:text-xl" colspan="9999">
                                     Damage
                                 </td>
                             </tr>
@@ -246,34 +241,31 @@
                             </tr>
                             <tr id="damage-head-tr">
                                 <td
-                                    class="text-sm border-b-2 border-[#211E1F] py-[5px]"
+                                    class="text-sm border-b-2 border-[#211E1F] py-[5px] sm:text-lg xl:text-2xl"
                                 >
                                     Head
                                 </td>
                             </tr>
                             <tr id="damage-body-tr">
                                 <td
-                                    class="text-sm border-b-2 border-[#211E1F] py-[5px]"
+                                    class="text-sm border-b-2 border-[#211E1F] py-[5px] sm:text-lg xl:text-2xl"
                                 >
                                     Body
                                 </td>
                             </tr>
                             <tr id="damage-legs-tr">
-                                <td class="text-sm py-[5px]">Legs</td>
+                                <td class="text-sm py-[5px] sm:text-lg xl:text-2xl">
+                                    Legs
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-
-            <div
-                class="bg-black/50 h-screen w-full fixed z-0"
-                id="popup-background"
-            ></div>
         </div>
 
         <header
-            class="flex items-center justify-between w-full h-[48px] px-[50px] py-[8px] bg-[#111111] border-b-2 border-[#333333]"
+            class="flex items-center justify-between gap-[25px] w-full h-[48px] px-[50px] py-[8px] bg-[#111111] border-b-2 border-[#333333] sm:justify-start sm:h-fit xl:px-[200px]"
         >
             <img
                 src="src/assets/img/asgard.svg"
@@ -282,10 +274,29 @@
                 id="asgard-logo"
             />
 
-            <i
-                class="fa-solid fa-align-right cursor-pointer"
-                id="burger-open-button"
-            ></i>
+            <div class="sm:hidden" id="burger-open-button">
+                <i class="fa-solid fa-align-right cursor-pointer inline"></i>
+            </div>
+
+            <div class="hidden flex gap-[10px] sm:flex" id="buttons">
+                <a
+                    class="pointer-events-none px-[16px] py-[8px] text-lg text-[#FF4248] xl:text-2xl"
+                    id="weapons-button"
+                    >Weapons</a
+                >
+                <a
+                    href="src/pages/skins/index.html"
+                    class="px-[16px] py-[8px] text-lg rounded-[8px] cursor-pointer hover:bg-[#292727] xl:text-2xl"
+                    id="weapons-button"
+                    >Skins</a
+                >
+                <a
+                    href="src/pages/agents/index.html"
+                    class="px-[16px] py-[8px] text-lg rounded-[8px] cursor-pointer hover:bg-[#292727] xl:text-2xl"
+                    id="weapons-button"
+                    >Agents</a
+                >
+            </div>
         </header>
 
         <div
@@ -294,18 +305,18 @@
         ></div>
 
         <main
-            class="hidden flex flex-col items-center justify-center gap-[20px] px-[50px] w-full"
+            class="hidden flex flex-col items-center justify-center gap-[20px] px-[50px] w-full xl:px-[200px]"
         >
             <input
                 type="text"
-                class="rounded-[8px] px-[16px] py-[8px] w-full bg-[#292727] font-light focus:bg-[#211E1F] focus:outline-none border-2 border-[#292727]"
+                class="rounded-[8px] px-[16px] py-[8px] w-full bg-[#292727] font-light focus:bg-[#211E1F] focus:outline-none border-2 border-[#292727] xl:text-xl"
                 id="search-box"
                 placeholder="Type weapon name here..."
             />
         </main>
 
         <footer
-            class="flex flex-col justify-center items-center bg-[#111111] border-t-2 border-[#333333] px-[50px] py-[8px] w-full text-lg font-light mt-auto"
+            class="flex flex-col justify-center items-center bg-[#111111] border-t-2 border-[#333333] px-[50px] py-[8px] w-full text-lg font-light mt-auto sm:flex-row sm:flex-row-reverse sm:justify-between xl:px-[200px]"
         >
             <div class="flex gap-2" id="footer-buttons">
                 <a
@@ -316,7 +327,7 @@
                     <img
                         src="src/assets/img/github.svg"
                         alt="Github logo"
-                        class="rounded-lg p-2 hover:bg-[#292727]"
+                        class="rounded-[8px] p-2 hover:bg-[#292727]"
                         id="github-logo"
                     />
                 </a>
@@ -324,13 +335,13 @@
                     <img
                         src="src/assets/img/yo.png"
                         alt="yo image"
-                        class="rounded-lg p-2 hover:bg-[#292727]"
+                        class="rounded-[8px] p-2 hover:bg-[#292727]"
                         id="github-logo"
                     />
                 </div>
             </div>
 
-            <p class="" id="footer-text">
+            <p class="text-lg xl:text-2xl" id="footer-text">
                 Data provided by
                 <a
                     href="https://valorant-api.com"

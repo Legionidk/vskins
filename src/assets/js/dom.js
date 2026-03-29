@@ -9,8 +9,8 @@ export function createCategory(name, id) {
     cardsWrapper.id = "cards-wrapper";
 
     category.classList.add("flex", "flex-col", "gap-[5px]", "w-full");
-    title.classList.add("font-light", "text-sm");
-    cardsWrapper.classList.add("grid", "grid-cols-1", "gap-[8px]");
+    title.classList.add("font-light", "text-sm", "xl:text-lg");
+    cardsWrapper.classList.add("grid", "grid-cols-1", "gap-[8px]", "sm:grid-cols-3", "lg:grid-cols-4");
 
     category.append(title, cardsWrapper);
     title.textContent = name;
@@ -50,7 +50,7 @@ export function createWeaponCard(weaponUuid, weaponData) {
         "duration-100",
     );
     img.classList.add("max-h-full", "max-w-full");
-    title.classList.add("bg-[#292727]", "px-[16px]", "py-[8px]");
+    title.classList.add("bg-[#292727]", "px-[16px]", "py-[8px]", "xl:text-xl");
 
     img.src = weaponData.image;
     img.alt = `${weaponData.name} image`;

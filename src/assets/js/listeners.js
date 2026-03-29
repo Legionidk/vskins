@@ -26,24 +26,28 @@ document.body.querySelector("#search-box").addEventListener("input", (e) => {
 });
 
 document.querySelector("#burger-open-button").addEventListener("click", () => {
+    document.body.classList.add("overflow-hidden");
     document
         .querySelector("#popup-container[data-popup-type=burger]")
         .classList.remove("hidden");
 });
 
 document.querySelector("#burger-close-button").addEventListener("click", () => {
+        document.body.classList.remove("overflow-hidden");
     document
         .querySelector("#popup-container[data-popup-type=burger]")
         .classList.add("hidden");
 });
 
 document.body.addEventListener("click", (e) => {
-    if (e.target.id === "popup-background") {
+    if (e.target.id === "popup-container") {
         e.target.closest("#popup-container").classList.add("hidden");
+        document.body.classList.remove("overflow-hidden");
         return;
     }
 
     if (e.target.closest("#yo-button") !== null) {
+        document.body.classList.add("overflow-hidden");
         document
             .querySelector("#popup-container[data-popup-type=rigby]")
             .classList.remove("hidden");

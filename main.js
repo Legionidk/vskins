@@ -79,19 +79,29 @@ document.querySelector("main").addEventListener("click", (e) => {
                     "border-b-2",
                     "border-[#211E1F]",
                     "py-[5px]",
+                    "sm:text-lg",
+                    "xl:text-2xl",
                 );
 
                 const headTd = rangeTd.cloneNode();
-                headTd.classList.add("text-[#FDFDFD]/75", "font-light");
+                headTd.classList.add(
+                    "text-[#FDFDFD]/75",
+                    "font-light",
+                    "sm:text-base", "xl:text-lg"
+                );
 
                 const bodyTd = headTd.cloneNode();
                 const legsTd = headTd.cloneNode();
-                legsTd.classList.remove("border-b-2", "border-[#211E1F]");
+                legsTd.classList.remove(
+                    "border-b-2",
+                    "border-[#211E1F]",
+                    "sm:text-base",
+                );
 
                 rangeTd.textContent = `${damageInfo.rangeStartMeters}-${damageInfo.rangeEndMeters}m`;
-                headTd.textContent = damageInfo.headDamage;
-                bodyTd.textContent = damageInfo.bodyDamage;
-                legsTd.textContent = damageInfo.legDamage;
+                headTd.textContent = ~~damageInfo.headDamage;
+                bodyTd.textContent = ~~damageInfo.bodyDamage;
+                legsTd.textContent = ~~damageInfo.legDamage;
 
                 document.querySelector("#damage-range-tr").append(rangeTd);
                 document.querySelector("#damage-head-tr").append(headTd);
@@ -100,6 +110,7 @@ document.querySelector("main").addEventListener("click", (e) => {
             }
         });
 
+        document.body.classList.add("overflow-hidden");
         popup.classList.remove("hidden");
     }
 });
