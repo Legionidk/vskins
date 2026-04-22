@@ -19,7 +19,7 @@ function NavButton({ text = "Button", href = "/", active = true }) {
 
 export default function Header() {
     const baseClasses =
-        "flex items-center justify-between gap-[25px] w-full h-[48px] px-[50px] py-[8px] bg-[#111111] border-b-2 border-[#333333]";
+        "flex items-center justify-between gap-[25px] w-full h-[48px] px-[50px] py-[10px] bg-[#111111] border-b-2 border-[#333333]";
     const responsiveClasses = "sm:justify-start sm:h-fit xl:px-[200px]";
     const buttonsWrapperClasses = "hidden flex gap-[10px] sm:flex";
     const buttons = [

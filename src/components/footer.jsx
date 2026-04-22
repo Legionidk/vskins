@@ -3,7 +3,7 @@ import yoPng from "@/assets/yo.png";
 
 export default function Footer() {
     const baseClasses =
-        "flex flex-col justify-center items-center bg-[#111111] border-t-2 border-[#333333] px-[50px] py-[8px] w-full text-lg font-light mt-auto";
+        "flex flex-col justify-center items-center bg-[#111111] border-t-2 border-[#333333] px-[50px] py-[10px] w-full text-lg font-light mt-auto";
     const responsiveClasses =
         "sm:flex-row sm:flex-row-reverse sm:justify-between xl:px-[200px]";
 
