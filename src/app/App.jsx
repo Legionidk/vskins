@@ -1,12 +1,12 @@
 import Header from "@/components/header";
-import MainGrid from "@/components/maingrid";
+import Main from "@/components/main";
 import Footer from "@/components/footer";
 
 export default function App() {
     return (
         <>
             <Header />
-            <MainGrid />
+            <Main />
             <Footer />
         </>
     );
