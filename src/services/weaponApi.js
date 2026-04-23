@@ -8,27 +8,51 @@ export default function getWeapons() {
             return response.json();
         })
         .then((data) => {
-            const weaponsData = {};
+            const map = new Map();
 
             for (const weapon of data.data) {
                 const categoryId = weapon.category;
+                const categoryName =
+                    weapon.displayName === "Melee"
+                        ? "Melee"
+                        : weapon.shopData.categoryText;
+                const weaponObject = {
+                    uuid: weapon.uuid,
+                    name: weapon.displayName,
+                    image: weapon.displayIcon,
+                    cost:
+                        weapon.displayName === "Melee"
+                            ? 0
+                            : weapon.shopData.cost,
+                    stats:
+                        weapon.displayName === "Melee"
+                            ? null
+                            : {
+                                  fireRate: weapon.weaponStats.fireRate,
+                                  firstShotSpread:
+                                      weapon.weaponStats.firstBulletAccuracy,
+                                  magazine: weapon.weaponStats.magazineSize,
+                                  reloadSpeed:
+                                      weapon.weaponStats.reloadTimeSeconds,
+                                  equipSpeed:
+                                      weapon.weaponStats.equipTimeSeconds,
+                                  runSpeedMultiplier:
+                                      weapon.weaponStats.runSpeedMultiplier,
+                                  damage: weapon.weaponStats.damageRanges,
+                              },
+                };
 
-                if (categoryId in weaponsData) {
-                    weaponsData[categoryId]["weapons"].push(weapon);
-                    continue;
+                if (!map.has(categoryId)) {
+                    map.set(categoryId, {
+                        categoryId,
+                        categoryName,
+                        weapons: [],
+                    });
                 }
 
-                const categoryText =
-                    weapon.displayName === "Melee"
-                        ? weapon.category.split(":")[2]
-                        : weapon.shopData.categoryText;
-
-                weaponsData[categoryId] = {
-                    categoryName: categoryText,
-                    weapons: [weapon],
-                };
+                map.get(categoryId).weapons.push(weaponObject);
             }
 
-            return weaponsData;
+            return [...map.values()];
         });
 }
