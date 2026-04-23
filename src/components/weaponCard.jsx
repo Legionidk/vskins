@@ -3,7 +3,7 @@ export default function WeaponCard({ weaponData }) {
         <div
             id="card"
             data-weapon-uuid={weaponData.uuid}
-            data-weapon-name={weaponData.displayName.toLowerCase()}
+            data-weapon-name={weaponData.name.toLowerCase()}
             className="rounded-[8px] overflow-hidden cursor-pointer hover:outline-2 hover:outline-[#FF4248]"
         >
             <div
@@ -13,8 +13,8 @@ export default function WeaponCard({ weaponData }) {
                 <img
                     id="weapon-img"
                     className="max-h-full max-w-full"
-                    src={weaponData.displayIcon}
-                    alt={`${weaponData.displayName} image`}
+                    src={weaponData.image}
+                    alt={`${weaponData.name} image`}
                 />
             </div>
 
@@ -22,7 +22,7 @@ export default function WeaponCard({ weaponData }) {
                 id="title"
                 className="bg-[#292727] px-[16px] py-[8px] xl:text-xl"
             >
-                {weaponData.displayName}
+                {weaponData.name}
             </div>
         </div>
     );

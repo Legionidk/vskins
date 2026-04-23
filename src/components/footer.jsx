@@ -23,7 +23,7 @@ export default function Footer() {
                     />
                 </a>
 
-                <div class="cursor-pointer" id="yo-button">
+                <div className="cursor-pointer" id="yo-button">
                     <img
                         src={yoPng}
                         alt="yo image"

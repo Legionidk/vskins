@@ -40,6 +40,7 @@ export default function Header() {
             <div className={buttonsWrapperClasses} id="buttons-wrapper">
                 {buttons.map((button) => (
                     <NavButton
+                        key={`${button.text}-button`}
                         text={button.text}
                         href={button.href}
                         active={button.active}
