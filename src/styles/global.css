@@ -4,3 +4,9 @@
 @theme {
     --font-oswald: "Oswald", sans-serif;
 }
+
+#card:hover {
+    #img-wrapper {
+        padding: 24px;
+    }
+}
