@@ -1,7 +1,7 @@
 import githubLogo from "@/assets/github.svg";
 import yoPng from "@/assets/yo.png";
 
-export default function Footer() {
+export default function Footer({ rigbyOpenFunc }) {
     const baseClasses =
         "flex flex-col justify-center items-center bg-[#111111] border-t-2 border-[#333333] px-[50px] py-[10px] w-full text-lg font-light mt-auto";
     const responsiveClasses =
@@ -23,7 +23,11 @@ export default function Footer() {
                     />
                 </a>
 
-                <div className="cursor-pointer" id="yo-button">
+                <div
+                    className="cursor-pointer"
+                    id="yo-button"
+                    onClick={rigbyOpenFunc}
+                >
                     <img
                         src={yoPng}
                         alt="yo image"

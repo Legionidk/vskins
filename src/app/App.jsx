@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react";
-import Header from "@/components/header";
-import Main from "@/components/main";
-import Category from "@/components/category";
-import Loader from "@/components/loader";
-import Footer from "@/components/footer";
+
+import Header from "@/components/layout/header";
+import Main from "@/components/layout/main";
+import Footer from "@/components/layout/footer";
+
+import Rigby from "@/components/ui/rigbyPopup";
+import SearchBox from "@/components/ui/searchbox";
+import Category from "@/components/ui/category";
+import Loader from "@/components/ui/loader";
+
 import getWeapons from "@/services/weaponApi";
+import searchBoxFunc from "@/lib/searchBox.js";
 
 export default function App() {
     const [weapons, setWeapons] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [rigbyPopup, setRigbyPopup] = useState(false);
 
     useEffect(() => {
         getWeapons().then((data) => {
@@ -20,7 +27,10 @@ export default function App() {
     return (
         <>
             <Header />
+            
             <Main>
+                <SearchBox searchFunc={searchBoxFunc} />
+
                 {loading ? (
                     <Loader />
                 ) : (
@@ -36,7 +46,16 @@ export default function App() {
                     })
                 )}
             </Main>
-            <Footer />
+
+            <Footer
+                rigbyOpenFunc={() => {
+                    setRigbyPopup(true);
+                }}
+            />
+
+            {rigbyPopup && (
+                <Rigby rigbyCloseFunc={() => setRigbyPopup(false)} />
+            )}
         </>
     );
 }
