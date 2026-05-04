@@ -62,7 +62,6 @@ export default function getWeapons() {
                                       value: weapon.weaponStats
                                           .runSpeedMultiplier,
                                   },
-                                  weapon.weaponStats.damageRanges,
                               ],
                     damage:
                         weapon.displayName === "Melee"
