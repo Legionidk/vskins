@@ -54,7 +54,7 @@ export default function App() {
             />
 
             {rigbyModal && (
-                <Rigby rigbyCloseFunc={() => setRigbyModal(false)} />
+                <RigbyModal rigbyCloseFunc={() => setRigbyModal(false)} />
             )}
         </>
     );
