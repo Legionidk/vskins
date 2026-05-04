@@ -2,9 +2,9 @@ import { createPortal } from "react-dom";
 import { useEffect } from "react";
 
 import rigbyImage from "@/assets/rigby.jpg";
-import PopupContainer from "../layout/popupContainer";
+import PopupContainer from "../layout/modalContainer";
 
-export default function Rigby({ rigbyCloseFunc }) {
+export default function RigbyModal({ rigbyCloseFunc }) {
     useEffect(() => {
         document.body.style.overflow = "hidden";
 
