@@ -27,19 +27,47 @@ export default function getWeapons() {
                     stats:
                         weapon.displayName === "Melee"
                             ? null
-                            : {
-                                  fireRate: weapon.weaponStats.fireRate,
-                                  firstShotSpread:
-                                      weapon.weaponStats.firstBulletAccuracy,
-                                  magazine: weapon.weaponStats.magazineSize,
-                                  reloadSpeed:
-                                      weapon.weaponStats.reloadTimeSeconds,
-                                  equipSpeed:
-                                      weapon.weaponStats.equipTimeSeconds,
-                                  runSpeedMultiplier:
-                                      weapon.weaponStats.runSpeedMultiplier,
-                                  damage: weapon.weaponStats.damageRanges,
-                              },
+                            : [
+                                  {
+                                      name: "Fire rate",
+                                      measure: "RDS/SEC",
+                                      value: weapon.weaponStats.fireRate,
+                                  },
+                                  {
+                                      name: "1st shot spread",
+                                      measure: "DEG (HIP/ADS)",
+                                      value: weapon.weaponStats
+                                          .firstBulletAccuracy,
+                                  },
+                                  {
+                                      name: "Magazine",
+                                      measure: "RDS",
+                                      value: weapon.weaponStats.magazineSize,
+                                  },
+                                  {
+                                      name: "Reload speed",
+                                      measure: "SEC",
+                                      value: weapon.weaponStats
+                                          .reloadTimeSeconds,
+                                  },
+                                  {
+                                      name: "Equip speed",
+                                      measure: "SEC",
+                                      value: weapon.weaponStats
+                                          .equipTimeSeconds,
+                                  },
+                                  {
+                                      name: "Run speed mult",
+                                      measure: "M/SEC",
+                                      value: weapon.weaponStats
+                                          .runSpeedMultiplier,
+                                  },
+                                  weapon.weaponStats.damageRanges,
+                              ],
+                    damage:
+                        weapon.displayName === "Melee"
+                            ? null
+                            : weapon.weaponStats.damageRanges,
                 };
 
                 if (!map.has(categoryId)) {
