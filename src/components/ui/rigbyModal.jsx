@@ -2,7 +2,7 @@ import { createPortal } from "react-dom";
 import { useEffect } from "react";
 
 import rigbyImage from "@/assets/rigby.jpg";
-import PopupContainer from "../layout/modalContainer";
+import ModalContainer from "../layout/modalContainer";
 
 export default function RigbyModal({ rigbyCloseFunc }) {
     useEffect(() => {
@@ -14,7 +14,7 @@ export default function RigbyModal({ rigbyCloseFunc }) {
     }, []);
 
     return createPortal(
-        <PopupContainer closeFunc={rigbyCloseFunc}>
+        <ModalContainer closeFunc={rigbyCloseFunc}>
             <div className="rounded-[16px] bg-[#211E1F] p-[8px] z-1 fixed" id="popup">
                 <img
                     src={rigbyImage}
@@ -23,7 +23,7 @@ export default function RigbyModal({ rigbyCloseFunc }) {
                     id="rigby-image"
                 />
             </div>
-        </PopupContainer>,
+        </ModalContainer>,
         document.querySelector("#modal-root"),
     );
 }
