@@ -1,7 +1,6 @@
 import logo from "@/assets/asgard.svg";
 
 function NavButton({ text = "Button", href = "/", state = "idle" }) {
-    console.log(state);
     const baseClasses = "px-[16px] py-[8px] text-lg xl:text-2xl";
     const states = {
         idle: "rounded-[8px] cursor-pointer text-[#FDFDFD] hover:bg-[#292727]",
