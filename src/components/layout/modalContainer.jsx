@@ -1,11 +1,14 @@
 export default function ModalContainer({ popupType, children, closeFunc }) {
     return (
         <div
-            className="flex justify-center items-center fixed w-full min-h-screen top-0 bg-black/50"
+            className="flex justify-center items-center fixed w-full min-h-screen top-0"
             id="popup-container"
             data-popup-type={popupType}
-            onClick={closeFunc}
         >
+            <div
+                className="bg-black/50 w-full min-h-screen cursor-pointer"
+                onClick={closeFunc}
+            />
             {children}
         </div>
     );
