@@ -112,6 +112,7 @@ function DamageTable() {
 }
 
 export default function WeaponModal({ weaponData, weaponCategory, closeFunc }) {
+    console.log(closeFunc);
     useEffect(() => {
         document.body.style.overflow = "hidden";
 
@@ -124,7 +125,7 @@ export default function WeaponModal({ weaponData, weaponCategory, closeFunc }) {
         <ModalContainer closeFunc={closeFunc}>
             <div
                 className="fixed rounded-[18px] bg-[#292727] w-[260px] h-fit z-1 overflow-hidden m-auto sm:w-[540px] md:w-[668px] lg:w-[768px]"
-                id="popup"
+                id="modal"
             >
                 <Title
                     title={weaponData.name}

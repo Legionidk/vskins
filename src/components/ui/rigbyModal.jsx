@@ -15,7 +15,7 @@ export default function RigbyModal({ rigbyCloseFunc }) {
 
     return createPortal(
         <ModalContainer closeFunc={rigbyCloseFunc}>
-            <div className="rounded-[16px] bg-[#211E1F] p-[8px] z-1 fixed" id="popup">
+            <div className="rounded-[16px] bg-[#211E1F] p-[8px] z-1 fixed" id="modal">
                 <img
                     src={rigbyImage}
                     alt="Rigby"
