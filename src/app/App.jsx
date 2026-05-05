@@ -4,7 +4,6 @@ import Header from "@/components/layout/header";
 import Main from "@/components/layout/main";
 import Footer from "@/components/layout/footer";
 
-import RigbyModal from "@/components/ui/rigbyModal";
 import SearchBox from "@/components/ui/searchbox";
 import Category from "@/components/ui/category";
 import Loader from "@/components/ui/loader";
@@ -15,7 +14,6 @@ import searchBoxFunc from "@/lib/searchBox.js";
 export default function App() {
     const [weapons, setWeapons] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [rigbyModal, setRigbyModal] = useState(false);
 
     useEffect(() => {
         getWeapons().then((data) => {
@@ -47,15 +45,7 @@ export default function App() {
                 )}
             </Main>
 
-            <Footer
-                rigbyOpenFunc={() => {
-                    setRigbyModal(true);
-                }}
-            />
-
-            {rigbyModal && (
-                <RigbyModal rigbyCloseFunc={() => setRigbyModal(false)} />
-            )}
+            <Footer />
         </>
     );
 }

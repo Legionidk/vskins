@@ -1,20 +1,10 @@
-import { useState } from "react";
-import { createPortal } from "react-dom";
-
-import WeaponModal from "./weaponModal";
-
 export default function WeaponCard({ weaponData }) {
-    const [weaponModal, setWeaponModal] = useState(false);
-
     return (
         <div
             id="card"
             data-weapon-uuid={weaponData.uuid}
             data-weapon-name={weaponData.name.toLowerCase()}
             className="rounded-[8px] overflow-hidden cursor-pointer hover:outline-2 hover:outline-[#FF4248]"
-            onClick={() => {
-                setWeaponModal(true);
-            }}
         >
             <div
                 id="img-wrapper"
@@ -34,16 +24,6 @@ export default function WeaponCard({ weaponData }) {
             >
                 {weaponData.name}
             </div>
-
-            {weaponModal && (
-                <WeaponModal
-                    weaponData={weaponData}
-                    weaponCategory="TODO"
-                    closeFunc={() => {
-                        setWeaponModal(false);
-                    }}
-                />
-            )}
         </div>
     );
 }
