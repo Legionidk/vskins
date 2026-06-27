@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+
 import Header from "../components/layout/header";
+import Footer from "../components/layout/footer";
 
 export default function WeaponsPage() {
     return (
@@ -7,6 +9,7 @@ export default function WeaponsPage() {
             <Header />
             <p>It's weapons page</p>
             <Link to="/agents">Agents page</Link>
+            <Footer />
         </>
     );
 }
