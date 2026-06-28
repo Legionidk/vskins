@@ -2,6 +2,7 @@ import { createPortal } from "react-dom";
 import { useState, useEffect } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
+import Modal from "../ui/modal";
 import logo from "@/assets/asgard.svg";
 
 function Burger({ buttonsData = [], closeFunc, unmountFunc, isOpened }) {
@@ -38,47 +39,27 @@ function Burger({ buttonsData = [], closeFunc, unmountFunc, isOpened }) {
 
 export default function Header() {
     const [isBurgerOpened, setBurgerOpened] = useState(false);
-    const [isBurgerMounted, setBurgerMounted] = useState(false);
-
-    const burgerButtonFunc = () => {
-        if (isBurgerOpened) {
-            setBurgerOpened(false);
-            return;
-        }
-
-        setBurgerMounted(true);
-    };
-
-    useEffect(() => {
-        if (isBurgerMounted) {
-            requestAnimationFrame(() => {
-                setBurgerOpened(true);
-            });
-        }
-    }, [isBurgerMounted]);
 
     return (
         <>
-            {isBurgerMounted && (
-                <Burger
+            {isBurgerOpened && (
+                <Modal
                     isOpened={isBurgerOpened}
                     closeFunc={() => {
                         setBurgerOpened(false);
-                    }}
-                    unmountFunc={() => {
-                        setBurgerMounted(false);
                     }}
                 />
             )}
 
             <header className="w-full h-[80px] flex items-center justify-between px-[20px] bg-[#111111] border-b-1 border-[#323232]">
                 <img src={logo} alt="Asgard logo" className="h-[30px]" />
-                <button id="burger-button" onClick={burgerButtonFunc}>
-                    {isBurgerOpened ? (
-                        <XMarkIcon className="h-[24px]" />
-                    ) : (
-                        <Bars3Icon className="h-[24px]" />
-                    )}
+                <button
+                    id="burger-button"
+                    onClick={() => {
+                        setBurgerOpened(true);
+                    }}
+                >
+                    <Bars3Icon className="h-[24px]" />
                 </button>
             </header>
         </>
