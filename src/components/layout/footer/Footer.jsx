@@ -2,7 +2,9 @@ import { createPortal } from "react-dom";
 import { useState, useEffect, use } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-import Modal from "../../ui/modal";
+import ModalWrapper from "../../ui/ModalWrapper";
+import RigbyModal from "./RigbyModal";
+
 import githubLogo from "@/assets/github.svg";
 import yoPng from "@/assets/yo.png";
 import rigby from "@/assets/rigby.jpg";
@@ -13,20 +15,16 @@ export default function Footer() {
     return (
         <>
             {rigbyModal && (
-                <Modal
+                <ModalWrapper
                     isOpened={rigbyModal}
                     closeFunc={() => {
                         setRigbyModal(false);
                     }}
                 >
-                    <div
-                        className="bg-black size-20"
-                        id="test"
-                        onClick={() => {
-                            setRigbyModal(false);
-                        }}
-                    ></div>
-                </Modal>
+                    {({ visibleFunc }) => (
+                        <RigbyModal closeFunc={visibleFunc} />
+                    )}
+                </ModalWrapper>
             )}
 
             <footer className="w-full h-[60px] flex items-center justify-between px-[20px] mt-auto bg-[#111111] border-t-1 border-[#323232] text-[16px] font-light">
