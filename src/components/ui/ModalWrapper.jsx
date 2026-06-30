@@ -22,16 +22,11 @@ export default function ModalWrapper({ children, isOpened, closeFunc }) {
                 }
             }}
         >
-            <div
-                className={`transition-transform duration-50 ease-in-out ${isVisible ? "translate-y-0" : "-translate-y-5"}`}
-                id="animation-wrapper"
-            >
-                {children({
-                    visibleFunc: () => {
-                        setVisible(false);
-                    },
-                })}
-            </div>
+            {children({
+                visibleFunc: () => {
+                    setVisible(false);
+                },
+            })}
         </div>,
         document.querySelector("#modal-root"),
     );
