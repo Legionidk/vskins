@@ -7,7 +7,7 @@ export default function HeaderButton({
 }) {
     const statuses = {
         enabled: "text-[#F0F0F0] hover:bg-[#323232]",
-        disabled: "text-[#606060] pointer-events-none",
+        disabled: "text-[#B8B8B8]/50 pointer-events-none",
     };
 
     return (
