@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import WeaponsPage from "../pages/weapons";
+import WeaponsPage from "../pages/Weapons";
 import AgentsPage from "../pages/agents";
 import SkinsPage from "../pages/skins";
 
