@@ -6,11 +6,16 @@ export default function ModalWrapper({ children, isOpened, closeFunc }) {
 
     useEffect(() => {
         setVisible(true);
+
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = "";
+        };
     }, []);
 
     return createPortal(
         <div
-            className={`absolute inset-0 flex items-center justify-center px-[20px] py-[80px] bg-black/50 backdrop-blur-xs transition-opacity duration-50 ease-in-out ${isVisible ? "opacity-100" : "opacity-0"}`}
+            className={`z-30 fixed inset-0 overflow-y-auto flex items-center justify-center px-[20px] py-[80px] bg-black/50 backdrop-blur-xs transition-opacity duration-50 ease-in-out ${isVisible ? "opacity-100" : "opacity-0"}`}
             id="modal-blur"
             onClick={(e) => {
                 if (e.target !== e.currentTarget) return;
