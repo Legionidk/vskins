@@ -18,7 +18,7 @@ export default function Burger({ buttonsData = [], closeFunc }) {
 
     return createPortal(
         <div
-            className={`z-30 fixed top-0 w-full min-h-dvh flex flex-col items-center bg-[#111111] transition-all duration-50 ease-in-out ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-5 opacity-0"}`}
+            className={`z-30 fixed top-0 w-full min-h-dvh flex flex-col items-center bg-[#111111] transition-all duration-75 ease-in-out ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-5 opacity-0"}`}
             id="burger-menu"
             onTransitionEnd={() => {
                 if (!isVisible) {

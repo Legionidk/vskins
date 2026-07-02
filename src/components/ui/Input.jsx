@@ -1,7 +1,7 @@
 import { useRef } from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 
-const transitionClasses = "transition-all duration-50 ease-in-out";
+const transitionClasses = "transition-all duration-75 ease-in-out";
 
 const inputClasses = {
     base: "size-full text-[18px] px-[16px] pt-[29px] pb-[8px] rounded-[8px] bg-[#323131] hover:not-focus:bg-[#373636]",
