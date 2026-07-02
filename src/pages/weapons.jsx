@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-import PageLayout from "../components/layout/PageLayout";
 import Header from "../components/layout/header/Header";
 import Footer from "../components/layout/footer/Footer";
 
-import SkeletonCategory from "../components/ui/skeleton/CategorySkeleton";
+import SkeletonCategory from "../components/ui/SkeletonCategory";
 import Input from "../components/ui/Input";
+
+import getWeapons from "../services/weapons";
 
 const headerButtons = [
     { text: "Weapons", status: "enabled", link: "/" },
@@ -14,6 +16,15 @@ const headerButtons = [
 ];
 
 export default function WeaponsPage() {
+    const [weaponsData, setWeaponsData] = useState([]);
+
+    useEffect(() => {
+        getWeapons().then((data) => {
+            console.log(data);
+            setWeaponsData(data);
+        });
+    }, []);
+
     return (
         <>
             <Header buttonsData={headerButtons} />
@@ -21,7 +32,11 @@ export default function WeaponsPage() {
             <main className="z-0 flex flex-col items-center gap-[20px] w-full px-[20px]">
                 <Input placeholder="Search in weapons" />
 
-                <SkeletonCategory />
+                {weaponsData.length === 0 ? (
+                    <SkeletonCategory />
+                ) : (
+                    <p>Under construction</p>
+                )}
             </main>
 
             <Footer />

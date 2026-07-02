@@ -1,4 +1,4 @@
-import SkeletonCard from "./CardSkeleton";
+import SkeletonCard from "./SkeletonCard";
 
 export default function SkeletonCategory() {
     return (
@@ -17,11 +17,6 @@ export default function SkeletonCategory() {
                 className="grid grid-cols-1 gap-[10px]"
                 id="skeleton-cards-grid"
             >
-                <SkeletonCard />
-                <SkeletonCard />
-                <SkeletonCard />
-                <SkeletonCard />
-                <SkeletonCard />
                 <SkeletonCard />
                 <SkeletonCard />
                 <SkeletonCard />

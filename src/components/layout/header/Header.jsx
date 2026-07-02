@@ -18,7 +18,7 @@ export default function Header({ buttonsData = [] }) {
                 />
             )}
 
-            <header className="z-20 sticky top-0 w-full h-[80px] flex justify-between items-center px-[20px] bg-[#111111] border-b-1 border-[#323232] isolate">
+            <header className="z-20 sticky top-0 w-full h-[80px] flex justify-between items-center px-[20px] bg-[#111111] border-b-1 border-[#323232]">
                 <img src={logo} alt="Asgard logo" className="h-[30px]" />
                 <button
                     id="burger-button"

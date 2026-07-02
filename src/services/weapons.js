@@ -1,30 +1,37 @@
-export default async function getWeapons() {
-    const request = await fetch("https://valorant-api.com/v1/weapons");
-    if (!request.ok) {
-        return `[WEAPONS SERVICE]\nAPI status is not ok: ${request.status}`;
-    }
+export default function getWeapons() {
+    return fetch("https://valorant-api.com/v1/weapons")
+        .then((res) => {
+            if (!res.ok) {
+                console.log(
+                    `[WEAPONS SERVICE]\nAPI status is not ok: ${request.status}\nReturned empty array`,
+                );
+                return [];
+            }
 
-    const response = await request.json();
-    const data = new Map();
+            return res.json();
+        })
+        .then((data) => {
+            const weapons = new Map();
 
-    for (const weapon of response.data) {
-        if (weapon.displayName === "Melee") {
-            data.set(weapon.category, {
-                categoryName: "Melee",
-                weapons: [weapon],
-            });
-            continue;
-        }
+            for (const weapon of data.data) {
+                if (weapon.displayName === "Melee") {
+                    weapons.set(weapon.category, {
+                        categoryName: "Melee",
+                        weapons: [weapon],
+                    });
+                    continue;
+                }
 
-        if (!data.has(weapon.category)) {
-            data.set(weapon.category, {
-                categoryName: weapon.shopData.category,
-                weapons: [],
-            });
-        }
+                if (!weapons.has(weapon.category)) {
+                    weapons.set(weapon.category, {
+                        categoryName: weapon.shopData.category,
+                        weapons: [],
+                    });
+                }
 
-        data.get(weapon.category).weapons.push(weapon);
-    }
+                weapons.get(weapon.category).weapons.push(weapon);
+            }
 
-    return [...data.values()];
+            return [...weapons.values()];
+        });
 }

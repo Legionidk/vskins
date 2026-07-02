@@ -1,48 +1,39 @@
 import { useRef } from "react";
 import { useState, useEffect } from "react";
 
-const inputWrapperClasses = {
-    base: "h-[64px] w-full flex flex-col justify-center px-[16px] py-[8px] rounded-[8px] transition-all duration-50 cursor-pointer",
-    idle: "bg-[#323131] hover:bg-[#373636]",
-    focused: "outline-2 outline-[#F0F0F0] bg-[#292727]",
+const transitionClasses = "transition-all duration-50 ease-in-out";
+
+const inputClasses = {
+    base: "size-full text-[18px] px-[16px] pt-[29px] pb-[8px] rounded-[8px] bg-[#323131] hover:not-focus:bg-[#373636]",
+    focus: "focus:bg-[#292727] focus:outline-2 focus:outline-[#F0F0F0]",
+};
+
+const labelClasses = {
+    base: "pointer-events-none absolute uppercase tracking-widest font-medium text-[#B8B8B8] left-[16px]",
+    idle: "text-[18px] top-1/2 -translate-y-1/2 group-focus-within:text-[14px] group-focus-within:top-[8px] group-focus-within:translate-y-0",
+    focus: "text-[14px] top-[8px] translate-y-0",
 };
 
 export default function Input({
     placeholder = "Placeholder",
     onChange = () => {},
 }) {
-    const inputRef = useRef(null);
     const [inputValue, setInputValue] = useState(null);
-    const [isFocused, setFocused] = useState(false);
 
     return (
-        <div
-            className={`${inputWrapperClasses.base} ${isFocused ? inputWrapperClasses.focused : inputWrapperClasses.idle}`}
-            id="input-wrapper"
-            onClick={() => {
-                inputRef.current.focus();
-            }}
-        >
-            <p
-                className={`select-none uppercase tracking-widest text-[#B8B8B8] font-medium transition-all ease-in-out duration-50 ${isFocused || inputValue ? "text-[14px]" : "text-[18px]"}`}
-                id="placeholder"
+        <div className="group relative w-full h-[64px]" id="input-wrapper">
+            <label
+                className={`${transitionClasses} ${labelClasses.base} ${inputValue ? labelClasses.focus : labelClasses.idle}`}
             >
                 {placeholder}
-            </p>
+            </label>
 
             <input
-                ref={inputRef}
-                onFocus={() => {
-                    setFocused(true);
-                }}
-                onBlur={() => {
-                    setFocused(false);
-                }}
+                className={`${transitionClasses} ${inputClasses.base} ${inputClasses.focus}`}
                 onChange={(e) => {
-                    setInputValue(e.currentTarget.value);
+                    setInputValue(e.target.value);
                     onChange(e);
                 }}
-                className={`pointer-events-none outline-none transition-all duration-50 ease-in-out ${isFocused || inputValue ? "h-[24px]" : "h-0"}`}
             />
         </div>
     );
