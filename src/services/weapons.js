@@ -12,32 +12,6 @@ export default function getWeapons() {
         })
         .then((data) => {
             const weapons = new Map();
-            const tmpWeapon = {
-                cardTitle: null,
-                cardImage: null,
-                data: {
-                    uuid: null,
-                    name: null,
-                    image: null,
-                    cost: null,
-                    general: {
-                        magazine: null,
-                        wallPenetration: null,
-                        equipSpeed: null,
-                        reloadSpeed: null,
-                    },
-                    primaryFire: {
-                        fireRate: null,
-                        shotSpread: null,
-                        runSpeedMult: null,
-                    },
-                    altFire:
-                        {
-                            type: "",
-                        } || null,
-                    damage: [],
-                },
-            };
 
             for (const weapon of data.data) {
                 if (weapon.displayName === "Melee") {
@@ -88,8 +62,8 @@ export default function getWeapons() {
                 weapons.get(weapon.category).data.push({
                     cardTitle: weapon.displayName,
                     cardImage: weapon.displayIcon,
+                    id: weapon.uuid,
                     data: {
-                        uuid: weapon.uuid,
                         name: weapon.displayName,
                         image: weapon.displayIcon,
                         cost: weapon.shopData.cost,
@@ -113,7 +87,3 @@ export default function getWeapons() {
             return [...weapons.values()];
         });
 }
-
-getWeapons().then((data) => {
-    console.log(data);
-});

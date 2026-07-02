@@ -1,13 +1,18 @@
 import { useState } from "react";
 import imagePlaceholder from "@/assets/imagePlaceholder.svg";
 
-export default function Card({ title = "Title", image = imagePlaceholder }) {
+export default function Card({
+    title = "Title",
+    id = "card-id",
+    image = imagePlaceholder,
+}) {
     const [isLoaded, setLoaded] = useState(false);
 
     return (
         <div
             className="z-10 flex flex-col rounded-[8px] overflow-hidden transition-all duration-75 ease-in-out ring-[#FF4248] hover:ring-2"
             id="card"
+            data-card-id={id}
         >
             <div
                 className="flex justify-center px-[50px] py-[25px] bg-[#292727]"

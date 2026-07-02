@@ -37,7 +37,7 @@ export default function WeaponsPage() {
 
                 {isLoaded ? (
                     weaponsData.map((category) => (
-                        <Category categoryName={category.categoryName} data={category.data} />
+                        <Category categoryName={category.categoryName} categoryId={category.categoryId} data={category.data} />
                     ))
                 ) : (
                     <SkeletonCategory />
