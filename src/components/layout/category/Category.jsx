@@ -14,9 +14,9 @@ export default function Category({
             </p>
 
             <div className="grid grid-cols-1 gap-[10px]" id="cards-grid">
-                <Card />
-                <Card />
-                <Card />
+                {data.map((object) => (
+                    <Card title={object.cardTitle} image={object.cardImage} />
+                ))}
             </div>
         </div>
     );

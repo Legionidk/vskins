@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import Header from "../components/layout/header/Header";
 import Footer from "../components/layout/footer/Footer";
 
-import SkeletonCategory from "../components/ui/SkeletonCategory";
+import SkeletonCategory from "../components/layout/skeletonCategory/SkeletonCategory";
+import Category from "../components/layout/category/Category";
 import Input from "../components/ui/Input";
 
 import getWeapons from "../services/weapons";
@@ -16,12 +17,14 @@ const headerButtons = [
 ];
 
 export default function WeaponsPage() {
+    const [isLoaded, setLoaded] = useState(false);
     const [weaponsData, setWeaponsData] = useState([]);
 
     useEffect(() => {
         getWeapons().then((data) => {
             console.log(data);
             setWeaponsData(data);
+            setLoaded(true);
         });
     }, []);
 
@@ -32,10 +35,12 @@ export default function WeaponsPage() {
             <main className="z-0 flex flex-col items-center gap-[20px] w-full px-[20px]">
                 <Input placeholder="Search in weapons" />
 
-                {weaponsData.length === 0 ? (
-                    <SkeletonCategory />
+                {isLoaded ? (
+                    weaponsData.map((category) => (
+                        <Category categoryName={category.categoryName} data={category.data} />
+                    ))
                 ) : (
-                    <p>Under construction</p>
+                    <SkeletonCategory />
                 )}
             </main>
 
