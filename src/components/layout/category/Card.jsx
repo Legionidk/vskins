@@ -26,7 +26,7 @@ export default function Card({ title = "Title", image = imagePlaceholder }) {
                     }}
                     src={image}
                     alt={`${title} image`}
-                    className={`h-[85px] ${!isLoaded ? "hidden" : ""}`}
+                    className={`w-fit max-h-[85px] ${!isLoaded ? "hidden" : ""}`}
                 />
             </div>
 
