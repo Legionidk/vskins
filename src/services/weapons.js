@@ -22,6 +22,7 @@ export default function getWeapons() {
                             {
                                 cardTitle: weapon.displayName,
                                 cardImage: weapon.displayIcon,
+                                id: weapon.uuid,
                                 data: {
                                     uuid: weapon.uuid,
                                     name: weapon.displayName,

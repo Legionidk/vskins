@@ -24,6 +24,7 @@ export default function Category({
                         title={object.cardTitle}
                         id={object.id}
                         image={object.cardImage}
+                        key={object.id}
                     />
                 ))}
             </div>

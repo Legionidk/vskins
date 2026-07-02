@@ -22,7 +22,6 @@ export default function WeaponsPage() {
 
     useEffect(() => {
         getWeapons().then((data) => {
-            console.log(data);
             setWeaponsData(data);
             setLoaded(true);
         });
@@ -37,7 +36,12 @@ export default function WeaponsPage() {
 
                 {isLoaded ? (
                     weaponsData.map((category) => (
-                        <Category categoryName={category.categoryName} categoryId={category.categoryId} data={category.data} />
+                        <Category
+                            categoryName={category.categoryName}
+                            categoryId={category.categoryId}
+                            data={category.data}
+                            key={category.categoryId}
+                        />
                     ))
                 ) : (
                     <SkeletonCategory />
