@@ -1,9 +1,13 @@
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
+import { HandRaisedIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import { InfoBlock, InfoPiece } from "./InfoBlock";
 import creditsIcon from "@/assets/creditsIcon.webp";
 
 export default function WeaponModal({ data, closeFunc = () => {} }) {
+    const [isImageLoaded, setImageLoaded] = useState(false);
+    const [isCurrencyLoaded, setCurrencyLoaded] = useState(false);
+
     return (
         <div
             className="w-full max-w-[760px] h-fit flex flex-col items-center rounded-[16px] overflow-hidden"
@@ -29,7 +33,21 @@ export default function WeaponModal({ data, closeFunc = () => {} }) {
                 className="w-full flex justify-center px-[50px] py-[25px] bg-[#292727]"
                 id="image-wrapper"
             >
-                <img src={data.image} alt={`${data.name} image`} />
+                {!isImageLoaded && (
+                    <div
+                        className="size-[100px] bg-[#211E1F] rounded-[8px] animate-pulse"
+                        id="skeleton-image"
+                    />
+                )}
+
+                <img
+                    onLoad={() => {
+                        setImageLoaded(true);
+                    }}
+                    src={data.image}
+                    alt={`${data.name} image`}
+                    className={`${!isImageLoaded && "hidden"}`}
+                />
             </div>
 
             <div
@@ -41,10 +59,20 @@ export default function WeaponModal({ data, closeFunc = () => {} }) {
                         className="w-full flex items-center justify-center text-[20px] gap-[5px] py-[8px] rounded-[8px] bg-[#292727]"
                         id="cost-block"
                     >
+                        {!isCurrencyLoaded && (
+                            <div
+                                id="skeleton-currency"
+                                className="size-[12px] bg-[#211E1F] rounded-[8px] animate-pulse"
+                            ></div>
+                        )}
+
                         <img
+                            onLoad={() => {
+                                setCurrencyLoaded(true);
+                            }}
                             src={creditsIcon}
                             alt="Credits icon"
-                            className="size-[12px]"
+                            className={`size-[12px] ${!isCurrencyLoaded && "hidden"}`}
                         />
                         <p>{data.cost}</p>
                     </div>
