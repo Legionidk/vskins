@@ -4,7 +4,6 @@ import { InfoBlock, InfoPiece } from "./InfoBlock";
 import creditsIcon from "@/assets/creditsIcon.webp";
 
 export default function WeaponModal({ data, closeFunc = () => {} }) {
-    console.log(data);
     return (
         <div
             className="w-full max-w-[760px] h-fit flex flex-col items-center rounded-[16px] overflow-hidden"
