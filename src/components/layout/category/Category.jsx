@@ -3,6 +3,7 @@ import Card from "./Card";
 export default function Category({
     categoryName = "Category name",
     categoryId = "category-id",
+    modalFunc = () => {},
     data = [],
 }) {
     return (
@@ -24,6 +25,8 @@ export default function Category({
                         title={object.cardTitle}
                         id={object.id}
                         image={object.cardImage}
+                        modalFunc={modalFunc}
+                        modalData={object.data}
                         key={object.id}
                     />
                 ))}

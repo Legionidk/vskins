@@ -5,14 +5,19 @@ export default function Card({
     title = "Title",
     id = "card-id",
     image = imagePlaceholder,
+    modalFunc = () => {},
+    modalData = {},
 }) {
     const [isLoaded, setLoaded] = useState(false);
 
     return (
         <div
-            className="z-10 flex flex-col rounded-[8px] overflow-hidden transition-all duration-75 ease-in-out ring-[#FF4248] hover:ring-2"
+            className="z-10 cursor-pointer flex flex-col rounded-[8px] overflow-hidden transition-all duration-75 ease-in-out ring-[#FF4248] hover:ring-2"
             id="card"
             data-card-id={id}
+            onClick={() => {
+                modalFunc(modalData);
+            }}
         >
             <div
                 className="flex justify-center px-[50px] py-[25px] bg-[#292727]"
@@ -31,7 +36,7 @@ export default function Card({
                     }}
                     src={image}
                     alt={`${title} image`}
-                    className={`w-fit max-h-[85px] ${!isLoaded ? "hidden" : ""}`}
+                    className={`max-h-[85px] ${!isLoaded ? "hidden" : ""}`}
                 />
             </div>
 

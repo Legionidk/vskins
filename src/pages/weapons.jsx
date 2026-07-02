@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 
 import Header from "../components/layout/header/Header";
 import Footer from "../components/layout/footer/Footer";
-
 import SkeletonCategory from "../components/layout/skeletonCategory/SkeletonCategory";
 import Category from "../components/layout/category/Category";
+import WeaponModal from "../components/layout/weaponModal/WeaponModal";
+
+import ModalWrapper from "../components/ui/ModalWrapper";
 import Input from "../components/ui/Input";
 
 import getWeapons from "../services/weapons";
@@ -19,6 +21,7 @@ const headerButtons = [
 export default function WeaponsPage() {
     const [isLoaded, setLoaded] = useState(false);
     const [weaponsData, setWeaponsData] = useState([]);
+    const [weaponModal, setWeaponModal] = useState(null);
 
     useEffect(() => {
         getWeapons().then((data) => {
@@ -29,6 +32,24 @@ export default function WeaponsPage() {
 
     return (
         <>
+            {weaponModal && (
+                <ModalWrapper
+                    closeFunc={() => {
+                        setWeaponModal(false);
+                    }}
+                >
+                    {({ visibleFunc }) => (
+                        <WeaponModal
+                            data={weaponModal}
+                            closeFunc={() => {
+                                visibleFunc();
+                                setWeaponModal(null);
+                            }}
+                        />
+                    )}
+                </ModalWrapper>
+            )}
+
             <Header buttonsData={headerButtons} />
 
             <main className="z-0 flex flex-col items-center gap-[20px] w-full px-[20px]">
@@ -40,6 +61,7 @@ export default function WeaponsPage() {
                             categoryName={category.categoryName}
                             categoryId={category.categoryId}
                             data={category.data}
+                            modalFunc={setWeaponModal}
                             key={category.categoryId}
                         />
                     ))

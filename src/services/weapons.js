@@ -26,6 +26,7 @@ export default function getWeapons() {
                                 data: {
                                     uuid: weapon.uuid,
                                     name: weapon.displayName,
+                                    category: null,
                                     image: weapon.displayIcon,
                                     cost: null,
                                     general: null,
@@ -51,12 +52,15 @@ export default function getWeapons() {
                 switch (weapon.weaponStats.altFireType) {
                     case "EWeaponAltFireDisplayType::ADS":
                         altFireData = weapon.weaponStats.adsStats;
+                        altFireData.type = "ADS"
                         break;
                     case "EWeaponAltFireDisplayType::Shotgun":
                         altFireData = weapon.weaponStats.altShotgunStats;
+                        altFireData.type = "Shotgun"
                         break;
                     case "EWeaponAltFireDisplayType::AirBurst":
                         altFireData = weapon.weaponStats.airBurstStats;
+                        altFireData.type = "AirBurst"
                         break;
                 }
 
@@ -66,11 +70,12 @@ export default function getWeapons() {
                     id: weapon.uuid,
                     data: {
                         name: weapon.displayName,
+                        category: weapon.shopData.category,
                         image: weapon.displayIcon,
                         cost: weapon.shopData.cost,
                         general: {
                             magazine: weapon.weaponStats.magazineSize,
-                            wallPenetration: weapon.weaponStats.wallPenetration,
+                            wallPenetration: weapon.weaponStats.wallPenetration.split(":")[2],
                             equipSpeed: weapon.weaponStats.equipTimeSeconds,
                             reloadSpeed: weapon.weaponStats.reloadTimeSeconds,
                         },
