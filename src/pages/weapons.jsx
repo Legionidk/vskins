@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 import Header from "../components/layout/header/Header";
 import Footer from "../components/layout/footer/Footer";
@@ -23,12 +23,42 @@ export default function WeaponsPage() {
     const [weaponsData, setWeaponsData] = useState([]);
     const [weaponModal, setWeaponModal] = useState(null);
 
+    const [search, setSearch] = useState("");
+    const [debouncedSearch, setDebouncedSearch] = useState(false);
+
+    const filteredWeaponsData = useMemo(() => {
+        if (!search.trim()) {
+            return weaponsData;
+        }
+
+        return weaponsData
+            .map((category) => ({
+                ...category,
+                data: category.data.filter((weapon) =>
+                    weapon.cardTitle
+                        .toLowerCase()
+                        .includes(debouncedSearch.toLowerCase()),
+                ),
+            }))
+            .filter((category) => category.data.length > 0);
+    }, [weaponsData, debouncedSearch]);
+
     useEffect(() => {
         getWeapons().then((data) => {
             setWeaponsData(data);
             setLoaded(true);
         });
     }, []);
+
+    useEffect(() => {
+        const debouncedTimer = setTimeout(() => {
+            setDebouncedSearch(search);
+        }, 300);
+
+        return () => {
+            clearTimeout(debouncedTimer);
+        };
+    }, [search]);
 
     return (
         <>
@@ -50,10 +80,15 @@ export default function WeaponsPage() {
             <Header buttonsData={headerButtons} />
 
             <main className="z-0 flex flex-col items-center gap-[20px] w-full px-[20px] 2xl:w-[1300px]">
-                <Input placeholder="Search in weapons" />
+                <Input
+                    placeholder="Search in weapons"
+                    onChange={(e) => {
+                        setSearch(e.target.value);
+                    }}
+                />
 
                 {isLoaded ? (
-                    weaponsData.map((category) => (
+                    filteredWeaponsData.map((category) => (
                         <Category
                             categoryName={category.categoryName}
                             categoryId={category.categoryId}

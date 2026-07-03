@@ -28,6 +28,7 @@ export default function Header({ buttonsData = [] }) {
                             text={button.text}
                             status={button.status}
                             link={button.link}
+                            key={button.link}
                         />
                     ))}
                 </div>
