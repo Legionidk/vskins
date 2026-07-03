@@ -41,10 +41,7 @@ export default function WeaponsPage() {
                     {({ visibleFunc }) => (
                         <WeaponModal
                             data={weaponModal}
-                            closeFunc={() => {
-                                visibleFunc();
-                                setWeaponModal(null);
-                            }}
+                            closeFunc={visibleFunc}
                         />
                     )}
                 </ModalWrapper>
@@ -52,7 +49,7 @@ export default function WeaponsPage() {
 
             <Header buttonsData={headerButtons} />
 
-            <main className="z-0 flex flex-col items-center gap-[20px] w-full px-[20px]">
+            <main className="z-0 flex flex-col items-center gap-[20px] w-full px-[20px] 2xl:w-[1300px]">
                 <Input placeholder="Search in weapons" />
 
                 {isLoaded ? (

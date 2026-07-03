@@ -121,7 +121,7 @@ export default function WeaponModal({ data, closeFunc = () => {} }) {
                         />
 
                         <InfoPiece
-                            title="Run speed multiplier"
+                            title="Run speed mult."
                             value={`${data.primaryFire.runSpeedMult} m/sec`}
                             id="run-speed-mult"
                         />
@@ -149,13 +149,13 @@ export default function WeaponModal({ data, closeFunc = () => {} }) {
                         />
 
                         <InfoPiece
-                            title="Run speed multiplier"
+                            title="Run speed mult."
                             value={`${data.altFire.runSpeedMultiplier} m/sec`}
                             id="alt-fire-run-speed-mult"
                         />
 
                         <InfoPiece
-                            title="Zoom multiplier"
+                            title="Zoom mult."
                             value={`${data.altFire.zoomMultiplier}x`}
                             id="alt-fire-run-zoom-mult"
                         />

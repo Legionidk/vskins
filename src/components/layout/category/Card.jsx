@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import imagePlaceholder from "@/assets/imagePlaceholder.svg";
 
 export default function Card({
@@ -9,10 +9,15 @@ export default function Card({
     modalData = {},
 }) {
     const [isLoaded, setLoaded] = useState(false);
+    const [isVisible, setVisible] = useState(false);
+
+    useEffect(() => {
+        setVisible(true);
+    }, []);
 
     return (
         <div
-            className="z-10 cursor-pointer flex flex-col rounded-[8px] overflow-hidden transition-all duration-75 ease-in-out ring-[#FF4248] hover:ring-2"
+            className={`z-10 cursor-pointer flex flex-col rounded-[8px] overflow-hidden transition-all duration-75 ease-in-out ring-[#FF4248] hover:ring-2 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}`}
             id="card"
             data-card-id={id}
             onClick={() => {
@@ -20,7 +25,7 @@ export default function Card({
             }}
         >
             <div
-                className="flex justify-center px-[50px] py-[25px] bg-[#292727]"
+                className="flex items-center justify-center h-[135px] p-[25px_50px] bg-[#292727]"
                 id="image-wrapper"
             >
                 {!isLoaded && (
@@ -36,7 +41,7 @@ export default function Card({
                     }}
                     src={image}
                     alt={`${title} image`}
-                    className={`max-h-[85px] ${!isLoaded ? "hidden" : ""}`}
+                    className={`w-full h-full object-contain ${!isLoaded ? "hidden" : ""}`}
                 />
             </div>
 

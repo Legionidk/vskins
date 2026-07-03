@@ -5,7 +5,7 @@ export function InfoPiece({
 }) {
     return (
         <div className="flex flex-col text-[18px]" id={id}>
-            <p className="font-medium tracking-widest uppercase text-[#B8B8B8] -mb-[5px]">
+            <p className="font-medium tracking-widest uppercase text-[#B8B8B8] -mb-[2px]">
                 {title}
             </p>
             <p>{value}</p>
@@ -26,7 +26,7 @@ export function InfoBlock({ title = "Title", children, id = "info-block" }) {
                 {title}
             </div>
 
-            <div className="w-full grid grid-cols-1 gap-[10px] px-[16px] py-[8px]" id="info">
+            <div className="w-full grid grid-cols-subgrid gap-[10px] px-[16px] py-[8px] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4" id="info">
                 {children}
             </div>
         </div>

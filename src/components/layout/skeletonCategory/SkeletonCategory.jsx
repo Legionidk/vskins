@@ -14,9 +14,10 @@ export default function SkeletonCategory() {
             </div>
 
             <div
-                className="grid grid-cols-1 gap-[10px]"
+                className="grid grid-cols-1 gap-[10px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                 id="skeleton-cards-grid"
             >
+                <SkeletonCard />
                 <SkeletonCard />
                 <SkeletonCard />
                 <SkeletonCard />

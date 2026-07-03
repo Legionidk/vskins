@@ -9,16 +9,16 @@ export default function SkeletonCard() {
 
     return (
         <div
-            className={`z-10 w-full flex flex-col items-center rounded-[8px] overflow-hidden transition-all duration-50 ease-in-out ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-5 opacity-0"}`}
+            className={`z-10 w-full rounded-[8px] overflow-hidden transition-all duration-50 ease-in-out ${isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}`}
             id="skeleton-card"
         >
             <div
-                className="w-full h-[135px] flex items-center justify-center px-[50px] py-[25px] bg-[#211E1F] animate-pulse"
+                className="w-full h-[135px] bg-[#211E1F] animate-pulse"
                 id="skeleton-image"
             />
 
             <div
-                className="w-full h-[46px] flex items-center px-[16px] py-[8px] text-[20px] bg-[#292727]"
+                className="w-full h-[46px] flex items-center px-[16px] py-[8px] bg-[#292727]"
                 id="skeleton-title"
             >
                 <div
