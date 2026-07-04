@@ -10,7 +10,7 @@ export default function WeaponModal({ data, closeFunc = () => {} }) {
 
     return (
         <div
-            className="w-full max-w-[760px] h-fit flex flex-col items-center rounded-[16px] overflow-hidden"
+            className="w-full max-w-[760px] h-fit flex flex-col items-center overflow-hidden sm:rounded-[16px]"
             id="weapon-modal"
         >
             <div
@@ -115,7 +115,7 @@ export default function WeaponModal({ data, closeFunc = () => {} }) {
                         />
 
                         <InfoPiece
-                            title="1st shot spread"
+                            title="Shot spread"
                             value={`${data.primaryFire.shotSpread} deg`}
                             id="shot-spread"
                         />
@@ -129,13 +129,7 @@ export default function WeaponModal({ data, closeFunc = () => {} }) {
                 )}
 
                 {data.altFire && data.altFire.type === "ADS" && (
-                    <InfoBlock title="Alternative fire">
-                        <InfoPiece
-                            title="Alt fire type"
-                            value="Aim down sights"
-                            id="alt-fire-type"
-                        />
-
+                    <InfoBlock title="Alternative fire - aim down sights">
                         <InfoPiece
                             title="Fire rate"
                             value={`${data.altFire.fireRate} rounds/sec`}
@@ -143,7 +137,7 @@ export default function WeaponModal({ data, closeFunc = () => {} }) {
                         />
 
                         <InfoPiece
-                            title="1st shot spread"
+                            title="Shot spread"
                             value={`${data.altFire.firstBulletAccuracy} deg`}
                             id="alt-fire-shot-spread"
                         />

@@ -26,7 +26,7 @@ export function InfoBlock({ title = "Title", children, id = "info-block" }) {
                 {title}
             </div>
 
-            <div className="w-full grid grid-cols-subgrid gap-[10px] px-[16px] py-[8px] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4" id="info">
+            <div className="w-full grid grid-cols-2 gap-[10px] px-[16px] py-[8px] sm:grid-cols-3 lg:flex lg:justify-between" id="info">
                 {children}
             </div>
         </div>

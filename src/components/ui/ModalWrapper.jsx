@@ -15,7 +15,7 @@ export default function ModalWrapper({ children, isOpened, closeFunc }) {
 
     return createPortal(
         <div
-            className={`z-30 fixed inset-0 overflow-y-auto p-[20px_20px] bg-black/50 backdrop-blur-xs transition-opacity duration-75 ease-in-out ${isVisible ? "opacity-100" : "opacity-0"}`}
+            className={`z-30 fixed inset-0 overflow-y-auto sm:p-[80px_20px] bg-black/50 backdrop-blur-xs transition-opacity duration-75 ease-in-out ${isVisible ? "opacity-100" : "opacity-0"}`}
             id="modal-blur"
             onClick={(e) => {
                 if (e.target !== e.currentTarget) return;
