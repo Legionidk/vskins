@@ -48,19 +48,31 @@ export default function getWeapons() {
                     });
                 }
 
-                let altFireData = null;
+                let altFireData = {};
                 switch (weapon.weaponStats.altFireType) {
                     case "EWeaponAltFireDisplayType::ADS":
-                        altFireData = weapon.weaponStats.adsStats;
                         altFireData.type = "ADS"
+                        altFireData.data = [
+                            {name: "Fire rate", value: `${weapon.weaponStats.adsStats.fireRate} rounds/sec`},
+                            {name: "Shot spread", value: `${weapon.weaponStats.adsStats.firstBulletAccuracy} deg`},
+                            {name: "Run speed mult", value: `${weapon.weaponStats.adsStats.runSpeedMultiplier} m/sec`},
+                            {name: "Zoom mult", value: `${weapon.weaponStats.adsStats.zoomMultiplier}x`},
+                        ]
                         break;
                     case "EWeaponAltFireDisplayType::Shotgun":
-                        altFireData = weapon.weaponStats.altShotgunStats;
+                        console.log(weapon.weaponStats.altShotgunStats)
                         altFireData.type = "Shotgun"
+                        altFireData.data = [
+                            {name: "Burst rate", value: `${weapon.weaponStats.altShotgunStats.burstRate} bursts/sec`},
+                            {name: "Pellet count", value: weapon.weaponStats.altShotgunStats.shotgunPelletCount},
+                        ]
                         break;
                     case "EWeaponAltFireDisplayType::AirBurst":
-                        altFireData = weapon.weaponStats.airBurstStats;
-                        altFireData.type = "AirBurst"
+                        altFireData.type = "Air burst"
+                        altFireData.data = [
+                            {name: "Burst distance", value: `${weapon.weaponStats.airBurstStats.burstDistance}m`},
+                            {name: "Pellet count", value: weapon.weaponStats.airBurstStats.shotgunPelletCount},
+                        ]
                         break;
                 }
 
@@ -73,17 +85,17 @@ export default function getWeapons() {
                         category: weapon.shopData.category,
                         image: weapon.displayIcon,
                         cost: weapon.shopData.cost,
-                        general: {
-                            magazine: weapon.weaponStats.magazineSize,
-                            wallPenetration: weapon.weaponStats.wallPenetration.split(":")[2],
-                            equipSpeed: weapon.weaponStats.equipTimeSeconds,
-                            reloadSpeed: weapon.weaponStats.reloadTimeSeconds,
-                        },
-                        primaryFire: {
-                            fireRate: weapon.weaponStats.fireRate,
-                            shotSpread: weapon.weaponStats.firstBulletAccuracy,
-                            runSpeedMult: weapon.weaponStats.runSpeedMultiplier,
-                        },
+                        general: [
+                            {name: "Magazine", value: weapon.weaponStats.magazineSize},
+                            {name: "Equip speed", value: `${weapon.weaponStats.equipTimeSeconds} sec`},
+                            {name: "Reload speed", value: `${weapon.weaponStats.reloadTimeSeconds} sec`},
+                            {name: "Wall penetration", value: weapon.weaponStats.wallPenetration.split(":")[2]},
+                        ],
+                        primaryFire: [
+                            {name: "Fire rate", value: `${weapon.weaponStats.fireRate} rounds/sec`},
+                            {name: "Shot spread", value: `${weapon.weaponStats.firstBulletAccuracy} deg`},
+                            {name: "Run speed mult", value: `${weapon.weaponStats.runSpeedMultiplier} m/sec`},
+                        ],
                         altFire: altFireData,
                         damage: weapon.weaponStats.damageRanges,
                     },

@@ -80,123 +80,41 @@ export default function WeaponModal({ data, closeFunc = () => {} }) {
 
                 {data.general && (
                     <InfoBlock title="General" id="general-block">
-                        <InfoPiece
-                            title="Magazine"
-                            value={data.general.magazine}
-                            id="magazine"
-                        />
-
-                        <InfoPiece
-                            title="Wall penetration"
-                            value={data.general.wallPenetration}
-                            id="wall-penetration"
-                        />
-
-                        <InfoPiece
-                            title="Equip speed"
-                            value={`${data.general.equipSpeed} sec`}
-                            id="equip-speed"
-                        />
-
-                        <InfoPiece
-                            title="Reload speed"
-                            value={`${data.general.reloadSpeed} sec`}
-                            id="reload-speed"
-                        />
+                        {data.general.map((generalStat) => (
+                            <InfoPiece
+                                title={generalStat.name}
+                                value={generalStat.value}
+                                key={generalStat.name + generalStat.value}
+                            />
+                        ))}
                     </InfoBlock>
                 )}
 
                 {data.primaryFire && (
                     <InfoBlock title="Primary fire" id="primary-fire-block">
-                        <InfoPiece
-                            title="Fire rate"
-                            value={`${data.primaryFire.fireRate} rounds/sec`}
-                            id="fire-rate"
-                        />
-
-                        <InfoPiece
-                            title="Shot spread"
-                            value={`${data.primaryFire.shotSpread} deg`}
-                            id="shot-spread"
-                        />
-
-                        <InfoPiece
-                            title="Run speed mult."
-                            value={`${data.primaryFire.runSpeedMult} m/sec`}
-                            id="run-speed-mult"
-                        />
+                        {data.primaryFire.map((primaryFireStat) => (
+                            <InfoPiece
+                                title={primaryFireStat.name}
+                                value={primaryFireStat.value}
+                                key={
+                                    primaryFireStat.name + primaryFireStat.value
+                                }
+                            />
+                        ))}
                     </InfoBlock>
                 )}
 
-                {data.altFire && data.altFire.type === "ADS" && (
-                    <InfoBlock title="Alternative fire - aim down sights">
-                        <InfoPiece
-                            title="Fire rate"
-                            value={`${data.altFire.fireRate} rounds/sec`}
-                            id="alt-fire-fire-rate"
-                        />
-
-                        <InfoPiece
-                            title="Shot spread"
-                            value={`${data.altFire.firstBulletAccuracy} deg`}
-                            id="alt-fire-shot-spread"
-                        />
-
-                        <InfoPiece
-                            title="Run speed mult."
-                            value={`${data.altFire.runSpeedMultiplier} m/sec`}
-                            id="alt-fire-run-speed-mult"
-                        />
-
-                        <InfoPiece
-                            title="Zoom mult."
-                            value={`${data.altFire.zoomMultiplier}x`}
-                            id="alt-fire-run-zoom-mult"
-                        />
-                    </InfoBlock>
-                )}
-
-                {data.altFire && data.altFire.type === "Shotgun" && (
-                    <InfoBlock title="Alternative fire">
-                        <InfoPiece
-                            title="Alt fire type"
-                            value="Shotgun"
-                            id="alt-fire-type"
-                        />
-
-                        <InfoPiece
-                            title="Burst rate"
-                            value={`${data.altFire.burstRate} bursts/sec`}
-                            id="alt-fire-burst-rate"
-                        />
-
-                        <InfoPiece
-                            title="Pellet count"
-                            value={`${data.altFire.shotgunPelletCount}`}
-                            id="alt-fire-pellet-count"
-                        />
-                    </InfoBlock>
-                )}
-
-                {data.altFire && data.altFire.type === "AirBurst" && (
-                    <InfoBlock title="Alternative fire">
-                        <InfoPiece
-                            title="Alt fire type"
-                            value="Air burst"
-                            id="alt-fire-type"
-                        />
-
-                        <InfoPiece
-                            title="Burst distance"
-                            value={`${data.altFire.burstDistance}m`}
-                            id="alt-fire-burst-distance"
-                        />
-
-                        <InfoPiece
-                            title="Pellet count"
-                            value={data.altFire.shotgunPelletCount}
-                            id="alt-fire-pellet-count"
-                        />
+                {data.altFire.type && (
+                    <InfoBlock
+                        title={`Alternative fire - ${data.altFire.type}`}
+                    >
+                        {data.altFire.data.map((altFireStat) => (
+                            <InfoPiece
+                                title={altFireStat.name}
+                                value={altFireStat.value}
+                                key={altFireStat.name + altFireStat.value}
+                            />
+                        ))}
                     </InfoBlock>
                 )}
             </div>
