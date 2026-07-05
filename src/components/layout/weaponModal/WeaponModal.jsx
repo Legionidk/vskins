@@ -10,8 +10,6 @@ export default function WeaponModal({ data, closeFunc = () => {} }) {
     const [isImageLoaded, setImageLoaded] = useState(false);
     const [isCurrencyLoaded, setCurrencyLoaded] = useState(false);
 
-    console.log(data.damage);
-
     return (
         <div
             className="w-full max-w-[760px] h-fit flex flex-col items-center overflow-hidden rounded-[16px]"
