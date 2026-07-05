@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { AnimatePresence } from "motion/react";
 
 import HeaderButton from "./HeaderButton";
 import Burger from "./Burger";
@@ -10,14 +11,16 @@ export default function Header({ buttonsData = [] }) {
 
     return (
         <>
-            {isBurgerOpened && (
-                <Burger
-                    buttonsData={buttonsData}
-                    closeFunc={() => {
-                        setBurgerOpened(false);
-                    }}
-                />
-            )}
+            <AnimatePresence initial={false}>
+                {isBurgerOpened && (
+                    <Burger
+                        buttonsData={buttonsData}
+                        closeFunc={() => {
+                            setBurgerOpened(false);
+                        }}
+                    />
+                )}
+            </AnimatePresence>
 
             <header className="z-20 sticky top-0 w-full h-[80px] flex justify-between items-center gap-[30px] px-[20px] bg-[#111111] border-b-1 border-[#323232] lg:justify-start">
                 <img src={logo} alt="Asgard logo" className="h-[30px]" />
