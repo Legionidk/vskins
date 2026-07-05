@@ -15,7 +15,10 @@ export default function DamageTable({ damageData }) {
                 <thead className="uppercase tracking-widest text-[#B8B8B8] border-b-2 border-[#292727]">
                     <tr>
                         {damageData.map((damage) => (
-                            <th className="p-[8px_16px]">
+                            <th
+                                className="p-[8px_16px]"
+                                key={damage.rangeStartMeters}
+                            >
                                 {damage.rangeStartMeters}-
                                 {damage.rangeEndMeters}m
                             </th>
@@ -25,21 +28,30 @@ export default function DamageTable({ damageData }) {
                 <tbody className="text-[18px]">
                     <tr>
                         {damageData.map((damage) => (
-                            <td className="text-center p-[8px_16px]">
+                            <td
+                                className="text-center p-[8px_16px]"
+                                key={damage.headDamage}
+                            >
                                 Head - {damage.headDamage}
                             </td>
                         ))}
                     </tr>
                     <tr>
                         {damageData.map((damage) => (
-                            <td className="text-center p-[8px_16px]">
+                            <td
+                                className="text-center p-[8px_16px]"
+                                key={damage.bodyDamage}
+                            >
                                 Body - {damage.bodyDamage}
                             </td>
                         ))}
                     </tr>
                     <tr>
                         {damageData.map((damage) => (
-                            <td className="text-center p-[8px_16px]">
+                            <td
+                                className="text-center p-[8px_16px]"
+                                key={damage.legDamage}
+                            >
                                 Leg - {damage.legDamage}
                             </td>
                         ))}
