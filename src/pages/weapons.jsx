@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import { AnimatePresence } from "motion/react";
 import { useState, useEffect, useMemo } from "react";
 
 import Header from "../components/layout/header/Header";
 import Footer from "../components/layout/footer/Footer";
-import SkeletonCategory from "../components/layout/skeletonCategory/SkeletonCategory";
 import Category from "../components/layout/category/Category";
+import SkeletonCategory from "../components/layout/skeletonCategory/SkeletonCategory";
 import WeaponModal from "../components/layout/weaponModal/WeaponModal";
 
 import ModalWrapper from "../components/ui/ModalWrapper";
@@ -62,20 +63,22 @@ export default function WeaponsPage() {
 
     return (
         <>
-            {weaponModal && (
-                <ModalWrapper
-                    closeFunc={() => {
-                        setWeaponModal(false);
-                    }}
-                >
-                    {({ visibleFunc }) => (
+            <AnimatePresence initial={false}>
+                {weaponModal && (
+                    <ModalWrapper
+                        closeFunc={() => {
+                            setWeaponModal(false);
+                        }}
+                    >
                         <WeaponModal
                             data={weaponModal}
-                            closeFunc={visibleFunc}
+                            closeFunc={() => {
+                                setWeaponModal(null);
+                            }}
                         />
-                    )}
-                </ModalWrapper>
-            )}
+                    </ModalWrapper>
+                )}
+            </AnimatePresence>
 
             <Header buttonsData={headerButtons} />
 

@@ -1,3 +1,5 @@
+import { AnimatePresence } from "motion/react";
+
 import { createPortal } from "react-dom";
 import { useState, useEffect, use } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
@@ -14,18 +16,22 @@ export default function Footer() {
 
     return (
         <>
-            {rigbyModal && (
-                <ModalWrapper
-                    isOpened={rigbyModal}
-                    closeFunc={() => {
-                        setRigbyModal(false);
-                    }}
-                >
-                    {({ visibleFunc }) => (
-                        <RigbyModal closeFunc={visibleFunc} />
-                    )}
-                </ModalWrapper>
-            )}
+            <AnimatePresence>
+                {rigbyModal && (
+                    <ModalWrapper
+                        isOpened={rigbyModal}
+                        closeFunc={() => {
+                            setRigbyModal(false);
+                        }}
+                    >
+                        <RigbyModal
+                            closeFunc={() => {
+                                setRigbyModal(false);
+                            }}
+                        />
+                    </ModalWrapper>
+                )}
+            </AnimatePresence>
 
             <footer className="w-full h-[60px] flex items-center justify-between px-[20px] mt-auto bg-[#111111] border-t-1 border-[#323232] text-[16px] font-light">
                 <p>

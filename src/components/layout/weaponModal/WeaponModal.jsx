@@ -6,7 +6,12 @@ import DamageTable from "./DamageTable";
 
 import creditsIcon from "@/assets/creditsIcon.webp";
 
-export default function WeaponModal({ data, closeFunc = () => {} }) {
+export default function WeaponModal({
+    data,
+    closeFunc = () => {
+        console.log("[WEAPON MODAL] Close function is not provided");
+    },
+}) {
     const [isImageLoaded, setImageLoaded] = useState(false);
     const [isCurrencyLoaded, setCurrencyLoaded] = useState(false);
 
