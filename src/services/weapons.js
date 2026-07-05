@@ -48,31 +48,62 @@ export default function getWeapons() {
                     });
                 }
 
-                let altFireData = {};
+                let altFireData = null;
                 switch (weapon.weaponStats.altFireType) {
                     case "EWeaponAltFireDisplayType::ADS":
-                        altFireData.type = "ADS"
-                        altFireData.data = [
-                            {name: "Fire rate", value: `${weapon.weaponStats.adsStats.fireRate} rounds/sec`},
-                            {name: "Shot spread", value: `${weapon.weaponStats.adsStats.firstBulletAccuracy} deg`},
-                            {name: "Run speed mult", value: `${weapon.weaponStats.adsStats.runSpeedMultiplier} m/sec`},
-                            {name: "Zoom mult", value: `${weapon.weaponStats.adsStats.zoomMultiplier}x`},
-                        ]
+                        altFireData = {
+                            type: "ADS",
+                            data: [
+                                {
+                                    name: "Fire rate",
+                                    value: `${weapon.weaponStats.adsStats.fireRate} rounds/sec`,
+                                },
+                                {
+                                    name: "Shot spread",
+                                    value: `${weapon.weaponStats.adsStats.firstBulletAccuracy} deg`,
+                                },
+                                {
+                                    name: "Run speed mult",
+                                    value: `${weapon.weaponStats.adsStats.runSpeedMultiplier} m/sec`,
+                                },
+                                {
+                                    name: "Zoom mult",
+                                    value: `${weapon.weaponStats.adsStats.zoomMultiplier}x`,
+                                },
+                            ],
+                        };
                         break;
                     case "EWeaponAltFireDisplayType::Shotgun":
-                        console.log(weapon.weaponStats.altShotgunStats)
-                        altFireData.type = "Shotgun"
-                        altFireData.data = [
-                            {name: "Burst rate", value: `${weapon.weaponStats.altShotgunStats.burstRate} bursts/sec`},
-                            {name: "Pellet count", value: weapon.weaponStats.altShotgunStats.shotgunPelletCount},
-                        ]
+                        altFireData = {
+                            type: "Shotgun",
+                            data: [
+                                {
+                                    name: "Burst rate",
+                                    value: `${weapon.weaponStats.altShotgunStats.burstRate} bursts/sec`,
+                                },
+                                {
+                                    name: "Pellet count",
+                                    value: weapon.weaponStats.altShotgunStats
+                                        .shotgunPelletCount,
+                                },
+                            ],
+                        };
                         break;
                     case "EWeaponAltFireDisplayType::AirBurst":
-                        altFireData.type = "Air burst"
-                        altFireData.data = [
-                            {name: "Burst distance", value: `${weapon.weaponStats.airBurstStats.burstDistance}m`},
-                            {name: "Pellet count", value: weapon.weaponStats.airBurstStats.shotgunPelletCount},
-                        ]
+                        altFireData = {
+                            type: "Air burst",
+                            data: [
+                                {
+                                    name: "Burst distance",
+                                    value: `${weapon.weaponStats.airBurstStats.burstDistance}m`,
+                                },
+                                {
+                                    name: "Pellet count",
+                                    value: weapon.weaponStats.airBurstStats
+                                        .shotgunPelletCount,
+                                },
+                            ],
+                        };
                         break;
                 }
 
@@ -86,15 +117,38 @@ export default function getWeapons() {
                         image: weapon.displayIcon,
                         cost: weapon.shopData.cost,
                         general: [
-                            {name: "Magazine", value: weapon.weaponStats.magazineSize},
-                            {name: "Equip speed", value: `${weapon.weaponStats.equipTimeSeconds} sec`},
-                            {name: "Reload speed", value: `${weapon.weaponStats.reloadTimeSeconds} sec`},
-                            {name: "Wall penetration", value: weapon.weaponStats.wallPenetration.split(":")[2]},
+                            {
+                                name: "Magazine",
+                                value: weapon.weaponStats.magazineSize,
+                            },
+                            {
+                                name: "Equip speed",
+                                value: `${weapon.weaponStats.equipTimeSeconds} sec`,
+                            },
+                            {
+                                name: "Reload speed",
+                                value: `${weapon.weaponStats.reloadTimeSeconds} sec`,
+                            },
+                            {
+                                name: "Wall penetration",
+                                value: weapon.weaponStats.wallPenetration.split(
+                                    ":",
+                                )[2],
+                            },
                         ],
                         primaryFire: [
-                            {name: "Fire rate", value: `${weapon.weaponStats.fireRate} rounds/sec`},
-                            {name: "Shot spread", value: `${weapon.weaponStats.firstBulletAccuracy} deg`},
-                            {name: "Run speed mult", value: `${weapon.weaponStats.runSpeedMultiplier} m/sec`},
+                            {
+                                name: "Fire rate",
+                                value: `${weapon.weaponStats.fireRate} rounds/sec`,
+                            },
+                            {
+                                name: "Shot spread",
+                                value: `${weapon.weaponStats.firstBulletAccuracy} deg`,
+                            },
+                            {
+                                name: "Run speed mult",
+                                value: `${weapon.weaponStats.runSpeedMultiplier} m/sec`,
+                            },
                         ],
                         altFire: altFireData,
                         damage: weapon.weaponStats.damageRanges,

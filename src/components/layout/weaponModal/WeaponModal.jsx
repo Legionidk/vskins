@@ -2,15 +2,19 @@ import { useState } from "react";
 import { HandRaisedIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import { InfoBlock, InfoPiece } from "./InfoBlock";
+import DamageTable from "./DamageTable";
+
 import creditsIcon from "@/assets/creditsIcon.webp";
 
 export default function WeaponModal({ data, closeFunc = () => {} }) {
     const [isImageLoaded, setImageLoaded] = useState(false);
     const [isCurrencyLoaded, setCurrencyLoaded] = useState(false);
 
+    console.log(data.damage);
+
     return (
         <div
-            className="w-full max-w-[760px] h-fit flex flex-col items-center overflow-hidden sm:rounded-[16px]"
+            className="w-full max-w-[760px] h-fit flex flex-col items-center overflow-hidden rounded-[16px]"
             id="weapon-modal"
         >
             <div
@@ -104,7 +108,7 @@ export default function WeaponModal({ data, closeFunc = () => {} }) {
                     </InfoBlock>
                 )}
 
-                {data.altFire.type && (
+                {data.altFire && (
                     <InfoBlock
                         title={`Alternative fire - ${data.altFire.type}`}
                     >
@@ -117,6 +121,8 @@ export default function WeaponModal({ data, closeFunc = () => {} }) {
                         ))}
                     </InfoBlock>
                 )}
+
+                {data.damage && <DamageTable damageData={data.damage} />}
             </div>
         </div>
     );
