@@ -1,16 +1,15 @@
+import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 
 export default function SkeletonCard() {
-    const [isVisible, setVisible] = useState(false);
-
-    useEffect(() => {
-        setVisible(true);
-    }, []);
-
     return (
-        <div
-            className={`z-10 w-full rounded-[8px] overflow-hidden transition-all duration-50 ease-in-out ${isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}`}
-            id="skeleton-card"
+        <motion.div
+            initial={{ y: 10 }}
+            animate={{ y: 0 }}
+            exit={{ y: 10 }}
+            transition={{ duration: 0.1, ease: "circOut" }}
+            className="z-10 w-full rounded-[8px] overflow-hidden"
+            key="skeleton-card"
         >
             <div
                 className="w-full h-[135px] bg-[#211E1F] animate-pulse"
@@ -26,6 +25,6 @@ export default function SkeletonCard() {
                     id="skeleton-text"
                 />
             </div>
-        </div>
+        </motion.div>
     );
 }

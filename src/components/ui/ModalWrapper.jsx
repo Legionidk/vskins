@@ -17,7 +17,7 @@ export default function ModalWrapper({ children, closeFunc }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 100 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.1, ease: "easeInOut" }}
+            transition={{ duration: 0.15, ease: "easeInOut" }}
             className="z-30 fixed inset-0 overflow-y-auto p-[80px_20px] bg-black/50 backdrop-blur-xs"
             key="modal-blur"
             onClick={(e) => {
@@ -29,7 +29,7 @@ export default function ModalWrapper({ children, closeFunc }) {
                 initial={{ y: 10 }}
                 animate={{ y: 0 }}
                 exit={{ y: 10 }}
-                transition={{ duration: 0.1, ease: "easeInOut" }}
+                transition={{ duration: 0.15, ease: "easeInOut" }}
                 className="min-h-full flex items-center justify-center"
                 key="modal-wrapper"
                 onClick={(e) => {

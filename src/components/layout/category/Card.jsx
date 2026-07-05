@@ -1,4 +1,6 @@
+import { motion } from "motion/react";
 import { useState, useEffect } from "react";
+
 import imagePlaceholder from "@/assets/imagePlaceholder.svg";
 
 export default function Card({
@@ -9,16 +11,16 @@ export default function Card({
     modalData = {},
 }) {
     const [isLoaded, setLoaded] = useState(false);
-    const [isVisible, setVisible] = useState(false);
-
-    useEffect(() => {
-        setVisible(true);
-    }, []);
 
     return (
-        <div
-            className={`z-10 cursor-pointer flex flex-col rounded-[8px] overflow-hidden transition-all duration-75 ease-in-out ring-[#FF4248] hover:ring-2 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}`}
-            id="card"
+        <motion.div
+            layout
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 10, opacity: 0 }}
+            transition={{ duration: 0.15, ease: "circOut" }}
+            className="z-10 cursor-pointer flex flex-col rounded-[8px] overflow-hidden ring-[#FF4248] hover:ring-2"
+            key="card"
             data-card-id={id}
             onClick={() => {
                 modalFunc(modalData);
@@ -41,7 +43,7 @@ export default function Card({
                     }}
                     src={image}
                     alt={`${title} image`}
-                    className={`w-full h-full object-contain ${!isLoaded ? "hidden" : ""}`}
+                    className={`w-full h-full object-contain ${!isLoaded && "hidden"}`}
                 />
             </div>
 
@@ -51,6 +53,6 @@ export default function Card({
             >
                 {title}
             </p>
-        </div>
+        </motion.div>
     );
 }

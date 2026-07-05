@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import Card from "./Card";
 
 export default function Category({
@@ -7,9 +8,13 @@ export default function Category({
     data = [],
 }) {
     return (
-        <div
+        <motion.div
+            layout
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 100 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.15, ease: "easeInOut" }}
             className="z-10 w-full flex flex-col gap-[10px]"
-            id="category-wrapper"
             data-category-id={categoryId}
         >
             <p
@@ -19,7 +24,10 @@ export default function Category({
                 {categoryName}
             </p>
 
-            <div className="grid grid-cols-1 gap-[10px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" id="cards-grid">
+            <div
+                className="grid grid-cols-1 gap-[10px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                id="cards-grid"
+            >
                 {data.map((object) => (
                     <Card
                         title={object.cardTitle}
@@ -31,6 +39,6 @@ export default function Category({
                     />
                 ))}
             </div>
-        </div>
+        </motion.div>
     );
 }

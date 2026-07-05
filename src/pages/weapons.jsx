@@ -90,19 +90,21 @@ export default function WeaponsPage() {
                     }}
                 />
 
-                {isLoaded ? (
-                    filteredWeaponsData.map((category) => (
-                        <Category
-                            categoryName={category.categoryName}
-                            categoryId={category.categoryId}
-                            data={category.data}
-                            modalFunc={setWeaponModal}
-                            key={category.categoryId}
-                        />
-                    ))
-                ) : (
-                    <SkeletonCategory />
-                )}
+                <AnimatePresence>
+                    {isLoaded ? (
+                        filteredWeaponsData.map((category) => (
+                            <Category
+                                categoryName={category.categoryName}
+                                categoryId={category.categoryId}
+                                data={category.data}
+                                modalFunc={setWeaponModal}
+                                key={category.categoryId}
+                            />
+                        ))
+                    ) : (
+                        <SkeletonCategory />
+                    )}
+                </AnimatePresence>
             </main>
 
             <Footer />
