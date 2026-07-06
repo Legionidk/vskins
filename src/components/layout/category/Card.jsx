@@ -19,7 +19,7 @@ export default function Card({
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 10, opacity: 0 }}
             transition={{ duration: 0.15, ease: "circOut" }}
-            className="z-10 cursor-pointer flex flex-col rounded-[8px] overflow-hidden ring-[#FF4248] hover:ring-2"
+            className="z-10 cursor-pointer flex flex-col rounded-[8px] overflow-hidden transition-shadow duration-75 ease-in-out ring-[#FF4248] hover:ring-2"
             key="card"
             data-card-id={id}
             onClick={() => {
