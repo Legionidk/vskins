@@ -6,7 +6,13 @@ import HeaderButton from "./HeaderButton";
 import Burger from "./Burger";
 import logo from "@/assets/asgard.svg";
 
-export default function Header({ buttonsData = [] }) {
+const buttons = [
+    { text: "Weapons", status: "enabled", link: "/" },
+    { text: "Agents", status: "enabled", link: "/agents" },
+    { text: "Skins", status: "enabled", link: "/skins" },
+];
+
+export default function Header() {
     const [isBurgerOpened, setBurgerOpened] = useState(false);
 
     return (
@@ -14,7 +20,7 @@ export default function Header({ buttonsData = [] }) {
             <AnimatePresence initial={false}>
                 {isBurgerOpened && (
                     <Burger
-                        buttonsData={buttonsData}
+                        buttonsData={buttons}
                         closeFunc={() => {
                             setBurgerOpened(false);
                         }}
@@ -26,7 +32,7 @@ export default function Header({ buttonsData = [] }) {
                 <img src={logo} alt="Asgard logo" className="h-[30px]" />
 
                 <div className="hidden gap-[5px] lg:flex" id="buttons-wrapper">
-                    {buttonsData.map((button) => (
+                    {buttons.map((button) => (
                         <HeaderButton
                             text={button.text}
                             status={button.status}

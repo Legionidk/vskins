@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import WeaponsPage from "../pages/Weapons";
-import AgentsPage from "../pages/agents";
-import SkinsPage from "../pages/skins";
+import AgentsPage from "../pages/Agents";
+import SkinsPage from "../pages/Skins";
 
 export default function App() {
     return (

@@ -3,6 +3,7 @@ import { AnimatePresence } from "motion/react";
 import { useState, useEffect, useMemo } from "react";
 
 import Header from "../components/layout/header/Header";
+import Main from "../components/layout/Main";
 import Footer from "../components/layout/footer/Footer";
 import Category from "../components/layout/category/Category";
 import SkeletonCategory from "../components/layout/skeletonCategory/SkeletonCategory";
@@ -12,12 +13,6 @@ import ModalWrapper from "../components/ui/ModalWrapper";
 import Input from "../components/ui/Input";
 
 import getWeapons from "../services/weapons";
-
-const headerButtons = [
-    { text: "Weapons", status: "enabled", link: "/" },
-    { text: "Agents", status: "disabled", link: "/agents" },
-    { text: "Skins", status: "disabled", link: "/skins" },
-];
 
 export default function WeaponsPage() {
     const [isLoaded, setLoaded] = useState(false);
@@ -80,9 +75,9 @@ export default function WeaponsPage() {
                 )}
             </AnimatePresence>
 
-            <Header buttonsData={headerButtons} />
+            <Header />
 
-            <main className="z-0 flex flex-col items-center gap-[20px] w-full px-[20px] 2xl:w-[1300px]">
+            <Main>
                 <Input
                     placeholder="Search in weapons"
                     onChange={(e) => {
@@ -105,7 +100,7 @@ export default function WeaponsPage() {
                         <SkeletonCategory />
                     )}
                 </AnimatePresence>
-            </main>
+            </Main>
 
             <Footer />
         </>
