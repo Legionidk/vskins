@@ -107,6 +107,19 @@ export default function getWeapons() {
                         break;
                 }
 
+                console.log(
+                    "mapped",
+                    weapon.weaponStats.damageRanges.map((damage) => {
+                        return {
+                            start: damage.rangeStartMeters,
+                            end: damage.rangeEndMeters,
+                            head: Math.trunc(damage.headDamage),
+                            body: Math.trunc(damage.bodyDamage),
+                            legs: Math.trunc(damage.legDamage),
+                        };
+                    }),
+                );
+
                 weapons.get(weapon.category).data.push({
                     cardTitle: weapon.displayName,
                     cardImage: weapon.displayIcon,
@@ -151,7 +164,17 @@ export default function getWeapons() {
                             },
                         ],
                         altFire: altFireData,
-                        damage: weapon.weaponStats.damageRanges,
+                        damage: weapon.weaponStats.damageRanges.map(
+                            (damage) => {
+                                return {
+                                    start: damage.rangeStartMeters,
+                                    end: damage.rangeEndMeters,
+                                    head: Math.trunc(damage.headDamage),
+                                    body: Math.trunc(damage.bodyDamage),
+                                    legs: Math.trunc(damage.legDamage),
+                                };
+                            },
+                        ),
                     },
                 });
             }
