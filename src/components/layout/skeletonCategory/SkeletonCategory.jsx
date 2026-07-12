@@ -7,7 +7,7 @@ export default function SkeletonCategory() {
             key="skeleton-category"
         >
             <div
-                className="h-[43px] flex items-center bg-[#292727] px-[16px] py-[8px] rounded-[8px]"
+                className="h-[43px] flex items-center bg-[#292727] p-[8px_16px] rounded-[8px]"
                 key="skeleton-title"
             >
                 <div

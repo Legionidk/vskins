@@ -12,7 +12,7 @@ export default function SkeletonCard() {
             />
 
             <div
-                className="w-full h-[46px] flex items-center px-[16px] py-[8px] bg-[#292727]"
+                className="w-full h-[46px] flex items-center p-[8px_16px] bg-[#292727]"
                 id="skeleton-title"
             >
                 <div
