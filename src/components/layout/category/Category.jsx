@@ -11,7 +11,7 @@ export default function Category({
 }) {
     return (
         <motion.div
-            layout
+            layout="position"
             initial={{ opacity: 0 }}
             animate={{ opacity: 100 }}
             exit={{ opacity: 0 }}
