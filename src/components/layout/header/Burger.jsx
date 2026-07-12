@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+
 import { createPortal } from "react-dom";
 import { useState, useEffect } from "react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
 
 import HeaderButton from "./HeaderButton";
 

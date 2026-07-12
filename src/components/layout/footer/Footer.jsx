@@ -5,6 +5,7 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 
 import ModalWrapper from "../../ui/ModalWrapper";
 import RigbyModal from "./RigbyModal";
+
 import githubLogo from "@/assets/github.svg";
 import yoPng from "@/assets/yo.png";
 import rigby from "@/assets/rigby.jpg";

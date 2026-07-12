@@ -15,16 +15,15 @@ export default function DamageTable({ damageData }) {
                 <thead className="uppercase tracking-widest text-[#B8B8B8] border-b-2 border-[#292727]">
                     <tr>
                         <th />
+
                         {damageData.map((damage) => (
-                            <th
-                                className="p-[8px_16px]"
-                                key={damage.start}
-                            >
+                            <th className="p-[8px_16px]" key={damage.start}>
                                 {damage.start}-{damage.end}m
                             </th>
                         ))}
                     </tr>
                 </thead>
+
                 <tbody className="text-[18px]">
                     <tr>
                         <td className="text-[#B8B8B8] text-center font-light p-[8px_16px]">
@@ -40,11 +39,12 @@ export default function DamageTable({ damageData }) {
                             </td>
                         ))}
                     </tr>
+
                     <tr>
                         <td className="text-[#B8B8B8] text-center font-light p-[8px_16px]">
                             Body
                         </td>
-                        
+
                         {damageData.map((damage) => (
                             <td
                                 className="text-center p-[8px_16px]"
@@ -54,11 +54,12 @@ export default function DamageTable({ damageData }) {
                             </td>
                         ))}
                     </tr>
+                    
                     <tr>
                         <td className="text-[#B8B8B8] text-center font-light p-[8px_16px]">
                             Legs
                         </td>
-                        
+
                         {damageData.map((damage) => (
                             <td
                                 className="text-center p-[8px_16px]"

@@ -1,7 +1,8 @@
+import clsx from "clsx";
 import { useState } from "react";
 import { HandRaisedIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
-import { InfoBlock, InfoPiece } from "./InfoBlock";
+import { InfoBlock, InfoPiece } from "../InfoBlock";
 import DamageTable from "./DamageTable";
 
 import creditsIcon from "@/assets/creditsIcon.webp";
@@ -9,10 +10,9 @@ import creditsIcon from "@/assets/creditsIcon.webp";
 export default function WeaponModal({
     data,
     closeFunc = () => {
-        console.log("[WEAPON MODAL] Close function is not provided");
+        console.log("[WEAPON MODAL] Modal close function not provided");
     },
 }) {
-    const [isImageLoaded, setImageLoaded] = useState(false);
     const [isCurrencyLoaded, setCurrencyLoaded] = useState(false);
 
     return (
@@ -21,40 +21,31 @@ export default function WeaponModal({
             id="weapon-modal"
         >
             <div
-                className="w-full flex items-center justify-between px-[16px] py-[8px] bg-[#211E1F]"
+                className="w-full flex items-center justify-between p-[8px_16px] bg-[#211E1F]"
                 id="title"
             >
                 <div className="flex gap-[10px] text-[20px]" id="title">
                     <p className="uppercase font-medium tracking-widest">
                         {data.name}
                     </p>
+
                     <p className="text-[#B8B8B8]">{data.category}</p>
                 </div>
 
-                <button className="cursor-pointer" onClick={closeFunc}>
+                <button
+                    className="cursor-pointer"
+                    id="close-button"
+                    onClick={closeFunc}
+                >
                     <XMarkIcon className="size-[24px]" />
                 </button>
             </div>
 
             <div
-                className="w-full flex justify-center px-[50px] py-[25px] bg-[#292727]"
+                className="w-full flex justify-center p-[25px_50px] bg-[#292727]"
                 id="image-wrapper"
             >
-                {!isImageLoaded && (
-                    <div
-                        className="size-[100px] bg-[#211E1F] rounded-[8px] animate-pulse"
-                        id="skeleton-image"
-                    />
-                )}
-
-                <img
-                    onLoad={() => {
-                        setImageLoaded(true);
-                    }}
-                    src={data.image}
-                    alt={`${data.name} image`}
-                    className={`${!isImageLoaded && "hidden"}`}
-                />
+                <img src={data.image} alt={`${data.name} image`} />
             </div>
 
             <div
@@ -68,19 +59,21 @@ export default function WeaponModal({
                     >
                         {!isCurrencyLoaded && (
                             <div
-                                id="skeleton-currency"
                                 className="size-[12px] bg-[#211E1F] rounded-[8px] animate-pulse"
-                            ></div>
+                                id="skeleton-currency"
+                            />
                         )}
 
                         <img
+                            src={creditsIcon}
+                            alt="Credits icon"
+                            hidden={!isCurrencyLoaded}
+                            className="size-[12px]"
                             onLoad={() => {
                                 setCurrencyLoaded(true);
                             }}
-                            src={creditsIcon}
-                            alt="Credits icon"
-                            className={`size-[12px] ${!isCurrencyLoaded && "hidden"}`}
                         />
+
                         <p>{data.cost}</p>
                     </div>
                 )}
