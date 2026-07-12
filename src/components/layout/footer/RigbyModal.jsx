@@ -12,16 +12,20 @@ export default function RigbyModal({ closeFunc }) {
             id="rigby-modal"
         >
             {!isLoaded && (
-                <div className="size-full aspect-[1/1] bg-[#292727] animate-pulse rounded-[8px]"></div>
+                <div
+                    className="size-full aspect-[1/1] bg-[#292727] animate-pulse rounded-[8px]"
+                    id="skeleton-image"
+                />
             )}
 
             <img
+                src={rigby}
+                alt="Rigby image"
+                hidden={!isLoaded}
+                className="rounded-[8px]"
                 onLoad={() => {
                     setLoaded(true);
                 }}
-                src={rigby}
-                alt="Rigby image"
-                className={`rounded-[8px] ${!isLoaded && "hidden"}`}
             />
         </div>
     );
