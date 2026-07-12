@@ -22,7 +22,7 @@ export default function getWeapons() {
                             {
                                 cardTitle: weapon.displayName,
                                 cardImage: weapon.displayIcon,
-                                id: weapon.uuid,
+                                cardId: weapon.uuid,
                                 data: {
                                     uuid: weapon.uuid,
                                     name: weapon.displayName,
@@ -107,23 +107,10 @@ export default function getWeapons() {
                         break;
                 }
 
-                console.log(
-                    "mapped",
-                    weapon.weaponStats.damageRanges.map((damage) => {
-                        return {
-                            start: damage.rangeStartMeters,
-                            end: damage.rangeEndMeters,
-                            head: Math.trunc(damage.headDamage),
-                            body: Math.trunc(damage.bodyDamage),
-                            legs: Math.trunc(damage.legDamage),
-                        };
-                    }),
-                );
-
                 weapons.get(weapon.category).data.push({
                     cardTitle: weapon.displayName,
                     cardImage: weapon.displayIcon,
-                    id: weapon.uuid,
+                    cardId: weapon.uuid,
                     data: {
                         name: weapon.displayName,
                         category: weapon.shopData.category,

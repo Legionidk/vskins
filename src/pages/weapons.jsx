@@ -20,7 +20,7 @@ export default function WeaponsPage() {
     const [weaponModal, setWeaponModal] = useState(null);
 
     const [search, setSearch] = useState("");
-    const [debouncedSearch, setDebouncedSearch] = useState(false);
+    const [debouncedSearch, setDebouncedSearch] = useState("");
 
     const filteredWeaponsData = useMemo(() => {
         if (!search.trim()) {
@@ -79,7 +79,7 @@ export default function WeaponsPage() {
 
             <Main>
                 <Input
-                    placeholder="Search in weapons"
+                    placeholder="Search weapons"
                     onChange={(e) => {
                         setSearch(e.target.value);
                     }}
@@ -91,7 +91,7 @@ export default function WeaponsPage() {
                             <Category
                                 categoryName={category.categoryName}
                                 categoryId={category.categoryId}
-                                data={category.data}
+                                cardsData={category.data}
                                 modalFunc={setWeaponModal}
                                 key={category.categoryId}
                             />
