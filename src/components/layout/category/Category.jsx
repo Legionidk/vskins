@@ -3,7 +3,6 @@ import Card from "./Card";
 
 export default function Category({
     categoryName = "Category name",
-    categoryId = "category-id",
     modalFunc = () => {},
     cardsData = [],
     agentMode = false,
@@ -15,7 +14,6 @@ export default function Category({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15, ease: "easeInOut" }}
             className="z-10 w-full flex flex-col gap-[10px]"
-            data-category-id={categoryId}
         >
             <p
                 className="bg-[#292727] px-[16px] py-[8px] rounded-[8px] text-[18px] text-[#B8B8B8] font-medium uppercase tracking-widest"
@@ -31,7 +29,6 @@ export default function Category({
                 {cardsData.map((object) => (
                     <Card
                         title={object.cardTitle}
-                        id={object.cardId}
                         image={object.cardImage}
                         modalFunc={modalFunc}
                         modalData={object.data}

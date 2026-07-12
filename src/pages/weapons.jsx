@@ -90,7 +90,6 @@ export default function WeaponsPage() {
                         filteredWeaponsData.map((category) => (
                             <Category
                                 categoryName={category.categoryName}
-                                categoryId={category.categoryId}
                                 cardsData={category.data}
                                 modalFunc={setWeaponModal}
                                 key={category.categoryId}

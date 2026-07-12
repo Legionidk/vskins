@@ -5,7 +5,6 @@ import imagePlaceholder from "@/assets/imagePlaceholder.svg";
 
 export default function Card({
     title = "Title",
-    id = "card-id",
     image = imagePlaceholder,
     modalFunc = () => {},
     modalData = {},
@@ -22,14 +21,12 @@ export default function Card({
             whileHover={{ boxShadow: "0 0 0 2px #FF4248" }}
             transition={{ duration: 0.15, ease: "circOut" }}
             className="z-10 select-none cursor-pointer flex flex-col rounded-[8px] overflow-hidden"
-            key="card"
-            data-card-id={id}
             onClick={() => {
                 modalFunc(modalData);
             }}
         >
             <div
-                className={`flex items-center justify-center bg-[#292727] ${agentMode ? "h-fit pt-[25px]" : "h-[135px] p-[25px_50px]"} ${!isLoaded && "animate-pulse"}`}
+                className={`flex items-center justify-center bg-[#292727] ${agentMode ? "h-[175px] pt-[25px]" : "h-[135px] p-[25px_50px]"} ${!isLoaded && "animate-pulse"}`}
                 id="image-wrapper"
             >
                 <img
