@@ -9,6 +9,7 @@ export default function Card({
     image = imagePlaceholder,
     modalFunc = () => {},
     modalData = {},
+    agentMode = false,
 }) {
     const [isLoaded, setLoaded] = useState(false);
 
@@ -28,7 +29,7 @@ export default function Card({
             }}
         >
             <div
-                className="flex items-center justify-center h-[135px] p-[25px_50px] bg-[#292727]"
+                className={`flex items-center justify-center bg-[#292727] ${agentMode ? "h-fit pt-[25px]" : "h-[135px] p-[25px_50px]"}`}
                 id="image-wrapper"
             >
                 {!isLoaded && (
@@ -44,7 +45,8 @@ export default function Card({
                     }}
                     src={image}
                     alt={`${title} image`}
-                    className={`w-full h-full object-contain ${!isLoaded && "hidden"}`}
+                    hidden={!isLoaded}
+                    className={`object-contain ${agentMode ? "size-[150px]" : "size-full"}`}
                 />
             </div>
 

@@ -5,7 +5,8 @@ export default function Category({
     categoryName = "Category name",
     categoryId = "category-id",
     modalFunc = () => {},
-    data = [],
+    cardsData = [],
+    agentMode = false,
 }) {
     return (
         <motion.div
@@ -28,14 +29,15 @@ export default function Category({
                 className="grid grid-cols-1 gap-[10px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                 id="cards-grid"
             >
-                {data.map((object) => (
+                {cardsData.map((object) => (
                     <Card
                         title={object.cardTitle}
-                        id={object.id}
+                        id={object.cardId}
                         image={object.cardImage}
                         modalFunc={modalFunc}
                         modalData={object.data}
-                        key={object.id}
+                        agentMode={agentMode}
+                        key={object.cardId}
                     />
                 ))}
             </div>
