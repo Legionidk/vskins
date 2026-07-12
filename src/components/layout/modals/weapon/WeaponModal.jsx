@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { useState } from "react";
-import { HandRaisedIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 import { InfoBlock, InfoPiece } from "../InfoBlock";
 import DamageTable from "./DamageTable";
