@@ -72,9 +72,8 @@ export default function AgentsPage() {
                         filteredAgentsData.map((category) => (
                             <Category
                                 categoryName={category.categoryName}
-                                categoryId={category.categoryId}
-                                cardsData={category.cardsData}
                                 agentMode={true}
+                                cardsData={category.cardsData}
                                 key={category.categoryId}
                             />
                         ))
