@@ -1,6 +1,6 @@
+import { AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { AnimatePresence } from "motion/react";
 
 import HeaderButton from "./HeaderButton";
 import Burger from "./Burger";
@@ -17,15 +17,8 @@ export default function Header() {
 
     return (
         <>
-            <AnimatePresence initial={false}>
-                {isBurgerOpened && (
-                    <Burger
-                        buttonsData={buttons}
-                        closeFunc={() => {
-                            setBurgerOpened(false);
-                        }}
-                    />
-                )}
+            <AnimatePresence>
+                {isBurgerOpened && <Burger buttonsData={buttons} />}
             </AnimatePresence>
 
             <header className="z-20 sticky top-0 w-full h-[80px] flex justify-between items-center gap-[30px] px-[20px] bg-[#111111] border-b-1 border-[#323232] lg:justify-start">
@@ -49,7 +42,11 @@ export default function Header() {
                         setBurgerOpened(!isBurgerOpened);
                     }}
                 >
-                    <Bars3Icon className="size-[24px]" />
+                    {isBurgerOpened ? (
+                        <XMarkIcon className="size-[24px]" />
+                    ) : (
+                        <Bars3Icon className="size-[24px]" />
+                    )}
                 </button>
             </header>
         </>
