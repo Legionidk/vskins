@@ -1,14 +1,17 @@
+import clsx from "clsx";
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 
 import imagePlaceholder from "@/assets/imagePlaceholder.svg";
 
 export default function Card({
-    title = "Title",
+    title = "Card title",
     image = imagePlaceholder,
-    modalFunc = () => {},
-    modalData = {},
     agentMode = false,
+    modalData = null,
+    modalFunc = () => {
+        console.log("[CARD] Modal window function not provided");
+    },
 }) {
     const [isLoaded, setLoaded] = useState(false);
 
@@ -21,22 +24,32 @@ export default function Card({
             whileHover={{ boxShadow: "0 0 0 2px #FF4248" }}
             transition={{ duration: 0.15, ease: "circOut" }}
             className="z-10 select-none cursor-pointer flex flex-col rounded-[8px] overflow-hidden"
+            id="card"
             onClick={() => {
                 modalFunc(modalData);
             }}
         >
             <div
-                className={`flex items-center justify-center bg-[#292727] ${agentMode ? "h-[175px] pt-[25px]" : "h-[135px] p-[25px_50px]"} ${!isLoaded && "animate-pulse"}`}
+                className={clsx(
+                    "flex items-center justify-center bg-[#292727]",
+                    agentMode
+                        ? "h-[175px] pt-[25px]"
+                        : "h-[135px] p-[25px_50px]",
+                    !isLoaded && "animate-pulse",
+                )}
                 id="image-wrapper"
             >
                 <img
-                    onLoad={() => {
-                        setLoaded(true);
-                    }}
                     src={image}
                     alt={`${title} image`}
                     hidden={!isLoaded}
-                    className={`object-contain ${agentMode ? "size-[150px]" : "size-full"}`}
+                    className={clsx(
+                        "object-contain",
+                        agentMode ? "size-[150px]" : "size-full",
+                    )}
+                    onLoad={() => {
+                        setLoaded(true);
+                    }}
                 />
             </div>
 
