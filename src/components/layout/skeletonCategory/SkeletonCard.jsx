@@ -1,14 +1,8 @@
-import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 
 export default function SkeletonCard() {
     return (
-        <motion.div
-            layout
-            initial={{ y: 10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 10, opacity: 0 }}
-            transition={{ duration: 0.15, ease: "circOut" }}
+        <div
             className="z-10 w-full rounded-[8px] overflow-hidden"
             key="skeleton-card"
         >
@@ -26,6 +20,6 @@ export default function SkeletonCard() {
                     id="skeleton-text"
                 />
             </div>
-        </motion.div>
+        </div>
     );
 }

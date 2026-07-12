@@ -1,14 +1,8 @@
-import { motion } from "motion/react";
 import SkeletonCard from "./SkeletonCard";
 
 export default function SkeletonCategory() {
     return (
-        <motion.div
-            layout
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 100 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.15, ease: "easeInOut" }}
+        <div
             className="z-10 w-full flex flex-col gap-[10px]"
             key="skeleton-category"
         >
@@ -31,6 +25,6 @@ export default function SkeletonCategory() {
                 <SkeletonCard />
                 <SkeletonCard />
             </div>
-        </motion.div>
+        </div>
     );
 }
