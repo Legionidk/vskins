@@ -62,7 +62,7 @@ export default function WeaponsPage() {
                 {weaponModal && (
                     <ModalWrapper
                         closeFunc={() => {
-                            setWeaponModal(false);
+                            setWeaponModal(null);
                         }}
                     >
                         <WeaponModal
@@ -90,7 +90,7 @@ export default function WeaponsPage() {
                         filteredWeaponsData.map((category) => (
                             <Category
                                 categoryName={category.categoryName}
-                                cardsData={category.data}
+                                cardsData={category.cardsData}
                                 modalFunc={setWeaponModal}
                                 key={category.categoryId}
                             />

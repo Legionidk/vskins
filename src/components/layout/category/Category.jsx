@@ -35,7 +35,7 @@ export default function Category({
                         title={object.cardTitle}
                         image={object.cardImage}
                         agentMode={agentMode}
-                        modalData={object.data}
+                        modalData={object.modalData}
                         modalFunc={modalFunc}
                         key={object.cardId}
                     />

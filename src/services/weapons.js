@@ -18,12 +18,12 @@ export default function getWeapons() {
                     weapons.set(weapon.category, {
                         categoryName: "Melee",
                         categoryId: weapon.category,
-                        data: [
+                        cardsData: [
                             {
                                 cardTitle: weapon.displayName,
                                 cardImage: weapon.displayIcon,
                                 cardId: weapon.uuid,
-                                data: {
+                                modalData: {
                                     uuid: weapon.uuid,
                                     name: weapon.displayName,
                                     category: null,
@@ -44,7 +44,7 @@ export default function getWeapons() {
                     weapons.set(weapon.category, {
                         categoryName: weapon.shopData.category,
                         categoryId: weapon.category,
-                        data: [],
+                        cardsData: [],
                     });
                 }
 
@@ -107,11 +107,11 @@ export default function getWeapons() {
                         break;
                 }
 
-                weapons.get(weapon.category).data.push({
+                weapons.get(weapon.category).cardsData.push({
                     cardTitle: weapon.displayName,
                     cardImage: weapon.displayIcon,
                     cardId: weapon.uuid,
-                    data: {
+                    modalData: {
                         name: weapon.displayName,
                         category: weapon.shopData.category,
                         image: weapon.displayIcon,
