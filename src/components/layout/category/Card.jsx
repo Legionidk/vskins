@@ -29,16 +29,9 @@ export default function Card({
             }}
         >
             <div
-                className={`flex items-center justify-center bg-[#292727] ${agentMode ? "h-fit pt-[25px]" : "h-[135px] p-[25px_50px]"}`}
+                className={`flex items-center justify-center bg-[#292727] ${agentMode ? "h-fit pt-[25px]" : "h-[135px] p-[25px_50px]"} ${!isLoaded && "animate-pulse"}`}
                 id="image-wrapper"
             >
-                {!isLoaded && (
-                    <div
-                        className="size-[85px] bg-[#211E1F] rounded-[8px] animate-pulse"
-                        id="skeleton-image"
-                    />
-                )}
-
                 <img
                     onLoad={() => {
                         setLoaded(true);
