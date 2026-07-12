@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 export default function SkeletonCard() {
     return (
         <motion.div
-            initial={{ y: 10 }}
-            animate={{ y: 0 }}
-            exit={{ y: 10 }}
-            transition={{ duration: 0.1, ease: "circOut" }}
+            layout
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 10, opacity: 0 }}
+            transition={{ duration: 0.15, ease: "circOut" }}
             className="z-10 w-full rounded-[8px] overflow-hidden"
             key="skeleton-card"
         >
