@@ -3,6 +3,7 @@ import Card from "./Card";
 
 export default function Category({
     categoryName = "Category name",
+    icon = null,
     agentMode = false,
     cardsData = [],
     modalFunc = () => {
@@ -20,9 +21,17 @@ export default function Category({
             id="category"
         >
             <p
-                className="bg-[#292727] px-[16px] py-[8px] rounded-[8px] text-[18px] text-[#B8B8B8] font-medium uppercase tracking-widest"
+                className="flex items-center gap-[10px] bg-[#292727] p-[8px_16px] rounded-[8px] text-[18px] text-[#B8B8B8] font-medium uppercase tracking-widest"
                 id="title"
             >
+                {icon && (
+                    <img
+                        src={icon}
+                        alt={`${categoryName.replace(" ", "-")}-icon`}
+                        className="size-[20px]"
+                    />
+                )}
+
                 {categoryName}
             </p>
 
