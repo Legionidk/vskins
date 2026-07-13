@@ -1,7 +1,15 @@
-export function InfoPiece({ title = "Title", value = "Value" }) {
+export function InfoPiece({ title = "Title", icon = null, value = "Value" }) {
     return (
         <div className="flex flex-col text-[18px]" id="info-piece">
-            <p className="font-medium tracking-widest uppercase text-[#B8B8B8] -mb-[2px]">
+            <p className="flex items-center gap-[5px] font-medium tracking-widest uppercase text-[#B8B8B8]">
+                {icon && (
+                    <img
+                        src={icon}
+                        alt={`${title.replace(" ", "-")}-icon`}
+                        className="size-[20px]"
+                    />
+                )}
+
                 {title}
             </p>
 
@@ -10,7 +18,7 @@ export function InfoPiece({ title = "Title", value = "Value" }) {
     );
 }
 
-export function InfoBlock({ title = "Title", children }) {
+export function InfoBlock({ title = "Title",  children }) {
     return (
         <div
             className="w-full flex flex-col items-center rounded-[8px] border-2 border-[#292727]"
@@ -24,7 +32,7 @@ export function InfoBlock({ title = "Title", children }) {
             </div>
 
             <div
-                className="w-full grid grid-cols-1 gap-[10px] p-[8px_16px] sm:grid-cols-2 lg:grid-cols-4"
+                className="w-full grid grid-cols-1 gap-[15px] p-[10px] sm:grid-cols-2 lg:grid-cols-4"
                 id="info"
             >
                 {children}
