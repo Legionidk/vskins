@@ -7,6 +7,7 @@ import Main from "../components/layout/Main";
 import Footer from "../components/layout/footer/Footer";
 import Category from "../components/layout/category/Category";
 import SkeletonCategory from "../components/layout/skeletonCategory/SkeletonCategory";
+import AgentModal from "../components/layout/modals/agent/AgentModal";
 
 import ModalWrapper from "../components/ui/ModalWrapper";
 import Input from "../components/ui/Input";
@@ -57,6 +58,23 @@ export default function AgentsPage() {
 
     return (
         <>
+            <AnimatePresence>
+                {agentModal && (
+                    <ModalWrapper
+                        closeFunc={() => {
+                            setAgentModal(null);
+                        }}
+                    >
+                        <AgentModal
+                            data={agentModal}
+                            closeFunc={() => {
+                                setAgentModal(null);
+                            }}
+                        />
+                    </ModalWrapper>
+                )}
+            </AnimatePresence>
+
             <Header />
 
             <Main>
@@ -72,8 +90,10 @@ export default function AgentsPage() {
                         filteredAgentsData.map((category) => (
                             <Category
                                 categoryName={category.categoryName}
+                                icon={category.categoryIcon}
                                 agentMode={true}
                                 cardsData={category.cardsData}
+                                modalFunc={setAgentModal}
                                 key={category.categoryId}
                             />
                         ))

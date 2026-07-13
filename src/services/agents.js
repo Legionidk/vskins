@@ -18,10 +18,10 @@ export default function getAgents() {
                 if (!agent.isPlayableCharacter) {
                     continue;
                 }
-                
+
                 if (!agents.has(agent.role.uuid)) {
                     agents.set(agent.role.uuid, {
-                        categoryName: agent.role.displayName,
+                        categoryName: `${agent.role.displayName}s`,
                         categoryIcon: agent.role.displayIcon,
                         categoryId: agent.role.uuid,
                         cardsData: [],
@@ -33,9 +33,10 @@ export default function getAgents() {
                     cardImage: agent.displayIcon,
                     cardId: agent.uuid,
                     modalData: {
+                        name: agent.displayName,
+                        devName: agent.developerName,
                         portrait: agent.fullPortrait,
                         backgroundImage: agent.background,
-                        devName: agent.developerName,
                         description: agent.description,
                         role: agent.role,
                         basicAbilities: agent.abilities.filter(
