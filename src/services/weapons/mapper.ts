@@ -9,6 +9,33 @@ export default function mapWeapons(
     const weapons = new Map<string, CategoryData<WeaponModalData>>();
 
     for (const weapon of weaponsData) {
+        if (!weapon.shopData) {
+            weapons.set(weapon.category, {
+                id: weapon.category,
+                name: "Melee",
+                cardsData: [
+                    {
+                        id: weapon.uuid,
+                        name: weapon.displayName,
+                        imageUrl: weapon.displayIcon,
+                        modalData: {
+                            id: weapon.uuid,
+                            name: weapon.displayName,
+                            category: null,
+                            imageUrl: weapon.displayIcon,
+                            cost: null,
+                            generalData: null,
+                            primaryFireData: null,
+                            altFireData: null,
+                            damageData: null,
+                        },
+                    },
+                ],
+            });
+
+            continue;
+        }
+
         let category = weapons.get(weapon.category);
 
         if (!category) {
@@ -19,27 +46,6 @@ export default function mapWeapons(
             };
 
             weapons.set(weapon.category, category);
-        }
-
-        if (weapon.displayName === "Melee") {
-            category.cardsData.push({
-                id: weapon.uuid,
-                name: weapon.displayName,
-                imageUrl: weapon.displayIcon,
-                modalData: {
-                    id: weapon.uuid,
-                    name: weapon.displayName,
-                    category: null,
-                    imageUrl: weapon.displayIcon,
-                    cost: null,
-                    generalData: null,
-                    primaryFireData: null,
-                    altFireData: null,
-                    damageData: null,
-                },
-            });
-
-            continue;
         }
 
         let altFireData = null;
