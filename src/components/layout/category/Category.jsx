@@ -41,12 +41,12 @@ export default function Category({
             >
                 {cardsData.map((object) => (
                     <Card
-                        title={object.cardTitle}
-                        image={object.cardImage}
+                        title={object.name}
+                        image={object.imageUrl}
                         agentMode={agentMode}
                         modalData={object.modalData}
                         modalFunc={modalFunc}
-                        key={object.cardId}
+                        key={object.id}
                     />
                 ))}
             </div>

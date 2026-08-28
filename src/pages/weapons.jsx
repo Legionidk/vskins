@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
 import { AnimatePresence } from "motion/react";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 
 import Header from "../components/layout/header/Header";
 import Main from "../components/layout/Main";
@@ -18,26 +17,7 @@ export default function WeaponsPage() {
     const [isLoaded, setLoaded] = useState(false);
     const [weaponsData, setWeaponsData] = useState([]);
     const [weaponModal, setWeaponModal] = useState(null);
-
     const [search, setSearch] = useState("");
-    const [debouncedSearch, setDebouncedSearch] = useState("");
-
-    const filteredWeaponsData = useMemo(() => {
-        if (!search.trim()) {
-            return weaponsData;
-        }
-
-        return weaponsData
-            .map((category) => ({
-                ...category,
-                data: category.data.filter((weapon) =>
-                    weapon.cardTitle
-                        .toLowerCase()
-                        .includes(debouncedSearch.toLowerCase()),
-                ),
-            }))
-            .filter((category) => category.data.length > 0);
-    }, [weaponsData, debouncedSearch]);
 
     useEffect(() => {
         getWeapons().then((data) => {
@@ -45,16 +25,6 @@ export default function WeaponsPage() {
             setLoaded(true);
         });
     }, []);
-
-    useEffect(() => {
-        const debouncedTimer = setTimeout(() => {
-            setDebouncedSearch(search);
-        }, 300);
-
-        return () => {
-            clearTimeout(debouncedTimer);
-        };
-    }, [search]);
 
     return (
         <>
@@ -87,12 +57,12 @@ export default function WeaponsPage() {
 
                 <AnimatePresence>
                     {isLoaded ? (
-                        filteredWeaponsData.map((category) => (
+                        weaponsData.map((category) => (
                             <Category
-                                categoryName={category.categoryName}
+                                categoryName={category.name}
                                 cardsData={category.cardsData}
                                 modalFunc={setWeaponModal}
-                                key={category.categoryId}
+                                key={category.id}
                             />
                         ))
                     ) : (
