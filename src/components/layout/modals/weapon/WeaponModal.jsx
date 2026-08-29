@@ -17,7 +17,7 @@ export default function WeaponModal({
 
     return (
         <div
-            className="w-full max-w-[760px] h-fit flex flex-col items-center overflow-hidden rounded-[16px]"
+            className="w-full max-w-[760px] h-fit flex flex-col items-center overflow-hidden rounded-t-[16px] md:rounded-[16px]"
             id="weapon-modal"
         >
             <div

@@ -1,10 +1,13 @@
 import { motion } from "motion/react";
 import { createPortal } from "react-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+
+const transitionSettings = { duration: 0.3, ease: [0.2, 1, 0.35, 1] }; // holy cow i love this numbers
 
 export default function ModalWrapper({ children, closeFunc }) {
     useEffect(() => {
         document.body.style.overflow = "hidden";
+
         return () => {
             document.body.style.overflow = "";
         };
@@ -17,8 +20,8 @@ export default function ModalWrapper({ children, closeFunc }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 100 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.15, ease: "easeInOut" }}
-            className="z-30 fixed inset-0 overflow-y-auto p-[80px_20px] bg-black/50 backdrop-blur-xs"
+            transition={transitionSettings}
+            className="z-30 fixed inset-0 overflow-y-auto pt-[100px] bg-black/50 backdrop-blur-xs md:p-[20px_20px]"
             key="modal-blur"
             onClick={(e) => {
                 if (e.target !== e.currentTarget) return;
@@ -29,8 +32,8 @@ export default function ModalWrapper({ children, closeFunc }) {
                 initial={{ y: 10 }}
                 animate={{ y: 0 }}
                 exit={{ y: 10 }}
-                transition={{ duration: 0.15, ease: "easeInOut" }}
-                className="min-h-full flex items-center justify-center"
+                transition={transitionSettings}
+                className="min-h-full flex items-end justify-center md:items-center"
                 key="modal-wrapper"
                 onClick={(e) => {
                     if (e.target !== e.currentTarget) return;

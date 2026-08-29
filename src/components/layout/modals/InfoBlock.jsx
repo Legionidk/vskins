@@ -32,7 +32,7 @@ export function InfoBlock({ title = "Title",  children }) {
             </div>
 
             <div
-                className="w-full grid grid-cols-1 gap-[15px] p-[10px] sm:grid-cols-2 lg:grid-cols-4"
+                className="w-full grid grid-cols-1 gap-[15px] p-[10px] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
                 id="info"
             >
                 {children}
