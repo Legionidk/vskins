@@ -1,5 +1,5 @@
 import { AnimatePresence } from "motion/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 import Header from "../components/layout/header/Header";
 import Main from "../components/layout/Main";
@@ -18,6 +18,21 @@ export default function AgentsPage() {
     const [agentsData, setAgentsData] = useState([]);
     const [agentModal, setAgentModal] = useState(null);
     const [search, setSearch] = useState("");
+
+    const filteredAgents = useMemo(() => {
+        if (!search.trim()) {
+            return agentsData;
+        }
+
+        return agentsData
+            .map((category) => ({
+                ...category,
+                cardsData: category.cardsData.filter((agent) =>
+                    agent.name.toLowerCase().includes(search.toLowerCase()),
+                ),
+            }))
+            .filter((category) => category.cardsData.length > 0);
+    }, [search, agentsData]);
 
     useEffect(() => {
         getAgents().then((data) => {
@@ -49,7 +64,7 @@ export default function AgentsPage() {
 
             <Main>
                 <Input
-                    placeholder="Search agents"
+                    placeholder="Search in agents"
                     onChange={(e) => {
                         setSearch(e.target.value);
                     }}
@@ -57,7 +72,7 @@ export default function AgentsPage() {
 
                 <AnimatePresence>
                     {isLoaded ? (
-                        agentsData.map((category) => (
+                        filteredAgents.map((category) => (
                             <Category
                                 categoryName={category.name}
                                 icon={category.iconUrl}
