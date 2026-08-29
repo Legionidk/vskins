@@ -1,5 +1,7 @@
 import { motion } from "motion/react";
+
 import Card from "./Card";
+import transitionSettings from "../../../animations/transition";
 
 export default function Category({
     categoryName = "Category name",
@@ -14,9 +16,9 @@ export default function Category({
         <motion.div
             layout="position"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 100 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.15, ease: "easeInOut" }}
+            transition={transitionSettings}
             className="z-10 w-full flex flex-col gap-[10px]"
             id="category"
         >

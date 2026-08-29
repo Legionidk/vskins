@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { createPortal } from "react-dom";
 import { useEffect } from "react";
 
-const transitionSettings = { duration: 0.3, ease: [0.2, 1, 0.35, 1] }; // holy cow i love this numbers
+import transitionSettings from "../../animations/transition";
 
 export default function ModalWrapper({ children, closeFunc }) {
     useEffect(() => {
@@ -18,7 +18,7 @@ export default function ModalWrapper({ children, closeFunc }) {
     return createPortal(
         <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 100 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={transitionSettings}
             className="z-30 fixed inset-0 overflow-y-auto pt-[100px] bg-black/50 backdrop-blur-xs md:p-[20px_20px]"
