@@ -1,5 +1,5 @@
 import { AnimatePresence } from "motion/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 import Header from "../components/layout/header/Header";
 import Main from "../components/layout/Main";
@@ -26,6 +26,21 @@ export default function WeaponsPage() {
         });
     }, []);
 
+    const filteredWeaponsData = useMemo(() => {
+        if (!search.trim()) {
+            return weaponsData;
+        }
+
+        return weaponsData
+            .map((category) => ({
+                ...category,
+                cardsData: category.cardsData.filter((weapon) =>
+                    weapon.name.toLowerCase().includes(search.toLowerCase()),
+                ),
+            }))
+            .filter((category) => category.cardsData.length > 0);
+    }, [weaponsData, search]);
+
     return (
         <>
             <AnimatePresence initial={false}>
@@ -49,7 +64,7 @@ export default function WeaponsPage() {
 
             <Main>
                 <Input
-                    placeholder="Search weapons"
+                    placeholder="Search in weapons"
                     onChange={(e) => {
                         setSearch(e.target.value);
                     }}
@@ -57,7 +72,7 @@ export default function WeaponsPage() {
 
                 <AnimatePresence>
                     {isLoaded ? (
-                        weaponsData.map((category) => (
+                        filteredWeaponsData.map((category) => (
                             <Category
                                 categoryName={category.name}
                                 cardsData={category.cardsData}
