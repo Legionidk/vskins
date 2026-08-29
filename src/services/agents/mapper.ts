@@ -18,6 +18,7 @@ export default function mapAgents(
             category = {
                 id: agent.role.uuid,
                 name: agent.role.displayName,
+                iconUrl: agent.role.displayIcon,
                 cardsData: [],
             };
 

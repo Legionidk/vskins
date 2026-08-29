@@ -13,6 +13,7 @@ export default function mapWeapons(
             weapons.set(weapon.category, {
                 id: weapon.category,
                 name: "Melee",
+                iconUrl: null,
                 cardsData: [
                     {
                         id: weapon.uuid,
@@ -42,6 +43,7 @@ export default function mapWeapons(
             category = {
                 id: weapon.category,
                 name: weapon.shopData.category,
+                iconUrl: null,
                 cardsData: [],
             };
 
