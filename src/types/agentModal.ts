@@ -2,7 +2,7 @@ interface AgentAbility {
     slot: string;
     name: string;
     description: string;
-    iconUrl: string;
+    iconUrl: string | null;
 }
 
 export interface AgentModalData {
@@ -21,4 +21,5 @@ export interface AgentModalData {
     basicAbilities: AgentAbility[];
     signatureAbilities: AgentAbility[];
     ultimate: AgentAbility[];
+    passiveAbility: AgentAbility[];
 }

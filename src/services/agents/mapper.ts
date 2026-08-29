@@ -61,6 +61,9 @@ export default function mapAgents(
                 ultimate: abilities.filter(
                     (ability) => ability.slot === "Ultimate",
                 ),
+                passiveAbility: abilities.filter(
+                    (ability) => ability.slot === "Passive",
+                ),
             },
         });
     }

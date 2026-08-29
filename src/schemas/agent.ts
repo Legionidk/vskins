@@ -4,7 +4,7 @@ const AbilitySchema = v.object({
     slot: v.string(),
     displayName: v.string(),
     description: v.string(),
-    displayIcon: v.string(),
+    displayIcon: v.nullable(v.string()),
 });
 
 export const AgentSchema = v.object({
