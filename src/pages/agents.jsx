@@ -1,6 +1,5 @@
-import { data, Link } from "react-router-dom";
 import { AnimatePresence } from "motion/react";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 
 import Header from "../components/layout/header/Header";
 import Main from "../components/layout/Main";
@@ -18,26 +17,7 @@ export default function AgentsPage() {
     const [isLoaded, setLoaded] = useState(false);
     const [agentsData, setAgentsData] = useState([]);
     const [agentModal, setAgentModal] = useState(null);
-
     const [search, setSearch] = useState("");
-    const [debouncedSearch, setDebouncedSearch] = useState("");
-
-    const filteredAgentsData = useMemo(() => {
-        if (!search.trim) {
-            return agentsData;
-        }
-
-        return agentsData
-            .map((category) => ({
-                ...category,
-                cardsData: category.cardsData.filter((agent) =>
-                    agent.cardTitle
-                        .toLowerCase()
-                        .includes(debouncedSearch.toLowerCase()),
-                ),
-            }))
-            .filter((category) => category.cardsData.length > 0);
-    }, [agentsData, debouncedSearch]);
 
     useEffect(() => {
         getAgents().then((data) => {
@@ -45,16 +25,6 @@ export default function AgentsPage() {
             setLoaded(true);
         });
     }, []);
-
-    useEffect(() => {
-        const debouncedTimer = setTimeout(() => {
-            setDebouncedSearch(search);
-        }, 300);
-
-        return () => {
-            clearTimeout(debouncedTimer);
-        };
-    }, [search]);
 
     return (
         <>
@@ -87,14 +57,14 @@ export default function AgentsPage() {
 
                 <AnimatePresence>
                     {isLoaded ? (
-                        filteredAgentsData.map((category) => (
+                        agentsData.map((category) => (
                             <Category
-                                categoryName={category.categoryName}
-                                icon={category.categoryIcon}
+                                categoryName={category.name}
+                                icon={category.iconUrl}
                                 agentMode={true}
                                 cardsData={category.cardsData}
                                 modalFunc={setAgentModal}
-                                key={category.categoryId}
+                                key={category.id}
                             />
                         ))
                     ) : (
