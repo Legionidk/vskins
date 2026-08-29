@@ -17,8 +17,8 @@ export default function DamageTable({ damageData }) {
                         <th />
 
                         {damageData.map((damage) => (
-                            <th className="p-[8px_16px]" key={damage.start}>
-                                {damage.start}-{damage.end}m
+                            <th className="p-[8px_16px]" key={damage.rangeStart}>
+                                {damage.rangeStart}-{damage.rangeEnd}m
                             </th>
                         ))}
                     </tr>
@@ -33,9 +33,9 @@ export default function DamageTable({ damageData }) {
                         {damageData.map((damage) => (
                             <td
                                 className="text-center p-[8px_16px]"
-                                key={damage.head}
+                                key={damage.headDamage}
                             >
-                                {damage.head}
+                                {damage.headDamage}
                             </td>
                         ))}
                     </tr>
@@ -48,9 +48,9 @@ export default function DamageTable({ damageData }) {
                         {damageData.map((damage) => (
                             <td
                                 className="text-center p-[8px_16px]"
-                                key={damage.body}
+                                key={damage.bodyDamage}
                             >
-                                {damage.body}
+                                {damage.bodyDamage}
                             </td>
                         ))}
                     </tr>
@@ -63,9 +63,9 @@ export default function DamageTable({ damageData }) {
                         {damageData.map((damage) => (
                             <td
                                 className="text-center p-[8px_16px]"
-                                key={damage.legs}
+                                key={damage.legsDamage}
                             >
-                                {damage.legs}
+                                {damage.legsDamage}
                             </td>
                         ))}
                     </tr>

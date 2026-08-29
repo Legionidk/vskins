@@ -45,7 +45,7 @@ export default function WeaponModal({
                 className="w-full flex justify-center p-[25px_50px] bg-[#292727]"
                 id="image-wrapper"
             >
-                <img src={data.image} alt={`${data.name} image`} />
+                <img src={data.imageUrl} alt={`${data.name} image`} />
             </div>
 
             <div
@@ -78,9 +78,9 @@ export default function WeaponModal({
                     </div>
                 )}
 
-                {data.general && (
+                {data.generalData && (
                     <InfoBlock title="General" id="general-block">
-                        {data.general.map((generalStat) => (
+                        {data.generalData.map((generalStat) => (
                             <InfoPiece
                                 title={generalStat.name}
                                 value={generalStat.value}
@@ -90,9 +90,9 @@ export default function WeaponModal({
                     </InfoBlock>
                 )}
 
-                {data.primaryFire && (
+                {data.primaryFireData && (
                     <InfoBlock title="Primary fire" id="primary-fire-block">
-                        {data.primaryFire.map((primaryFireStat) => (
+                        {data.primaryFireData.map((primaryFireStat) => (
                             <InfoPiece
                                 title={primaryFireStat.name}
                                 value={primaryFireStat.value}
@@ -104,11 +104,11 @@ export default function WeaponModal({
                     </InfoBlock>
                 )}
 
-                {data.altFire && (
+                {data.altFireData && (
                     <InfoBlock
-                        title={`Alternative fire - ${data.altFire.type}`}
+                        title={`Alternative fire - ${data.altFireData.type}`}
                     >
-                        {data.altFire.data.map((altFireStat) => (
+                        {data.altFireData.data.map((altFireStat) => (
                             <InfoPiece
                                 title={altFireStat.name}
                                 value={altFireStat.value}
@@ -118,7 +118,7 @@ export default function WeaponModal({
                     </InfoBlock>
                 )}
 
-                {data.damage && <DamageTable damageData={data.damage} />}
+                {data.damageData && <DamageTable damageData={data.damageData} />}
             </div>
         </div>
     );
