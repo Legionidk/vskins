@@ -14,11 +14,11 @@ export default function AgentModal({
 
     return (
         <div
-            className="w-full max-w-[900px] h-fit flex flex-col items-center overflow-hidden rounded-[16px]"
+            className="w-full max-w-[900px] h-fit flex flex-col items-center overflow-hidden rounded-t-[16px] md:rounded-[16px] md:h-[700px]"
             id="agent-modal"
         >
             <div
-                className="w-full flex items-center justify-between p-[8px_16px] bg-[#211E1F]"
+                className="w-full flex items-center justify-between p-[8px_16px] bg-[#211E1F] border-b-2 border-[#292727]"
                 id="title"
             >
                 <div className="flex gap-[10px] text-[20px]" id="title">
@@ -40,86 +40,99 @@ export default function AgentModal({
                 </button>
             </div>
 
+            {/* someday that hardcoded `h-[654px]` is going to break everything
+            but for now i dont care. */}
             <div
-                className={clsx(
-                    "h-[500px] w-full flex justify-center bg-[#292727] bg-center bg-contain bg-no-repeat",
-                    !isPortraitLoaded && "animate-pulse",
-                )}
-                style={{ backgroundImage: `url(${data.backgroundImageUrl})` }}
-                id="image-wrapper"
+                className="flex flex-col md:flex-row md:h-[654px]"
+                id="adaptive-wrapper"
             >
-                <img
-                    src={data.portraitImageUrl}
-                    alt={`${data.name} portrait`}
-                    className="h-full object-cover"
-                    id="portrait-image"
-                    hidden={!isPortraitLoaded}
-                    onLoad={() => {
-                        setPortraitLoaded(true);
+                <div
+                    className={clsx(
+                        "h-[500px] w-full flex justify-center bg-[#292727] bg-center bg-contain bg-no-repeat md:h-full",
+                        !isPortraitLoaded && "animate-pulse",
+                    )}
+                    style={{
+                        backgroundImage: `url(${data.backgroundImageUrl})`,
                     }}
-                />
-            </div>
-
-            <div
-                className="w-full flex flex-col items-center gap-[10px] p-[8px] bg-[#211E1F]"
-                id="info-wrapper"
-            >
-                <InfoBlock title="Description">
-                    <p className="text-[18px]">{data.description}</p>
-                </InfoBlock>
-
-                <InfoBlock title="Role">
-                    <InfoPiece
-                        title={data.role.name}
-                        icon={data.role.iconUrl}
-                        value={data.role.description}
+                    id="image-wrapper"
+                >
+                    <img
+                        src={data.portraitImageUrl}
+                        alt={`${data.name} portrait`}
+                        className="h-full object-cover"
+                        id="portrait-image"
+                        hidden={!isPortraitLoaded}
+                        onLoad={() => {
+                            setPortraitLoaded(true);
+                        }}
                     />
-                </InfoBlock>
+                </div>
 
-                <InfoBlock title="Basic abilities">
-                    {data.basicAbilities.map((ability) => (
+                <div
+                    className="w-full flex flex-col items-center gap-[10px] p-[8px] bg-[#211E1F] md:overflow-y-scroll"
+                    id="info-wrapper"
+                >
+                    <InfoBlock title="Description" adaptive={false}>
+                        <p className="text-[18px]">{data.description}</p>
+                    </InfoBlock>
+
+                    <InfoBlock title="Role" adaptive={false}>
                         <InfoPiece
-                            title={ability.name}
-                            icon={ability.iconUrl}
-                            value={ability.description}
-                            key={ability.name}
+                            title={data.role.name}
+                            icon={data.role.iconUrl}
+                            value={data.role.description}
+                            maxSpan={true}
                         />
-                    ))}
-                </InfoBlock>
+                    </InfoBlock>
 
-                <InfoBlock title="Signature ability">
-                    {data.signatureAbilities.map((ability) => (
-                        <InfoPiece
-                            title={ability.name}
-                            icon={ability.iconUrl}
-                            value={ability.description}
-                            key={ability.name}
-                        />
-                    ))}
-                </InfoBlock>
-
-                <InfoBlock title="Ultimate">
-                    {data.ultimate.map((ability) => (
-                        <InfoPiece
-                            title={ability.name}
-                            icon={ability.iconUrl}
-                            value={ability.description}
-                            key={ability.name}
-                        />
-                    ))}
-                </InfoBlock>
-
-                {data.passiveAbility.length !== 0 && (
-                    <InfoBlock title="Passive ability">
-                        {data.passiveAbility.map((ability) => (
+                    <InfoBlock title="Basic abilities" adaptive={false}>
+                        {data.basicAbilities.map((ability) => (
                             <InfoPiece
                                 title={ability.name}
+                                icon={ability.iconUrl}
                                 value={ability.description}
                                 key={ability.name}
                             />
                         ))}
                     </InfoBlock>
-                )}
+
+                    <InfoBlock title="Signature ability" adaptive={false}>
+                        {data.signatureAbilities.map((ability) => (
+                            <InfoPiece
+                                title={ability.name}
+                                icon={ability.iconUrl}
+                                value={ability.description}
+                                maxSpan={true}
+                                key={ability.name}
+                            />
+                        ))}
+                    </InfoBlock>
+
+                    <InfoBlock title="Ultimate" adaptive={false}>
+                        {data.ultimate.map((ability) => (
+                            <InfoPiece
+                                title={ability.name}
+                                icon={ability.iconUrl}
+                                value={ability.description}
+                                maxSpan={true}
+                                key={ability.name}
+                            />
+                        ))}
+                    </InfoBlock>
+
+                    {data.passiveAbility.length !== 0 && (
+                        <InfoBlock title="Passive ability" adaptive={false}>
+                            {data.passiveAbility.map((ability) => (
+                                <InfoPiece
+                                    title={ability.name}
+                                    value={ability.description}
+                                    maxSpan={true}
+                                    key={ability.name}
+                                />
+                            ))}
+                        </InfoBlock>
+                    )}
+                </div>
             </div>
         </div>
     );

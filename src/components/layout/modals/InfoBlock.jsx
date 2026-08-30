@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 export function InfoPiece({ title = "Title", icon = null, value = "Value" }) {
     return (
         <div className="flex flex-col text-[18px]" id="info-piece">
@@ -18,7 +20,7 @@ export function InfoPiece({ title = "Title", icon = null, value = "Value" }) {
     );
 }
 
-export function InfoBlock({ title = "Title",  children }) {
+export function InfoBlock({ title = "Title", adaptive = true, children }) {
     return (
         <div
             className="w-full flex flex-col items-center rounded-[8px] border-2 border-[#292727]"
@@ -32,7 +34,10 @@ export function InfoBlock({ title = "Title",  children }) {
             </div>
 
             <div
-                className="w-full grid grid-cols-1 gap-[15px] p-[10px] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+                className={clsx(
+                    "w-full grid grid-cols-1 gap-[15px] p-[10px]",
+                    adaptive && "sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+                )}
                 id="info"
             >
                 {children}
