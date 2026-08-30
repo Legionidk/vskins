@@ -43,6 +43,7 @@ export default function mapAgents(
                 name: agent.displayName,
                 devName: agent.developerName,
                 imageUrl: agent.displayIcon,
+                portraitImageUrl: agent.bustPortrait,
                 backgroundImageUrl: agent.background,
                 description: agent.description,
                 role: {
@@ -59,11 +60,11 @@ export default function mapAgents(
                 signatureAbilities: abilities.filter(
                     (ability) => ability.slot === "Ability2",
                 ),
-                ultimate: abilities.filter(
-                    (ability) => ability.slot === "Ultimate",
-                ),
                 passiveAbility: abilities.filter(
                     (ability) => ability.slot === "Passive",
+                ),
+                ultimate: abilities.filter(
+                    (ability) => ability.slot === "Ultimate",
                 ),
             },
         });

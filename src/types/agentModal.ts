@@ -10,6 +10,7 @@ export interface AgentModalData {
     name: string;
     devName: string;
     imageUrl: string;
+    portraitImageUrl: string;
     backgroundImageUrl: string;
     description: string;
     role: {
@@ -20,6 +21,6 @@ export interface AgentModalData {
     };
     basicAbilities: AgentAbility[];
     signatureAbilities: AgentAbility[];
-    ultimate: AgentAbility[];
     passiveAbility: AgentAbility[];
+    ultimate: AgentAbility[];
 }

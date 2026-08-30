@@ -26,7 +26,9 @@ export default function AgentModal({
                         {data.name}
                     </p>
 
-                    <p className="text-[#B8B8B8]">{data.devName}</p>
+                    {data.devName !== data.name && (
+                        <p className="text-[#B8B8B8]">{data.devName}</p>
+                    )}
                 </div>
 
                 <button
@@ -43,11 +45,11 @@ export default function AgentModal({
                     "h-[500px] w-full flex justify-center bg-[#292727] bg-center bg-contain bg-no-repeat",
                     !isPortraitLoaded && "animate-pulse",
                 )}
-                style={{ backgroundImage: `url(${data.backgroundImage})` }}
+                style={{ backgroundImage: `url(${data.backgroundImageUrl})` }}
                 id="image-wrapper"
             >
                 <img
-                    src={data.portrait}
+                    src={data.portraitImageUrl}
                     alt={`${data.name} portrait`}
                     className="h-full object-cover"
                     id="portrait-image"
@@ -68,8 +70,8 @@ export default function AgentModal({
 
                 <InfoBlock title="Role">
                     <InfoPiece
-                        title={data.role.displayName}
-                        icon={data.role.displayIcon}
+                        title={data.role.name}
+                        icon={data.role.iconUrl}
                         value={data.role.description}
                     />
                 </InfoBlock>
@@ -77,10 +79,10 @@ export default function AgentModal({
                 <InfoBlock title="Basic abilities">
                     {data.basicAbilities.map((ability) => (
                         <InfoPiece
-                            title={ability.displayName}
-                            icon={ability.displayIcon}
+                            title={ability.name}
+                            icon={ability.iconUrl}
                             value={ability.description}
-                            key={ability.displayName}
+                            key={ability.name}
                         />
                     ))}
                 </InfoBlock>
@@ -88,10 +90,10 @@ export default function AgentModal({
                 <InfoBlock title="Signature ability">
                     {data.signatureAbilities.map((ability) => (
                         <InfoPiece
-                            title={ability.displayName}
-                            icon={ability.displayIcon}
+                            title={ability.name}
+                            icon={ability.iconUrl}
                             value={ability.description}
-                            key={ability.displayName}
+                            key={ability.name}
                         />
                     ))}
                 </InfoBlock>
@@ -99,13 +101,25 @@ export default function AgentModal({
                 <InfoBlock title="Ultimate">
                     {data.ultimate.map((ability) => (
                         <InfoPiece
-                            title={ability.displayName}
-                            icon={ability.displayIcon}
+                            title={ability.name}
+                            icon={ability.iconUrl}
                             value={ability.description}
-                            key={ability.displayName}
+                            key={ability.name}
                         />
                     ))}
                 </InfoBlock>
+
+                {data.passiveAbility.length !== 0 && (
+                    <InfoBlock title="Passive ability">
+                        {data.passiveAbility.map((ability) => (
+                            <InfoPiece
+                                title={ability.name}
+                                value={ability.description}
+                                key={ability.name}
+                            />
+                        ))}
+                    </InfoBlock>
+                )}
             </div>
         </div>
     );
