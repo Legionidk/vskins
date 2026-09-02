@@ -1,4 +1,9 @@
+import clsx from "clsx";
+import { motion, AnimatePresence } from "motion/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { useState, useId } from "react";
+
+import transitionSettings from "../../animations/transition";
 
 interface InputProps {
     placeholder?: string;
@@ -38,17 +43,52 @@ export default function Input({
     placeholder = "Placeholder",
     onChange = () => {},
 }: InputProps) {
+    const inputId = useId();
+    const [value, setValue] = useState("");
+
+    const changeHandler = (value: string) => {
+        setValue(value);
+        onChange(value);
+    };
+
+    const clearHandler = () => {
+        setValue("");
+        onChange("");
+    };
+
     return (
         <div className="relative w-full h-[64px]" id="input-wrapper">
             <input
+                value={value}
                 placeholder=""
                 className={`${transition} ${input}`}
                 onChange={(e) => {
-                    onChange(e.target.value);
+                    changeHandler(e.target.value);
                 }}
+                id={inputId}
             />
 
-            <label className={`${transition} ${label}`}>{placeholder}</label>
+            <label className={`${transition} ${label}`} htmlFor={inputId}>
+                {placeholder}
+            </label>
+
+            <AnimatePresence>
+                {value && (
+                    <motion.button
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={transitionSettings}
+                        onClick={clearHandler}
+                    >
+                        <XMarkIcon
+                            className={clsx(
+                                "size-[24px] absolute bottom-[8px] right-[16px] cursor-pointer",
+                            )}
+                        />
+                    </motion.button>
+                )}
+            </AnimatePresence>
         </div>
     );
 }
