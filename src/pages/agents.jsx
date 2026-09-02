@@ -9,7 +9,7 @@ import SkeletonCategory from "../components/layout/skeletonCategory/SkeletonCate
 import AgentModal from "../components/layout/modals/agent/AgentModal";
 
 import ModalWrapper from "../components/ui/ModalWrapper";
-import Input from "../components/ui/Input";
+import Input from "../components/ui/Input/Input";
 
 import getAgents from "../services/agents";
 
