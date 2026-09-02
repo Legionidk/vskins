@@ -25,18 +25,20 @@ const input = `
     hover:not-focus:bg-[#373636]
 `;
 
-const label = `
+const activeLabel = `
     pointer-events-none absolute
     uppercase tracking-widest
     font-medium text-[14px]
     text-[#B8B8B8]
-    top-[8px] left-[16px]
-    peer-focus:text-[14px]
-    peer-focus:top-[8px]
-    peer-focus:translate-y-0
-    peer-placeholder-shown:text-[18px]
-    peer-placeholder-shown:top-1/2
-    peer-placeholder-shown:-translate-y-1/2
+    top-[8px] left-[16px]  
+`;
+
+const inactiveLabel = `
+    pointer-events-none absolute
+    uppercase tracking-widest
+    font-medium text-[18px]
+    text-[#B8B8B8]
+    top-1/2 left-[16px] -translate-y-1/2 
 `;
 
 export default function Input({
@@ -45,6 +47,7 @@ export default function Input({
 }: InputProps) {
     const inputId = useId();
     const [value, setValue] = useState("");
+    const [focus, setFocus] = useState(false);
 
     const changeHandler = (value: string) => {
         setValue(value);
@@ -59,6 +62,12 @@ export default function Input({
     return (
         <div className="relative w-full h-[64px]" id="input-wrapper">
             <input
+                onFocus={() => {
+                    setFocus(true);
+                }}
+                onBlur={() => {
+                    setFocus(false);
+                }}
                 value={value}
                 placeholder=""
                 className={`${transition} ${input}`}
@@ -68,24 +77,52 @@ export default function Input({
                 id={inputId}
             />
 
-            <label className={`${transition} ${label}`} htmlFor={inputId}>
-                {placeholder}
-            </label>
+            <AnimatePresence>
+                {!focus && !value && (
+                    <motion.label
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={transitionSettings}
+                        className={`${inactiveLabel}`}
+                        htmlFor={inputId}
+                        id={`${inputId}-inactive-label`}
+                    >
+                        {placeholder}
+                    </motion.label>
+                )}
+            </AnimatePresence>
+
+            <AnimatePresence>
+                {(focus || value) && (
+                    <motion.label
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={transitionSettings}
+                        className={activeLabel}
+                        htmlFor={inputId}
+                        id={`${inputId}-active-label`}
+                    >
+                        {placeholder}
+                    </motion.label>
+                )}
+            </AnimatePresence>
 
             <AnimatePresence>
                 {value && (
                     <motion.button
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
+                        initial={{ opacity: 0, x: 5 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 5 }}
                         transition={transitionSettings}
                         onClick={clearHandler}
+                        className={clsx(
+                            "size-[24px] absolute bottom-[8px] right-[16px] cursor-pointer",
+                        )}
+                        id={`${inputId}-clear-button`}
                     >
-                        <XMarkIcon
-                            className={clsx(
-                                "size-[24px] absolute bottom-[8px] right-[16px] cursor-pointer",
-                            )}
-                        />
+                        <XMarkIcon />
                     </motion.button>
                 )}
             </AnimatePresence>
