@@ -65,8 +65,8 @@ export default function WeaponsPage() {
             <Main>
                 <Input
                     placeholder="Search in weapons"
-                    onChange={(e) => {
-                        setSearch(e.target.value);
+                    onChange={(value) => {
+                        setSearch(value);
                     }}
                 />
 

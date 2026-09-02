@@ -65,8 +65,8 @@ export default function AgentsPage() {
             <Main>
                 <Input
                     placeholder="Search in agents"
-                    onChange={(e) => {
-                        setSearch(e.target.value);
+                    onChange={(value) => {
+                        setSearch(value);
                     }}
                 />
 
