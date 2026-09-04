@@ -15,7 +15,7 @@ export default function AgentModal({
 
     return (
         <div
-            className="w-full max-w-[900px] h-fit flex flex-col items-center overflow-hidden rounded-t-[16px] md:rounded-[16px] md:h-[700px]"
+            className="w-full max-w-[900px] h-fit flex flex-col items-center overflow-hidden rounded-t-[16px] md:h-[700px]"
             id="agent-modal"
         >
             <div
@@ -80,7 +80,7 @@ export default function AgentModal({
                     <InfoBlock title="Role" adaptive={false}>
                         <InfoPiece
                             title={data.role.name}
-                            icon={data.role.iconUrl}
+                            iconUrl={data.role.iconUrl}
                             value={data.role.description}
                             maxSpan={true}
                         />
@@ -90,7 +90,7 @@ export default function AgentModal({
                         {data.basicAbilities.map((ability) => (
                             <InfoPiece
                                 title={ability.name}
-                                icon={ability.iconUrl}
+                                iconUrl={ability.iconUrl}
                                 value={ability.description}
                                 key={ability.name}
                             />
@@ -101,7 +101,7 @@ export default function AgentModal({
                         {data.signatureAbilities.map((ability) => (
                             <InfoPiece
                                 title={ability.name}
-                                icon={ability.iconUrl}
+                                iconUrl={ability.iconUrl}
                                 value={ability.description}
                                 maxSpan={true}
                                 key={ability.name}
@@ -113,7 +113,7 @@ export default function AgentModal({
                         {data.ultimate.map((ability) => (
                             <InfoPiece
                                 title={ability.name}
-                                icon={ability.iconUrl}
+                                iconUrl={ability.iconUrl}
                                 value={ability.description}
                                 maxSpan={true}
                                 key={ability.name}

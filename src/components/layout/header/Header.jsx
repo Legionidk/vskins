@@ -9,7 +9,7 @@ import logo from "@/assets/asgard.svg";
 const buttons = [
     { text: "Weapons", status: "enabled", link: "/" },
     { text: "Agents", status: "enabled", link: "/agents" },
-    { text: "Skins", status: "enabled", link: "/skins" },
+    { text: "Skins", status: "disabled", link: "/skins" },
 ];
 
 export default function Header() {
