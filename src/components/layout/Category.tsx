@@ -45,7 +45,7 @@ export default function Category<TModalData>({
             </p>
 
             <div
-                className="grid grid-cols-1 gap-[10px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                className="grid grid-cols-1 gap-[10px] md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
                 id="cards-grid"
             >
                 {cardsData.map((object) => (

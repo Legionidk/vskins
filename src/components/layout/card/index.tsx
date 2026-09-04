@@ -26,7 +26,7 @@ export default function Card<TModalData>({
             exit={{ opacity: 0 }}
             whileHover={{ boxShadow: "0 0 0 2px #FF4248" }}
             transition={transitionSettings}
-            className="z-10 select-none cursor-pointer flex flex-col rounded-[8px] overflow-hidden"
+            className="z-10 select-none cursor-pointer flex flex-col rounded-[8px] overflow-hidden md:w-[380px]"
             id="card"
             onClick={() => {
                 modalFunc(modalData);
