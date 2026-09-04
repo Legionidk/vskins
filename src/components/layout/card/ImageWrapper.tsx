@@ -18,7 +18,10 @@ export default function ImageWrapper({
         <div
             className={clsx(
                 "flex items-center justify-center bg-[#292727]",
-                agentMode ? "h-[175px] pt-[25px]" : "h-[135px] p-[25px_50px]",
+                "transition-[padding] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                agentMode
+                    ? "h-[175px] pt-[25px] group-hover:pt-[10px]"
+                    : "h-[135px] p-[25px_50px] group-hover:p-[15px_25px]",
                 !isLoaded && "animate-pulse",
             )}
             id="image-wrapper"
@@ -27,8 +30,7 @@ export default function ImageWrapper({
                 src={imageUrl}
                 alt={`${alt} image`}
                 className={clsx(
-                    "object-contain",
-                    agentMode ? "size-[150px]" : "size-full",
+                    "object-contain size-full",
                     !isLoaded && "hidden",
                 )}
                 onLoad={() => {
