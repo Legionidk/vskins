@@ -1,6 +1,6 @@
 interface WeaponStatsData {
     name: string;
-    value: string | number;
+    value: string;
 }
 
 interface AltFireData {
@@ -8,7 +8,7 @@ interface AltFireData {
     data: WeaponStatsData[];
 }
 
-interface WeaponDamageData {
+export interface WeaponDamageData {
     rangeStart: number;
     rangeEnd: number;
     headDamage: number;

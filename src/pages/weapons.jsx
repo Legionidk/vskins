@@ -6,7 +6,7 @@ import Main from "../components/layout/Main";
 import Footer from "../components/layout/footer/Footer";
 import Category from "../components/layout/Category";
 import SkeletonCategory from "../components/layout/skeletonCategory/SkeletonCategory";
-import WeaponModal from "../components/layout/modals/weapon/WeaponModal";
+import WeaponModal from "../components/layout/modals/weapon";
 
 import ModalWrapper from "../components/ui/ModalWrapper";
 import Input from "../components/ui/Input/Input";
@@ -51,7 +51,7 @@ export default function WeaponsPage() {
                         }}
                     >
                         <WeaponModal
-                            data={weaponModal}
+                            modalData={weaponModal}
                             closeFunc={() => {
                                 setWeaponModal(null);
                             }}

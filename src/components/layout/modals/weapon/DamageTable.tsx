@@ -1,4 +1,10 @@
-export default function DamageTable({ damageData }) {
+import { WeaponDamageData } from "@/types/weaponModal";
+
+interface DamageTableProps {
+    damageData: WeaponDamageData[];
+}
+
+export default function DamageTable({ damageData }: DamageTableProps) {
     return (
         <div
             className="w-full flex flex-col items-center rounded-[8px] border-2 border-[#292727]"
@@ -17,7 +23,10 @@ export default function DamageTable({ damageData }) {
                         <th />
 
                         {damageData.map((damage) => (
-                            <th className="p-[8px_16px]" key={damage.rangeStart}>
+                            <th
+                                className="p-[8px_16px]"
+                                key={damage.rangeStart}
+                            >
                                 {damage.rangeStart}-{damage.rangeEnd}m
                             </th>
                         ))}
@@ -54,7 +63,7 @@ export default function DamageTable({ damageData }) {
                             </td>
                         ))}
                     </tr>
-                    
+
                     <tr>
                         <td className="text-[#B8B8B8] text-center font-light p-[8px_16px]">
                             Legs
