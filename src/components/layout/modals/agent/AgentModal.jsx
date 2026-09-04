@@ -1,7 +1,8 @@
 import clsx from "clsx";
 import { useState } from "react";
 
-import { InfoBlock, InfoPiece } from "../InfoBlock";
+import InfoBlock from "../infoBlock";
+import InfoPiece from "../infoBlock/InfoPiece";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 export default function AgentModal({
