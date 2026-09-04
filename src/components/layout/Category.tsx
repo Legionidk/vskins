@@ -1,17 +1,24 @@
 import { motion } from "motion/react";
 
-import Card from "./Card";
-import transitionSettings from "../../../animations/transition";
+import Card from "./card";
+import CardData from "@/types/card";
+import transitionSettings from "@/animations/transition";
 
-export default function Category({
-    categoryName = "Category name",
-    icon = null,
+interface CategoryProps<TModalData> {
+    name: string;
+    iconUrl?: string;
+    agentMode?: boolean;
+    cardsData: CardData<TModalData>[];
+    modalFunc: (modalData: TModalData) => void;
+}
+
+export default function Category<TModalData>({
+    name,
+    iconUrl,
     agentMode = false,
-    cardsData = [],
-    modalFunc = () => {
-        console.log("[CATEGORY] Modal window function not provided");
-    },
-}) {
+    cardsData,
+    modalFunc = () => {},
+}: CategoryProps<TModalData>) {
     return (
         <motion.div
             layout="position"
@@ -26,15 +33,15 @@ export default function Category({
                 className="flex items-center gap-[10px] bg-[#292727] p-[8px_16px] rounded-[8px] text-[18px] text-[#B8B8B8] font-medium uppercase tracking-widest"
                 id="title"
             >
-                {icon && (
+                {iconUrl && (
                     <img
-                        src={icon}
-                        alt={`${categoryName.replace(" ", "-")}-icon`}
+                        src={iconUrl}
+                        alt={`${name}-icon`}
                         className="size-[20px]"
                     />
                 )}
 
-                {categoryName}
+                {name}
             </p>
 
             <div
@@ -42,9 +49,9 @@ export default function Category({
                 id="cards-grid"
             >
                 {cardsData.map((object) => (
-                    <Card
+                    <Card<TModalData>
                         title={object.name}
-                        image={object.imageUrl}
+                        imageUrl={object.imageUrl}
                         agentMode={agentMode}
                         modalData={object.modalData}
                         modalFunc={modalFunc}

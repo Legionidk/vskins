@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import Header from "../components/layout/header/Header";
 import Main from "../components/layout/Main";
 import Footer from "../components/layout/footer/Footer";
-import Category from "../components/layout/category/Category";
+import Category from "../components/layout/Category";
 import SkeletonCategory from "../components/layout/skeletonCategory/SkeletonCategory";
 import AgentModal from "../components/layout/modals/agent/AgentModal";
 

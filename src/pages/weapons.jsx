@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import Header from "../components/layout/header/Header";
 import Main from "../components/layout/Main";
 import Footer from "../components/layout/footer/Footer";
-import Category from "../components/layout/category/Category";
+import Category from "../components/layout/Category";
 import SkeletonCategory from "../components/layout/skeletonCategory/SkeletonCategory";
 import WeaponModal from "../components/layout/modals/weapon/WeaponModal";
 
@@ -74,7 +74,7 @@ export default function WeaponsPage() {
                     {isLoaded ? (
                         filteredWeaponsData.map((category) => (
                             <Category
-                                categoryName={category.name}
+                                name={category.name}
                                 cardsData={category.cardsData}
                                 modalFunc={setWeaponModal}
                                 key={category.id}
