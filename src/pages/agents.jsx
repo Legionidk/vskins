@@ -74,8 +74,8 @@ export default function AgentsPage() {
                     {isLoaded ? (
                         filteredAgents.map((category) => (
                             <Category
-                                categoryName={category.name}
-                                icon={category.iconUrl}
+                                name={category.name}
+                                iconUrl={category.iconUrl}
                                 agentMode={true}
                                 cardsData={category.cardsData}
                                 modalFunc={setAgentModal}
