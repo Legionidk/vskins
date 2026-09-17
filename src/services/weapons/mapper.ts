@@ -67,16 +67,16 @@ export default function mapWeapons(
                             value: `${weapon.weaponStats.adsStats.fireRate} rounds/sec`,
                         },
                         {
-                            name: "Shot spread",
+                            name: "Bullet accuracy",
                             value: `${weapon.weaponStats.adsStats.firstBulletAccuracy} deg`,
                         },
                         {
-                            name: "Run speed mult",
-                            value: `${weapon.weaponStats.adsStats.runSpeedMultiplier} m/sec`,
+                            name: "Zoom multipier",
+                            value: `${weapon.weaponStats.adsStats.zoomMultiplier}x`,
                         },
                         {
-                            name: "Zoom mult",
-                            value: `${weapon.weaponStats.adsStats.zoomMultiplier}x`,
+                            name: "Run speed multiplier",
+                            value: `${weapon.weaponStats.adsStats.runSpeedMultiplier} m/sec`,
                         },
                     ],
                 };
@@ -92,7 +92,7 @@ export default function mapWeapons(
                             value: `${weapon.weaponStats.altShotgunStats.burstRate} bursts/sec`,
                         },
                         {
-                            name: "Shot spread",
+                            name: "Bullet accuracy",
                             value: weapon.weaponStats.altShotgunStats
                                 .shotgunPelletCount,
                         },
@@ -110,7 +110,7 @@ export default function mapWeapons(
                             value: `${weapon.weaponStats.airBurstStats.burstDistance}m`,
                         },
                         {
-                            name: "Shot spread",
+                            name: "Bullet accuracy",
                             value: weapon.weaponStats.airBurstStats
                                 .shotgunPelletCount,
                         },
@@ -135,15 +135,15 @@ export default function mapWeapons(
                 },
                 generalData: [
                     {
-                        name: "Magazine",
+                        name: "Magazine size",
                         value: weapon.weaponStats.magazineSize,
                     },
                     {
-                        name: "Equip speed",
+                        name: "Equip time",
                         value: `${weapon.weaponStats.equipTimeSeconds} sec`,
                     },
                     {
-                        name: "Reload speed",
+                        name: "Reload time",
                         value: `${weapon.weaponStats.reloadTimeSeconds} sec`,
                     },
                     {
@@ -157,11 +157,11 @@ export default function mapWeapons(
                         value: `${weapon.weaponStats.fireRate} rounds/sec`,
                     },
                     {
-                        name: "Shot spread",
+                        name: "Bullet accuracy",
                         value: `${weapon.weaponStats.firstBulletAccuracy} deg`,
                     },
                     {
-                        name: "Run speed mult",
+                        name: "Run speed multiplier",
                         value: `${weapon.weaponStats.runSpeedMultiplier} m/sec`,
                     },
                 ],
