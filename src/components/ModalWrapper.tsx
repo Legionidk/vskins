@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { useEffect } from "react";
 import type { ReactNode } from "react";
 
-import transitionSettings from "../../animations/transition";
+import transitionSettings from "@/animations/transition";
 
 interface ModalWrapperProps {
     children: ReactNode;

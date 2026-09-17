@@ -1,15 +1,15 @@
 import { AnimatePresence } from "motion/react";
 import { useState, useEffect, useMemo } from "react";
 
-import Header from "../components/layout/header/Header";
-import Main from "../components/layout/Main";
-import Footer from "../components/layout/footer/Footer";
-import Category from "../components/layout/Category";
-import SkeletonCategory from "../components/layout/skeletonCategory/SkeletonCategory";
-import AgentModal from "../components/layout/modals/agent/AgentModal";
+import Header from "../components/header/Header";
+import Main from "../components/Main";
+import Footer from "../components/footer/Footer";
+import Category from "../components/Category";
+import SkeletonCategory from "../components/skeletonCategory/SkeletonCategory";
+import AgentModal from "../components/modals/agent/AgentModal";
 
-import ModalWrapper from "../components/ui/ModalWrapper";
-import Input from "../components/ui/Input/Input";
+import ModalWrapper from "../components/ModalWrapper";
+import Input from "../components/Input/Input";
 
 import getAgents from "../services/agents";
 

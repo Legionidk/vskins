@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { useState, useEffect, use } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-import ModalWrapper from "../../ui/ModalWrapper";
+import ModalWrapper from "../ModalWrapper";
 import RigbyModal from "./RigbyModal";
 
 import githubLogo from "@/assets/github.svg";

@@ -1,15 +1,15 @@
 import { AnimatePresence } from "motion/react";
 import { useState, useEffect, useMemo } from "react";
 
-import Header from "../components/layout/header/Header";
-import Main from "../components/layout/Main";
-import Footer from "../components/layout/footer/Footer";
-import Category from "../components/layout/Category";
-import SkeletonCategory from "../components/layout/skeletonCategory/SkeletonCategory";
-import WeaponModal from "../components/layout/modals/weapon";
+import Header from "../components/header/Header";
+import Main from "../components/Main";
+import Footer from "../components/footer/Footer";
+import Category from "../components/Category";
+import SkeletonCategory from "../components/skeletonCategory/SkeletonCategory";
+import WeaponModal from "../components/modals/weapon";
 
-import ModalWrapper from "../components/ui/ModalWrapper";
-import Input from "../components/ui/Input/Input";
+import ModalWrapper from "../components/ModalWrapper";
+import Input from "../components/Input/Input";
 
 import getWeapons from "../services/weapons";
 
