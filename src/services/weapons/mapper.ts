@@ -1,4 +1,4 @@
-import { WeaponApiType } from "../../schemas/weapon";
+import { WeaponApiType } from "../../types/schemas/weapon";
 
 import CategoryData from "../../types/category";
 import { WeaponModalData } from "../../types/weaponModal";

@@ -1,4 +1,4 @@
-import { AgentApiType, AgentSchema } from "../../schemas/agent";
+import { AgentApiType, AgentSchema } from "../../types/schemas/agent";
 
 import CategoryData from "../../types/category";
 import { AgentModalData } from "../../types/agentModal";

@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AgentSchema, AgentApiType } from "../../schemas/agent";
+import { AgentSchema, AgentApiType } from "../../types/schemas/agent";
 
 export default async function fetchAgents(): Promise<AgentApiType[]> {
     const response = await fetch("https://valorant-api.com/v1/agents");

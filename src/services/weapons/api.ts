@@ -1,6 +1,6 @@
 import * as v from "valibot";
-import { WeaponApiSchema, WeaponApiType } from "../../schemas/weapon";
-import { skinApiSchema, skinApiType } from "@/schemas/skin";
+import { WeaponApiSchema, WeaponApiType } from "../../types/schemas/weapon";
+import { skinApiSchema, skinApiType } from "@/types/schemas/skin";
 
 export async function fetchWeapons(): Promise<WeaponApiType[]> {
     const response = await fetch("https://valorant-api.com/v1/weapons");
