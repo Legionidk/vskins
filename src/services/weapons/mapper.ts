@@ -5,6 +5,7 @@ import { WeaponModalData } from "../../types/weaponModal";
 
 export default function mapWeapons(
     weaponsData: WeaponApiType[],
+    defaultSkinsData: Record<string, string>,
 ): CategoryData<WeaponModalData>[] {
     const weapons = new Map<string, CategoryData<WeaponModalData>>();
 
@@ -25,6 +26,11 @@ export default function mapWeapons(
                             category: null,
                             imageUrl: weapon.displayIcon,
                             cost: null,
+                            images: {
+                                render: defaultSkinsData[weapon.uuid],
+                                buyMenu: weapon.displayIcon,
+                                killFeed: weapon.killStreamIcon,
+                            },
                             generalData: null,
                             primaryFireData: null,
                             altFireData: null,
@@ -122,6 +128,11 @@ export default function mapWeapons(
                 category: weapon.shopData.category,
                 imageUrl: weapon.displayIcon,
                 cost: weapon.shopData.cost,
+                images: {
+                    render: defaultSkinsData[weapon.uuid],
+                    buyMenu: weapon.displayIcon,
+                    killFeed: weapon.killStreamIcon,
+                },
                 generalData: [
                     {
                         name: "Magazine",

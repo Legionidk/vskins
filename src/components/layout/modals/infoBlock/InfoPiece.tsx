@@ -1,7 +1,7 @@
 interface InfoPieceProps {
     iconUrl?: string;
     title: string;
-    value: string;
+    value: string | number;
 }
 
 export default function InfoPiece({ title, iconUrl, value }: InfoPieceProps) {

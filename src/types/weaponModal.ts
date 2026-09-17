@@ -20,8 +20,13 @@ export interface WeaponModalData {
     id: string;
     name: string;
     category: string | null;
-    imageUrl: string;
+    imageUrl: string; // TODO: delete this when updated weapon modal will be ready
     cost: number | null;
+    images: {
+        render: string
+        buyMenu: string
+        killFeed: string
+    }
     generalData: WeaponStatsData[] | null;
     primaryFireData: WeaponStatsData[] | null;
     altFireData: AltFireData | null;

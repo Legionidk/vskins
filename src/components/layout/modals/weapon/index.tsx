@@ -18,7 +18,6 @@ export default function WeaponModal({
     closeFunc,
 }: WeaponModalProps) {
     const [isCurrencyLoaded, setCurrencyLoaded] = useState(false);
-
     return (
         <div
             className="w-full max-w-[760px] h-fit flex flex-col items-center overflow-hidden rounded-t-[16px]"
