@@ -19,7 +19,7 @@ export default function mapWeapons(
                     {
                         id: weapon.uuid,
                         name: weapon.displayName,
-                        imageUrl: weapon.displayIcon,
+                        imageUrl: defaultSkinsData[weapon.uuid],
                         modalData: {
                             id: weapon.uuid,
                             name: weapon.displayName,
@@ -121,7 +121,7 @@ export default function mapWeapons(
         category.cardsData.push({
             id: `weapon-card-${weapon.uuid}`,
             name: weapon.displayName,
-            imageUrl: weapon.displayIcon,
+            imageUrl: defaultSkinsData[weapon.uuid],
             modalData: {
                 id: `weapon-modal-${weapon.uuid}`,
                 name: weapon.displayName,
