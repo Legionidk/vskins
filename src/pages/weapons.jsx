@@ -8,7 +8,7 @@ import Category from "../components/Category";
 import SkeletonCategory from "../components/skeletonCategory/SkeletonCategory";
 import WeaponModal from "../components/modals/weapon";
 
-import ModalWrapper from "../components/ModalWrapper";
+import ModalWrapper from "@/components/modals/wrapper";
 import Input from "../components/Input/Input";
 
 import getWeapons from "../services/weapons";
