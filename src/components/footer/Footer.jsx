@@ -3,7 +3,8 @@ import { createPortal } from "react-dom";
 import { useState, useEffect, use } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-import ModalWrapper from "../ModalWrapper";
+import ModalWrapper from "../modals/wrapper";
+// import ModalWrapper from "../ModalWrapper";
 import RigbyModal from "./RigbyModal";
 
 import githubLogo from "@/assets/github.svg";
@@ -11,7 +12,7 @@ import yoPng from "@/assets/yo.png";
 import rigby from "@/assets/rigby.jpg";
 
 export default function Footer() {
-    const [rigbyModal, setRigbyModal] = useState(false);
+    const [rigbyModal, setRigbyModal] = useState(true);
 
     return (
         <>
@@ -21,6 +22,7 @@ export default function Footer() {
                         closeFunc={() => {
                             setRigbyModal(false);
                         }}
+                        centered={true}
                     >
                         <RigbyModal
                             closeFunc={() => {

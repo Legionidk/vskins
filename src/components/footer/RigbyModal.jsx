@@ -8,7 +8,7 @@ export default function RigbyModal({ closeFunc }) {
 
     return (
         <div
-            className="w-full max-w-[500px] h-fit flex flex-col items-center rounded-[16px] p-[8px] bg-[#211E1F]"
+            className="w-full max-w-[500px] h-fit flex flex-col items-center p-[8px] bg-[#211E1F]"
             id="rigby-modal"
         >
             {!isLoaded && (
