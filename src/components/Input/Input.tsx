@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useState, useId } from "react";
 
-import transitionSettings from "@/animations/transition";
+import { transitionSettings } from "@/animations";
 import { transition, input, activeLabel, inactiveLabel } from "./styles";
 import {
     inactiveLabelAnimations,

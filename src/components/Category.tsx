@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 import Card from "./card";
 import CardData from "@/types/card";
-import transitionSettings from "@/animations/transition";
+import { transitionSettings } from "@/animations";
 
 interface CategoryProps<TModalData> {
     name: string;

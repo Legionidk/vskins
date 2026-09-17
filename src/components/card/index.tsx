@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 
 import ImageWrapper from "./ImageWrapper";
-import transitionSettings from "@/animations/transition";
+import { transitionSettings } from "@/animations";
 
 interface CardProps<TModalData> {
     title: string;
