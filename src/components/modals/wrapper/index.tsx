@@ -1,10 +1,15 @@
 import { motion } from "motion/react";
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
+import clsx from "clsx";
 import type { ReactNode } from "react";
 
 import { opacityAnimation, yAnimation } from "@/animations";
-import { modalBackgroundStyle, modalWrapperStyles } from "./styles";
+import {
+    modalBackgroundStyle,
+    modalWrapperStyle,
+    modalAnimationWrapperStyles,
+} from "./styles";
 
 interface ModalWrapperProps {
     children: ReactNode;
@@ -27,22 +32,27 @@ export default function ModalWrapper({
 
     return createPortal(
         <motion.div
-            {...opacityAnimation}
-            onClick={closeFunc}
-            className={modalBackgroundStyle}
-            id="modal-background"
+            className={clsx(modalWrapperStyle, !centered && "pt-[100px]")}
+            id="modal-wrapper"
         >
             <motion.div
                 {...yAnimation}
                 className={
                     centered
-                        ? modalWrapperStyles.centered
-                        : modalWrapperStyles.default
+                        ? modalAnimationWrapperStyles.centered
+                        : modalAnimationWrapperStyles.default
                 }
-                id="modal-wrapper"
+                id="modal-animation-wrapper"
             >
                 {children}
             </motion.div>
+
+            <motion.div
+                {...opacityAnimation}
+                onClick={closeFunc}
+                className={modalBackgroundStyle}
+                id="modal-background"
+            />
         </motion.div>,
         document.querySelector("#modal-root")!,
     );

@@ -1,12 +1,16 @@
-interface modalWrapperType {
+interface modalAnimationWrapperType {
     centered: string;
     default: string;
 }
 
-export const modalBackgroundStyle =
-    "z-30 fixed top-0 flex size-full bg-black/50 backdrop-blur-xs";
+const modalAnimationWrapperBase = "z-40 size-fit overflow-hidden";
 
-export const modalWrapperStyles: modalWrapperType = {
-    centered: "size-fit m-auto rounded-[16px] overflow-hidden",
-    default: "size-fit mt-auto mx-auto rounded-t-[16px] overflow-hidden",
+export const modalWrapperStyle = "z-30 fixed top-0 flex size-full";
+
+export const modalBackgroundStyle =
+    "fixed top-0 size-full bg-black/50 backdrop-blur-xs";
+
+export const modalAnimationWrapperStyles: modalAnimationWrapperType = {
+    centered: `${modalAnimationWrapperBase} m-auto rounded-[16px]`,
+    default: `${modalAnimationWrapperBase} mt-auto mx-auto rounded-t-[16px]`,
 };
