@@ -1,6 +1,6 @@
 interface WeaponStatsData {
     name: string;
-    value: string;
+    value: string | number;
 }
 
 interface AltFireData {
