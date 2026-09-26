@@ -23,14 +23,23 @@ export default function mapWeapons(
                         modalData: {
                             id: weapon.uuid,
                             name: weapon.displayName,
-                            category: null,
+                            category: "Melee",
                             imageUrl: weapon.displayIcon,
                             cost: null,
-                            images: {
-                                render: defaultSkinsData[weapon.uuid],
-                                buyMenu: weapon.displayIcon,
-                                killFeed: weapon.killStreamIcon,
-                            },
+                            images: [
+                                {
+                                    name: "Render",
+                                    url: defaultSkinsData[weapon.uuid],
+                                },
+                                {
+                                    name: "Buy menu",
+                                    url: weapon.displayIcon,
+                                },
+                                {
+                                    name: "Kill feed",
+                                    url: weapon.killStreamIcon,
+                                },
+                            ],
                             generalData: null,
                             primaryFireData: null,
                             altFireData: null,
@@ -128,11 +137,20 @@ export default function mapWeapons(
                 category: weapon.shopData.category,
                 imageUrl: weapon.displayIcon,
                 cost: weapon.shopData.cost,
-                images: {
-                    render: defaultSkinsData[weapon.uuid],
-                    buyMenu: weapon.displayIcon,
-                    killFeed: weapon.killStreamIcon,
-                },
+                images: [
+                    {
+                        name: "Render",
+                        url: defaultSkinsData[weapon.uuid],
+                    },
+                    {
+                        name: "Buy menu",
+                        url: weapon.displayIcon,
+                    },
+                    {
+                        name: "Kill feed",
+                        url: weapon.killStreamIcon,
+                    },
+                ],
                 generalData: [
                     {
                         name: "Magazine size",

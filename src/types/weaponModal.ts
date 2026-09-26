@@ -8,6 +8,11 @@ interface AltFireData {
     data: WeaponStatsData[];
 }
 
+export interface ImageType {
+    name: string;
+    url: string;
+}
+
 export interface WeaponDamageData {
     rangeStart: number;
     rangeEnd: number;
@@ -19,14 +24,10 @@ export interface WeaponDamageData {
 export interface WeaponModalData {
     id: string;
     name: string;
-    category: string | null;
+    category: string;
     imageUrl: string; // TODO: delete this when updated weapon modal will be ready
     cost: number | null;
-    images: {
-        render: string
-        buyMenu: string
-        killFeed: string
-    }
+    images: ImageType[];
     generalData: WeaponStatsData[] | null;
     primaryFireData: WeaponStatsData[] | null;
     altFireData: AltFireData | null;
