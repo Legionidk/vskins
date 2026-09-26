@@ -3,7 +3,7 @@ interface modalAnimationWrapperType {
     default: string;
 }
 
-const modalAnimationWrapperBase = "z-40 size-fit overflow-hidden";
+const modalAnimationWrapperBase = "z-40 overflow-hidden";
 
 export const modalWrapperStyle = "z-30 fixed top-0 flex size-full";
 

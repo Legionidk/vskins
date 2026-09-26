@@ -4,6 +4,7 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import InfoBlock from "../infoBlock";
 import InfoPiece from "../infoBlock/InfoPiece";
 import DamageTable from "./DamageTable";
+import ModalTitle from "..";
 
 import { WeaponModalData } from "@/types/weaponModal";
 import creditsIcon from "@/assets/creditsIcon.webp";
@@ -23,26 +24,11 @@ export default function WeaponModal({
             className="w-full max-w-[760px] h-fit flex flex-col items-center overflow-hidden rounded-t-[16px]"
             id="weapon-modal"
         >
-            <div
-                className="w-full flex items-center justify-between p-[8px_16px] bg-[#211E1F]"
-                id="title"
-            >
-                <div className="flex gap-[10px] text-[20px]" id="title">
-                    <p className="uppercase font-medium tracking-widest">
-                        {modalData.name}
-                    </p>
-
-                    <p className="text-[#B8B8B8]">{modalData.category}</p>
-                </div>
-
-                <button
-                    className="cursor-pointer"
-                    id="close-button"
-                    onClick={closeFunc}
-                >
-                    <XMarkIcon className="size-[24px]" />
-                </button>
-            </div>
+            <ModalTitle
+                title={modalData.name}
+                subTitle={modalData.category}
+                closeFunc={closeFunc}
+            />
 
             <div
                 className="w-full flex justify-center p-[25px_50px] bg-[#292727]"
