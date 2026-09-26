@@ -8,7 +8,7 @@ export const modalAnimationWrapperStyles: Record<
     default: `${modalAnimationWrapperBase} mt-auto mx-auto rounded-t-[16px]`,
 };
 
-export const modalWrapperStyle = "z-30 fixed top-0 flex size-full";
+export const modalWrapperStyle = "z-30 fixed top-0 flex flex-col justify-end size-full";
 
 export const modalBackgroundStyle =
     "fixed top-0 size-full bg-black/50 backdrop-blur-xs";
