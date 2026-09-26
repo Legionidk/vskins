@@ -1,4 +1,4 @@
-import ModalTitle from "..";
+import ModalTitle from "../title";
 import ImagesWrapper from "./imageWrapper";
 import { WeaponModalData } from "@/types/weaponModal";
 
