@@ -25,7 +25,7 @@ export default function mapWeapons(
                             name: weapon.displayName,
                             category: "Melee",
                             imageUrl: weapon.displayIcon,
-                            cost: null,
+                            cost: "0",
                             images: [
                                 {
                                     name: "Render",
@@ -136,7 +136,7 @@ export default function mapWeapons(
                 name: weapon.displayName,
                 category: weapon.shopData.category,
                 imageUrl: weapon.displayIcon,
-                cost: weapon.shopData.cost,
+                cost: weapon.shopData.cost.toLocaleString(),
                 images: [
                     {
                         name: "Render",

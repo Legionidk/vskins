@@ -26,7 +26,7 @@ export interface WeaponModalData {
     name: string;
     category: string;
     imageUrl: string; // TODO: delete this when updated weapon modal will be ready
-    cost: number | null;
+    cost: string;
     images: ImageType[];
     generalData: WeaponStatsData[] | null;
     primaryFireData: WeaponStatsData[] | null;
