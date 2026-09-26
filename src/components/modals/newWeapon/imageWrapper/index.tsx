@@ -12,7 +12,7 @@ export default function ImagesWrapper({ data }: ImagesWrapperProps) {
     return (
         <div className={imageWrapperStyle} id="images-wrapper">
             {data.map((image) => (
-                <Image title={image.name} url={image.url} />
+                <Image key={image.name} title={image.name} url={image.url} />
             ))}
         </div>
     );

@@ -1,8 +1,8 @@
-import ModalTitle from "../title";
+import ModalTitle from "../Title";
+import ModalBlock from "../Block";
 import ImagesWrapper from "./imageWrapper";
+import CreditsIcon from "@/assets/creditsIcon.webp"
 import { WeaponModalData } from "@/types/weaponModal";
-
-const modalWrapperStyle = "w-dvw max-w-[760px]";
 
 interface WeaponModalProps {
     modalData: WeaponModalData;
@@ -14,7 +14,7 @@ export default function WeaponModal({
     closeFunc,
 }: WeaponModalProps) {
     return (
-        <div className={modalWrapperStyle} id="weapon-modal">
+        <div className="w-dvw max-w-[760px]" id="weapon-modal">
             <ModalTitle
                 title={modalData.name}
                 subTitle={modalData.category}
@@ -22,6 +22,10 @@ export default function WeaponModal({
             />
 
             <ImagesWrapper data={modalData.images} />
+
+            <div className="flex p-[8px] bg-[#211E1F]" id="info-wrapper">
+                <ModalBlock title={modalData.cost} iconUrl={CreditsIcon} />
+            </div>
         </div>
     );
 }

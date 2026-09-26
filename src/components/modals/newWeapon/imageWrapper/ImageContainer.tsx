@@ -1,8 +1,5 @@
 import { useState } from "react";
 
-const titleStyle = "text-[16px] text-[#B8B8B8]";
-const imageContainerStyle = "flex flex-col gap-[10px] w-full";
-
 interface ImageProps {
     title: string;
     url: string;
@@ -12,8 +9,8 @@ export default function Image({ title, url }: ImageProps) {
     const [isLoaded, setLoaded] = useState(false);
 
     return (
-        <div className={imageContainerStyle} id="image-container">
-            <span className={titleStyle} id="title">
+        <div className="flex flex-col gap-[10px] w-full" id="image-container">
+            <span className="text-[16px] text-[#B8B8B8]" id="title">
                 {title}
             </span>
 
