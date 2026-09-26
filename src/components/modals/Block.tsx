@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-const blockStyle = "w-full rounded-[8px] overflow-hidden";
+const blockStyle = "w-full rounded-[8px] overflow-hidden border-[#292727] border-[2px]";
 const titleStyle =
     "flex items-center justify-center gap-[5px] p-[8px_16px] text-[20px] bg-[#292727]";
 
@@ -10,11 +10,7 @@ interface ModalBlock {
     iconUrl?: string;
 }
 
-export default function ModalBlock({
-    children = null,
-    title,
-    iconUrl,
-}: ModalBlock) {
+export default function ModalBlock({ children, title, iconUrl }: ModalBlock) {
     return (
         <div className={blockStyle} id="modal-info-block">
             <p className={titleStyle} id="title">
@@ -22,7 +18,11 @@ export default function ModalBlock({
                 {title}
             </p>
 
-            {children}
+            {children && (
+                <div className="flex flex-col gap-[5px] p-[10px]" id="info-wrapper">
+                    {children}
+                </div>
+            )}
         </div>
     );
 }
