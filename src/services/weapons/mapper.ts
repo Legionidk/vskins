@@ -73,19 +73,19 @@ export default function mapWeapons(
                     data: [
                         {
                             name: "Fire rate",
-                            value: `${weapon.weaponStats.adsStats.fireRate} rounds/sec`,
+                            value: `${weapon.weaponStats.adsStats.fireRate.toFixed(2)} rounds/sec`,
                         },
                         {
                             name: "Bullet accuracy",
-                            value: `${weapon.weaponStats.adsStats.firstBulletAccuracy} deg`,
+                            value: `${weapon.weaponStats.adsStats.firstBulletAccuracy.toFixed(2)} deg`,
                         },
                         {
                             name: "Zoom multipier",
-                            value: `${weapon.weaponStats.adsStats.zoomMultiplier}x`,
+                            value: `${weapon.weaponStats.adsStats.zoomMultiplier.toFixed(2)}x`,
                         },
                         {
                             name: "Run speed multiplier",
-                            value: `${weapon.weaponStats.adsStats.runSpeedMultiplier} m/sec`,
+                            value: `${weapon.weaponStats.adsStats.runSpeedMultiplier.toFixed(2)} m/sec`,
                         },
                     ],
                 };

@@ -2,7 +2,7 @@ import ModalTitle from "../Title";
 import ModalBlock from "../Block";
 import StatInfo from "./StatInfo";
 import DamageTable from "./DamageTable";
-import ImagesWrapper from "./imageWrapper";
+import ImagesWrapper from "./imagesWrapper";
 import CreditsIcon from "@/assets/creditsIcon.webp";
 import { WeaponModalData } from "@/types/weaponModal";
 
