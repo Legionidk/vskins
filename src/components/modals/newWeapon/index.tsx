@@ -1,6 +1,7 @@
 import ModalTitle from "../Title";
 import ModalBlock from "../Block";
 import StatInfo from "./StatInfo";
+import DamageTable from "./DamageTable";
 import ImagesWrapper from "./imageWrapper";
 import CreditsIcon from "@/assets/creditsIcon.webp";
 import { WeaponModalData } from "@/types/weaponModal";
@@ -69,6 +70,12 @@ export default function WeaponModal({
                                     value={`${data.value}`}
                                 />
                             ))}
+                        </ModalBlock>
+                    )}
+
+                    {modalData.damageData && (
+                        <ModalBlock title="Damage" padding={false}>
+                            <DamageTable data={modalData.damageData} />
                         </ModalBlock>
                     )}
                 </div>
