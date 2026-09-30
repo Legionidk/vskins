@@ -1,7 +1,7 @@
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 const styles = {
-    wrapper: "w-full flex p-[8px_16px] bg-[#211E1F]",
+    wrapper: "w-full flex p-[8px_16px] bg-[#211E1F] border-b-2 border-[#292727]",
     title: "text-[20px] uppercase font-medium tracking-widest",
     subTitle: "text-[20px] text-[#B8B8B8] ml-[10px]",
     closeButton: "cursor-pointer ml-auto",

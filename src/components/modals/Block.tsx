@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { ReactNode } from "react";
 
 const blockStyle =
-    "w-full rounded-[8px] overflow-hidden border-[#292727] border-[2px]";
+    "w-full rounded-[8px] overflow-hidden border-[#292727] border-[2px] shrink-0";
 const titleStyle =
     "flex items-center justify-center gap-[5px] p-[8px_16px] text-[20px] bg-[#292727]";
 

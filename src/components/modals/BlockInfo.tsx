@@ -1,9 +1,9 @@
-interface StatInfoProps {
+interface BlockInfoProps {
     name: string;
     value: string;
 }
 
-export default function StatInfo({ name, value }: StatInfoProps) {
+export default function BlockInfo({ name, value }: BlockInfoProps) {
     return (
         <div className="w-full flex justify-between" id="stat-info">
             <span className="text-[#B8B8B8] font-medium uppercase tracking-widest">

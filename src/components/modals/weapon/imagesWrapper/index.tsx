@@ -2,7 +2,7 @@ import { ImageType } from "@/types/weaponModal";
 import Image from "./ImageContainer";
 
 const imageWrapperStyle =
-    "flex flex-col gap-[50px] w-full p-[50px_25px] bg-[#292727]";
+    "flex flex-col justify-center gap-[75px] w-full p-[50px_25px] bg-[#292727] md:w-[500px]";
 
 interface ImagesWrapperProps {
     data: ImageType[];
